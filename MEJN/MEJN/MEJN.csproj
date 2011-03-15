@@ -46,14 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\Spel.cs" />
+    <Compile Include="Control\SpelLaden.cs" />
+    <Compile Include="Control\SpelOpslaan.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Beginvakje.cs" />
+    <Compile Include="Model\Bord.cs" />
+    <Compile Include="Model\Bot.cs" />
+    <Compile Include="Model\Dobbelsteen.cs" />
+    <Compile Include="Model\Finishvakje.cs" />
+    <Compile Include="Model\Kleur.cs" />
+    <Compile Include="Model\Normaalvakje.cs" />
+    <Compile Include="Model\Pion.cs" />
+    <Compile Include="Model\Speler.cs" />
+    <Compile Include="Model\Thuisbasis.cs" />
+    <Compile Include="Model\Vakje.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\ViewController.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
