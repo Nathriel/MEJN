@@ -7,20 +7,8 @@ namespace MEJN.Model
 {
 	class LinkedList
 	{
-		private Link first;
-
-		internal Link First
-		{
-			get { return first; }
-			set { first = value; }
-		}
-		private Link last;
-
-		internal Link Last
-		{
-			get { return last; }
-			set { last = value; }
-		}
+		private Link first { set; get; }
+		private Link last { set; get; }
 		public LinkedList()
 		{
 			first = null;
@@ -34,7 +22,7 @@ namespace MEJN.Model
 
 		public void display()
 		{
-			Console.WriteLine("List (first-->last): ");
+			Console.Write("Vakjes: ");
 			Link current = first;
 			while (current != null)
 			{
@@ -44,9 +32,9 @@ namespace MEJN.Model
 			Console.WriteLine("");
 		}
 
-		public void insertFirst(int number)
+		public void insertFirst(Vakje vakje)
 		{
-			Link newLink = new Link(number);
+			Link newLink = new Link(vakje);
 			if (isEmpty())
 			{
 				last = newLink;
@@ -55,12 +43,13 @@ namespace MEJN.Model
 			{
 				first.previous = newLink;
 			}
+			newLink.next = first;
 			first = newLink;
 		}
 
-		public void insertLast(int number)
+		public void insertLast(Vakje vakje)
 		{
-			Link newLink = new Link(number);
+			Link newLink = new Link(vakje);
 			if (isEmpty())
 			{
 				first = newLink;

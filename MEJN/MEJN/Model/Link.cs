@@ -7,17 +7,17 @@ namespace MEJN.Model
 {
 	class Link
 	{
-		public int iData { set; get; }
+		public Vakje iData { set; get; }
 		public Link next { set; get; }
 		public Link previous { set; get; }
-		public Link(int number)
+		public Link(Vakje vakje)
 		{
-			iData = number;
+			iData = vakje;
 		}
 
 		public void displayLink()
 		{
-			Console.WriteLine("{" + iData + "}");
+			Console.Write("{" + iData.Soort + "}");
 		}
 	}
 }

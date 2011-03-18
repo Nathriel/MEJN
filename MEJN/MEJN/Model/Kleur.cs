@@ -5,7 +5,8 @@ using System.Text;
 
 namespace MEJN.Model
 {
-	class Kleur
+	enum Kleur
 	{
+		Zwart, Rood, Blauw, Geel
 	}
 }

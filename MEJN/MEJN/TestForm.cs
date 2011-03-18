@@ -16,7 +16,6 @@ namespace MEJN
 		{
 			InitializeComponent();
 			Bord bord = new Bord();
-			Console.WriteLine(bord.VakjesLijst.isEmpty());
 		}
 	}
 }

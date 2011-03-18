@@ -5,8 +5,20 @@ using System.Text;
 
 namespace MEJN.Model
 {
-	class Beginvakje
+	class Beginvakje : Vakje
 	{
-		private Kleur kleur { set; get; }
+		protected Kleur kleur;
+
+		public Kleur Kleur
+		{
+			get { return kleur; }
+			set { kleur = value; }
+		}
+
+		public Beginvakje(String soort)
+			: base(soort)
+		{
+
+		}
 	}
 }

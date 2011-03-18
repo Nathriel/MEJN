@@ -5,7 +5,12 @@ using System.Text;
 
 namespace MEJN.Model
 {
-	class Normaalvakje
+	class Normaalvakje : Vakje
 	{
+		public Normaalvakje(String soort)
+			: base(soort)
+		{
+
+		}
 	}
 }
