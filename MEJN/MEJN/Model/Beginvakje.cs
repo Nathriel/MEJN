@@ -7,5 +7,6 @@ namespace MEJN.Model
 {
 	class Beginvakje
 	{
+		private Kleur kleur { set; get; }
 	}
 }

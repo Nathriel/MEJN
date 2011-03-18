@@ -49,11 +49,12 @@
     <Compile Include="Control\Spel.cs" />
     <Compile Include="Control\SpelLaden.cs" />
     <Compile Include="Control\SpelOpslaan.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Model\LinkedList.cs" />
+    <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Beginvakje.cs" />
     <Compile Include="Model\Bord.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Model\Dobbelsteen.cs" />
     <Compile Include="Model\Finishvakje.cs" />
     <Compile Include="Model\Kleur.cs" />
+    <Compile Include="Model\Link.cs" />
     <Compile Include="Model\Normaalvakje.cs" />
     <Compile Include="Model\Pion.cs" />
     <Compile Include="Model\Speler.cs" />

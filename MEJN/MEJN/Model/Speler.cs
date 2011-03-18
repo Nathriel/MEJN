@@ -7,5 +7,8 @@ namespace MEJN.Model
 {
 	class Speler
 	{
+		private List<Pion> pionnen { set; get; }
+		private Thuisbasis thuisbasis { set; get; }
+		private Kleur kleur { set; get; }
 	}
 }
