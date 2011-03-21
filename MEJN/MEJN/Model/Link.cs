@@ -10,6 +10,7 @@ namespace MEJN.Model
 		public Vakje iData { set; get; }
 		public Link next { set; get; }
 		public Link previous { set; get; }
+		public Link finish { set; get; }
 		public Link(Vakje vakje)
 		{
 			iData = vakje;
@@ -17,7 +18,7 @@ namespace MEJN.Model
 
 		public void displayLink()
 		{
-			Console.Write("{" + iData.Soort + "}");
+			Console.Write("{" + iData.Soort);
 		}
 	}
 }
