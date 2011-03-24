@@ -15,6 +15,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20901.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -73,19 +75,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Beginvakje.cs" />
+    <Compile Include="Model\Vakje\Beginvakje.cs" />
     <Compile Include="Model\Bord.cs" />
     <Compile Include="Model\Bot.cs" />
     <Compile Include="Model\Dobbelsteen.cs" />
-    <Compile Include="Model\Finishvakje.cs" />
+    <Compile Include="Model\Vakje\Finishvakje.cs" />
     <Compile Include="Model\Kleur.cs" />
     <Compile Include="Model\Link.cs" />
     <Compile Include="Model\LinkedList.cs" />
-    <Compile Include="Model\Normaalvakje.cs" />
+    <Compile Include="Model\Vakje\Normaalvakje.cs" />
     <Compile Include="Model\Pion.cs" />
     <Compile Include="Model\Speler.cs" />
     <Compile Include="Model\Thuisbasis.cs" />
-    <Compile Include="Model\Vakje.cs" />
+    <Compile Include="Model\Vakje\Vakje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -103,6 +105,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="menslogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

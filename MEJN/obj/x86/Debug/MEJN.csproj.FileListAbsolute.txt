@@ -1,13 +1,15 @@
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MainWindow.baml
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MainWindow.g.cs
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\App.g.cs
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN_MarkupCompile.cache
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN.g.resources
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN.Properties.Resources.resources
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\GenerateResource.read.1.tlog
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\bin\Debug\MEJN.exe
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\bin\Debug\MEJN.pdb
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN.exe
-C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN.pdb
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\bin\Debug\MEJN.exe
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\bin\Debug\MEJN.pdb
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\MainWindow.baml
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\App.g.cs
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\MEJN_MarkupCompile.cache
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\MEJN.g.resources
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\MEJN.Properties.Resources.resources
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\MEJN.exe
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\MEJN.pdb
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\bin\Debug\menslogo.png
+C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\MEJN_MarkupCompile.lref

@@ -1,8 +1,111 @@
-﻿<Window x:Class="MEJN.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:MEJN_Model="clr-namespace:MEJN.Model" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="MEJN.MainWindow"
+        Title="Mens erger je niet" Height="494" Width="813" ResizeMode="NoResize">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFD80000" Offset="0"/>
+			<GradientStop Color="#FF930000" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
     <Grid>
+    	<Grid.RowDefinitions>
+    		<RowDefinition/>
+    	</Grid.RowDefinitions>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="235.912"/>
+    		<ColumnDefinition/>
+    	</Grid.ColumnDefinitions>
+    	<Grid x:Name="newgamegrid" Grid.Column="1" Margin="8,8,0,8">
+    		<Grid x:Name="pageDescriptiongrid" Background="Black" VerticalAlignment="Top" Margin="0,0,8,0">
+    			<Grid.RowDefinitions>
+    				<RowDefinition Height="Auto" MinHeight="95.405"/>
+    			</Grid.RowDefinitions>
+        
+    			<Label x:Name="pageTitle" Content="Nieuw Spel Starten" FontWeight="Bold" Foreground="#FF5BB254" VerticalAlignment="Top"/>
+    			<TextBlock x:Name="pageDescription" Margin="6,29.943,0,0" TextWrapping="Wrap" Text="One for all and all for one, Muskehounds are always ready. One for all and all for one, helping everybody. One for all and all for one, it's a pretty story. Sharing everything with fun, that's the way to be. One for all and all for one, Muskehounds are always ready. One for all and all for one, helping everybody. One for all and all for one, can sound pretty corny. If you've got a problem chum, think how it could be." FontSize="10.667" Foreground="#FF5BB254"/>
+    		</Grid>
+    		<Grid x:Name="playergrid" Margin="6,112.818,8,43.334" VerticalAlignment="Top">
+    			<Grid x:Name="player1grid" Margin="0,0,0,217.848">
+    				<Grid.Background>
+    					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    						<GradientStop Color="#3F000000" Offset="0"/>
+    						<GradientStop Color="#7F3B3B3B" Offset="1"/>
+    					</LinearGradientBrush>
+    				</Grid.Background>
+    				<Label x:Name="player1Title" Content="Speler 1" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+    				<Label x:Name="namelabel1" Content="Naam:" HorizontalAlignment="Left" Margin="0,25.96,0,0" Width="46.793" Foreground="White"/>
+    				<TextBox x:Name="player1Namefield" HorizontalAlignment="Left" Margin="50.793,29.96,0,14.08" TextWrapping="Wrap" Text="Speler 1" Width="193.207"/>
+    				<Label x:Name="typelabel1" Content="Type:" Margin="248,25.291,246.962,0.669" Foreground="White"/>
+    				<ComboBox x:Name="player1typebox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height">
+    					<ComboBoxItem Content="Mens" IsSelected="True"/>
+    					<ComboBoxItem Content="Computer"/>
+    				</ComboBox>
+    			</Grid>
+    			<Grid x:Name="player2grid" Margin="0,0,0,147.848" VerticalAlignment="Bottom">
+    				<Grid.Background>
+    					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    						<GradientStop Color="#3F000000" Offset="0"/>
+    						<GradientStop Color="#7F3B3B3B" Offset="1"/>
+    					</LinearGradientBrush>
+    				</Grid.Background>
+    				<Label x:Name="player2Title" Content="Speler 2" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+    				<Label x:Name="namelabel2" Content="Naam:" HorizontalAlignment="Left" Margin="0,25.96,0,0" Width="46.793" Foreground="White"/>
+    				<TextBox x:Name="player2Namefield" HorizontalAlignment="Left" Margin="50.793,29.96,0,14.08" TextWrapping="Wrap" Text="Speler 2" Width="193.207"/>
+    				<ComboBox x:Name="player2typebox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height">
+    					<ComboBoxItem Content="Mens" IsSelected="True"/>
+    					<ComboBoxItem Content="Computer"/>
+    				</ComboBox>
+    				<Label x:Name="typelabel2" Content="Type:" Margin="248,25.96,246.962,0" Foreground="White"/>
+    			</Grid>
+    			<Grid x:Name="player3grid" Height="66" Margin="0,0,0,75.848" VerticalAlignment="Bottom">
+    				<Grid.Background>
+    					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    						<GradientStop Color="#3F000000" Offset="0"/>
+    						<GradientStop Color="#7F3B3B3B" Offset="1"/>
+    					</LinearGradientBrush>
+    				</Grid.Background>
+    				<Label x:Name="player3Title" Content="Speler 3" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+    				<Label x:Name="namelabel3" Content="Naam:" HorizontalAlignment="Left" Margin="0,25.96,0,0" Width="46.793" Foreground="White"/>
+    				<TextBox x:Name="player3Namefield" HorizontalAlignment="Left" Margin="50.793,29.96,0,14.08" TextWrapping="Wrap" Text="Speler 3" Width="193.207"/>
+    				<ComboBox x:Name="player3typebox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height">
+    					<ComboBoxItem Content="Mens" IsSelected="True"/>
+    					<ComboBoxItem Content="Computer"/>
+    				</ComboBox>
+    				<Label x:Name="playertypelabel3" Content="Type:" Margin="248,25.803,246.962,0.157" Foreground="White"/>
+    			</Grid>
+    			<Grid x:Name="player4grid" Height="66" VerticalAlignment="Bottom">
+    				<Grid.Background>
+    					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    						<GradientStop Color="#3F000000" Offset="0"/>
+    						<GradientStop Color="#7F3B3B3B" Offset="1"/>
+    					</LinearGradientBrush>
+    				</Grid.Background>
+    				<Label x:Name="player4Title" Content="Speler 4" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+    				<Label x:Name="namelabel4" Content="Naam:" HorizontalAlignment="Left" Margin="0,25.96,0,0" Width="46.793" Foreground="White"/>
+    				<TextBox x:Name="player4Namefield" HorizontalAlignment="Left" Margin="50.793,29.96,0,14.08" TextWrapping="Wrap" Text="Speler 4" Width="193.207"/>
+    				<ComboBox x:Name="player4typebox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height">
+    					<ComboBoxItem Content="Mens" IsSelected="True"/>
+    					<ComboBoxItem Content="Computer"/>
+    				</ComboBox>
+    				<Label x:Name="playertypelabel4" Content="Type:" Margin="248,25.96,246.962,0" Foreground="White"/>
+        
+    			</Grid>
+    		</Grid>
+    		<Button x:Name="startGameButton" Content="Start het spel!" Margin="6,400.666,8,0" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" Height="31.334">
+    			<Button.Background>
+    				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+    					<GradientStop Color="#FFF3D9B8" Offset="0"/>
+    					<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+    					<GradientStop Color="#FFE0C7A9" Offset="0.5"/>
+    					<GradientStop Color="#FFD6B183" Offset="1"/>
+    				</LinearGradientBrush>
+    			</Button.Background>
+    		</Button>
+    	</Grid>
+    	<Button Content="Spel Laden" Margin="8,8,8,0" VerticalAlignment="Top" Height="25.96"/>
+    	<Image Margin="8,0,7.038,8" Source="pack://siteoforigin:,,,/menslogo.png" VerticalAlignment="Bottom" Height="265"/>
         
     </Grid>
 </Window>
