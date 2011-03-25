@@ -25,5 +25,15 @@ namespace MEJN
 			InitializeComponent();
 			Bord bord = new Bord();
 		}
+
+		private void loadGame(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void startNewGame(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

@@ -93,7 +93,7 @@
         
     			</Grid>
     		</Grid>
-    		<Button x:Name="startGameButton" Content="Start het spel!" Margin="6,400.666,8,0" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" Height="31.334">
+    		<Button x:Name="startGameButton" Content="Start het spel!" Margin="6,400.666,8,0" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" Height="31.334" Click="startNewGame">
     			<Button.Background>
     				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
     					<GradientStop Color="#FFF3D9B8" Offset="0"/>
@@ -104,7 +104,7 @@
     			</Button.Background>
     		</Button>
     	</Grid>
-    	<Button Content="Spel Laden" Margin="8,8,8,0" VerticalAlignment="Top" Height="25.96"/>
+    	<Button Content="Spel Laden" Margin="8,8,8,0" VerticalAlignment="Top" Height="25.96" Click="loadGame" />
     	<Image Margin="8,0,7.038,8" Source="pack://siteoforigin:,,,/menslogo.png" VerticalAlignment="Bottom" Height="265"/>
         
     </Grid>
