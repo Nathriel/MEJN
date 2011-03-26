@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bin/debug/mejn.vshost.exe")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("turnindicatornotactive.png")]
 
 
