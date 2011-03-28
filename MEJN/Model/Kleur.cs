@@ -7,6 +7,6 @@ namespace MEJN.Model
 {
 	enum Kleur
 	{
-		Zwart, Rood, Blauw, Geel
+		Groen, Rood, Blauw, Geel
 	}
 }

@@ -7,8 +7,49 @@ namespace MEJN.Model
 {
 	class Speler
 	{
-		private List<Pion> pionnen { set; get; }
-		private Thuisbasis thuisbasis { set; get; }
-		private Kleur kleur { set; get; }
+		private String naam;
+		private Kleur kleur;
+		private Boolean active;
+
+		private List<Pion> pionnen;
+
+		public String Naam
+		{
+			get { return naam; }
+			set { naam = value; }
+		}
+		internal Kleur Kleur
+		{
+			get { return kleur; }
+			set { kleur = value; }
+		}
+		public Boolean Active
+		{
+			get { return active; }
+			set { active = value; }
+		}
+		internal List<Pion> Pionnen
+		{
+			get { return pionnen; }
+			set { pionnen = value; }
+		}
+
+		public Speler(String naam ,Kleur kleur)
+		{
+			this.naam = naam;
+			this.kleur = kleur;
+			active = true;
+			pionnen = new List<Pion>();
+
+			pionnen.Add(new Pion(kleur));
+			pionnen.Add(new Pion(kleur));
+			pionnen.Add(new Pion(kleur));
+			pionnen.Add(new Pion(kleur));
+
+			if (naam == "Doet niet mee")
+			{
+				active = false;
+			}
+		}
 	}
 }

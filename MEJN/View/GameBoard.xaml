@@ -18,25 +18,22 @@
 			<ColumnDefinition Width="781.28"/>
 		</Grid.ColumnDefinitions>
 		<Image Margin="7.37,8,8,8" Source="/MEJN;component/View/Images/bord.png" Stretch="Fill" Grid.Column="1"/>
-		<Grid x:Name="playerStatusGrid" Height="172" Margin="8,8,6.388,0" VerticalAlignment="Top">
-			<Grid Height="38" VerticalAlignment="Top" Margin="0,42,0,0">
-				<Label Content="Player 2" Margin="35,0,0,0" Foreground="White" FontWeight="Bold" FontSize="18.667"/>
-				<Image x:Name="player2turnindicator" Margin="0,3,0,0" Source="/MEJN;component/View/Images/turnindicatornotactive.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" VerticalAlignment="Center" Height="35"/>
-			</Grid>
-			<Grid Height="38" VerticalAlignment="Top">
-				<Label Content="Player 1" Margin="35,0,0,0" Foreground="White" FontWeight="Bold" FontSize="18.667"/>
-				<Image x:Name="player1turnindicator" Margin="0,3,0,0" Source="/MEJN;component/View/Images/turnindicatornotactive.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" VerticalAlignment="Center" Height="35"/>
-			</Grid>
-			<Grid Margin="0,84,0,50">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition/>
-				</Grid.ColumnDefinitions>
-				<Label Content="Player 3" Margin="35.022,0,0,0" Foreground="White" FontWeight="Bold" FontSize="18.667"/>
-				<Image x:Name="player3turnindicator" Margin="0,3,0,0" Source="/MEJN;component/View/Images/turnindicatornotactive.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" VerticalAlignment="Center" Height="35"/>
-			</Grid>
+        <Grid x:Name="SpelerStatusGrid" Height="172" Margin="8,8,6.388,0" VerticalAlignment="Top">
+            <Grid Height="38" VerticalAlignment="Top">
+                <Label Name="GroenLabel"  Content="Groen" Margin="35,0,0,0" Foreground="White" FontWeight="Bold" FontSize="18.667" Background="#FF267235" />
+                <Image x:Name="Speler1Turnindicator" Margin="0,3,0,0" Source="/MEJN;component/View/Images/turnindicatornotactive.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" VerticalAlignment="Center" Height="35"/>
+            </Grid>
+            <Grid Height="38" VerticalAlignment="Top" Margin="0,42,0,0">
+                <Label Name="RoodLabel" Content="Rood" Margin="35,0,0,0" Foreground="White" FontWeight="Bold" FontSize="18.667" Background="#FFBB3516" />
+                <Image x:Name="Speler2Turnindicator" Margin="0,3,0,0" Source="/MEJN;component/View/Images/turnindicatornotactive.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" VerticalAlignment="Center" Height="35"/>
+            </Grid>
+            <Grid Height="38" VerticalAlignment="Top" Margin="0,84,0,50">
+                <Label Name="BlauwLabel" Content="Blauw" Margin="35.022,0,0,0" Foreground="White" FontWeight="Bold" FontSize="18.667" Background="#FF1783A1" />
+                <Image x:Name="Speler3Turnindicator" Margin="0,3,0,0" Source="/MEJN;component/View/Images/turnindicatornotactive.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" VerticalAlignment="Center" Height="35"/>
+            </Grid>
 			<Grid Height="38" VerticalAlignment="Bottom" Margin="0,0,0,8">
-				<Label Content="Player 4" Margin="35,0,0,0" Foreground="White" FontWeight="Bold" FontSize="18.667"/>
-				<Image x:Name="player4turnindicator" Margin="0,3,0,0" Source="/MEJN;component/View/Images/turnindicatornotactive.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" VerticalAlignment="Center" Height="35"/>
+                <Label Name="GeelLabel" Content="Geel" Margin="35,0,0,0" Foreground="White" FontWeight="Bold" FontSize="18.667" Background="#FFD0C421" />
+                <Image x:Name="Speler4Turnindicator" Margin="0,3,0,0" Source="/MEJN;component/View/Images/turnindicatornotactive.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" VerticalAlignment="Center" Height="35"/>
 			</Grid>
 		</Grid>
 		<Image x:Name="diceImage" Height="236" Margin="8,0,6.388,8" VerticalAlignment="Bottom"/>

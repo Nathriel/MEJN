@@ -5,7 +5,12 @@ using System.Text;
 
 namespace MEJN.Model
 {
-	class Bot
+	class Bot : Speler
 	{
+		public Bot(String naam, Kleur kleur)
+			: base(naam, kleur)
+		{
+
+		}
 	}
 }

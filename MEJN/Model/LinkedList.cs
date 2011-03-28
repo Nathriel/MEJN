@@ -8,19 +8,19 @@ namespace MEJN.Model
 	class LinkedList
 	{
 		private Link first;
+		private Link last;
 
 		internal Link First
 		{
 			get { return first; }
 			set { first = value; }
 		}
-		private Link last;
-
 		internal Link Last
 		{
 			get { return last; }
 			set { last = value; }
 		}
+
 		public LinkedList()
 		{
 			first = null;
@@ -41,9 +41,9 @@ namespace MEJN.Model
 			{
 				current.displayLink();
 				Console.Write(i + "}");
-				current = current.next;
+				current = current.Next;
 				i++;
-				if (current == last.next)
+				if (current == last.Next)
 				{
 					break;
 				}
@@ -60,9 +60,9 @@ namespace MEJN.Model
 			}
 			else
 			{
-				first.previous = newLink;
+				first.Previous = newLink;
 			}
-			newLink.next = first;
+			newLink.Next = first;
 			first = newLink;
 		}
 
@@ -75,8 +75,8 @@ namespace MEJN.Model
 			}
 			else
 			{
-				last.next = newLink;
-				newLink.previous = last;
+				last.Next = newLink;
+				newLink.Previous = last;
 			}
 			last = newLink;
 		}
@@ -88,7 +88,7 @@ namespace MEJN.Model
 			while (current != null)
 			{
 				leng++;
-				current = current.next;
+				current = current.Next;
 			}
 			return leng;
 		}

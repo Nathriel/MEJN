@@ -9,12 +9,17 @@ namespace MEJN.View
 {
 	class ViewController
 	{
-		private Spel spel { set; get; }
-		private Bord bord { set; get; }
+		private Spel spel;
+
+		internal Spel Spel
+		{
+			get { return spel; }
+			set { spel = value; }
+		}
 
 		public ViewController()
 		{
-			bord = new Bord();
+			spel = new Spel();
 		}
 	}
 }

@@ -9,19 +9,29 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MEJN.View;
 
 namespace MEJN
 {
-	/// <summary>
-	/// Interaction logic for GameBoard.xaml
-	/// </summary>
 	public partial class GameBoard : Window
 	{
-		public GameBoard()
+		private ViewController viewcontrol;
+
+		internal ViewController Viewcontrol
+		{
+			get { return viewcontrol; }
+			set { viewcontrol = value; }
+		}
+
+		internal GameBoard(ViewController viewcontrol)
 		{
 			this.InitializeComponent();
-			
-			// Insert code required on object creation below this point.
+			this.viewcontrol = viewcontrol;
+
+			GroenLabel.Content = viewcontrol.Spel.Spelers[0].Naam;
+			RoodLabel.Content = viewcontrol.Spel.Spelers[1].Naam;
+			BlauwLabel.Content = viewcontrol.Spel.Spelers[2].Naam;
+			GeelLabel.Content = viewcontrol.Spel.Spelers[3].Naam;
 		}
 	}
 }

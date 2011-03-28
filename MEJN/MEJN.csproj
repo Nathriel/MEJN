@@ -117,7 +117,6 @@
     <Compile Include="Model\Vakje\Normaalvakje.cs" />
     <Compile Include="Model\Pion.cs" />
     <Compile Include="Model\Speler.cs" />
-    <Compile Include="Model\Thuisbasis.cs" />
     <Compile Include="Model\Vakje\Vakje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
