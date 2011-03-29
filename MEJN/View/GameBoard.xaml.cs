@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MEJN.View;
+using MEJN.Model;
 
 namespace MEJN
 {
@@ -27,11 +28,12 @@ namespace MEJN
 		{
 			this.InitializeComponent();
 			this.viewcontrol = viewcontrol;
+			List<Speler> spelers = viewcontrol.Spel.Spelers;
 
-			GroenLabel.Content = viewcontrol.Spel.Spelers[0].Naam;
-			RoodLabel.Content = viewcontrol.Spel.Spelers[1].Naam;
-			BlauwLabel.Content = viewcontrol.Spel.Spelers[2].Naam;
-			GeelLabel.Content = viewcontrol.Spel.Spelers[3].Naam;
+			GroenLabel.Content = spelers[0].Naam;
+			RoodLabel.Content = spelers[1].Naam;
+			BlauwLabel.Content = spelers[2].Naam;
+			GeelLabel.Content = spelers[3].Naam;
 		}
 	}
 }

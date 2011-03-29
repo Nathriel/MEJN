@@ -39,56 +39,57 @@ namespace MEJN
 
 		private void startNewGame(object sender, RoutedEventArgs e)
 		{
+			List<Speler> spelers = viewControl.Spel.Spelers;
 			if (GroenTypeBox.Text == "Mens")
 			{
-				viewControl.Spel.Spelers.Add(new Speler(GroenNamefield.Text, Kleur.Groen));
+				spelers.Add(new Speler(GroenNamefield.Text, Kleur.Groen));
 			}
 			else if (GroenTypeBox.Text == "Computer")
 			{
-				viewControl.Spel.Spelers.Add(new Bot(GroenNamefield.Text, Kleur.Groen));
+				spelers.Add(new Bot(GroenNamefield.Text, Kleur.Groen));
 			}
 			else
 			{
-				viewControl.Spel.Spelers.Add(new Speler(GroenTypeBox.Text, Kleur.Groen));
+				spelers.Add(new Speler(GroenTypeBox.Text, Kleur.Groen));
 			}
 
 			if (RoodTypeBox.Text == "Mens")
 			{
-				viewControl.Spel.Spelers.Add(new Speler(RoodNamefield.Text, Kleur.Rood));
+				spelers.Add(new Speler(RoodNamefield.Text, Kleur.Rood));
 			}
 			else if (RoodTypeBox.Text == "Computer")
 			{
-				viewControl.Spel.Spelers.Add(new Bot(RoodNamefield.Text, Kleur.Rood));
+				spelers.Add(new Bot(RoodNamefield.Text, Kleur.Rood));
 			}
 			else
 			{
-				viewControl.Spel.Spelers.Add(new Speler(RoodTypeBox.Text, Kleur.Rood));
+				spelers.Add(new Speler(RoodTypeBox.Text, Kleur.Rood));
 			}
 
 			if (BlauwTypeBox.Text == "Mens")
 			{
-				viewControl.Spel.Spelers.Add(new Speler(BlauwNamefield.Text, Kleur.Blauw));
+				spelers.Add(new Speler(BlauwNamefield.Text, Kleur.Blauw));
 			}
 			else if (BlauwTypeBox.Text == "Computer")
 			{
-				viewControl.Spel.Spelers.Add(new Bot(BlauwNamefield.Text, Kleur.Blauw));
+				spelers.Add(new Bot(BlauwNamefield.Text, Kleur.Blauw));
 			}
 			else
 			{
-				viewControl.Spel.Spelers.Add(new Speler(BlauwTypeBox.Text, Kleur.Blauw));
+				spelers.Add(new Speler(BlauwTypeBox.Text, Kleur.Blauw));
 			}
 
 			if (GeelTypeBox.Text == "Mens")
 			{
-				viewControl.Spel.Spelers.Add(new Speler(GeelNamefield.Text, Kleur.Geel));
+				spelers.Add(new Speler(GeelNamefield.Text, Kleur.Geel));
 			}
 			else if (GeelTypeBox.Text == "Computer")
 			{
-				viewControl.Spel.Spelers.Add(new Bot(GeelNamefield.Text, Kleur.Geel));
+				spelers.Add(new Bot(GeelNamefield.Text, Kleur.Geel));
 			}
 			else
 			{
-				viewControl.Spel.Spelers.Add(new Speler(GeelTypeBox.Text, Kleur.Geel));
+				spelers.Add(new Speler(GeelTypeBox.Text, Kleur.Geel));
 			}
 
 			GameBoard game = new GameBoard(viewControl);

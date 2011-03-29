@@ -51,7 +51,7 @@
     						<GradientStop Color="#7F3B3B3B" Offset="1"/>
     					</LinearGradientBrush>
     				</Grid.Background>
-                    <Label x:Name="RoodTitle" Content="Speler 2" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+                    <Label x:Name="RoodTitle" Content="Rood" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
                     <Label x:Name="RoodNameLabel" Content="Naam:" HorizontalAlignment="Left" Margin="0,25.96,0,0" Width="46.793" Foreground="White"/>
                     <TextBox x:Name="RoodNamefield" HorizontalAlignment="Left" Margin="50.793,29.96,0,14.08" TextWrapping="Wrap" Text="Speler 2" Width="193.207"/>
                     <Label x:Name="RoodTypeLabel" Content="Type:" Margin="248,25.96,246.962,0" Foreground="White"/>
@@ -68,7 +68,7 @@
     						<GradientStop Color="#7F3B3B3B" Offset="1"/>
     					</LinearGradientBrush>
     				</Grid.Background>
-                    <Label x:Name="BlauwTitle" Content="Speler 3" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+                    <Label x:Name="BlauwTitle" Content="Blauw" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
                     <Label x:Name="BlauwNameLabel" Content="Naam:" HorizontalAlignment="Left" Margin="0,25.96,0,0" Width="46.793" Foreground="White"/>
                     <TextBox x:Name="BlauwNamefield" HorizontalAlignment="Left" Margin="50.793,29.96,0,14.08" TextWrapping="Wrap" Text="Speler 3" Width="193.207"/>
                     <Label x:Name="BlauwTypeLabel" Content="Type:" Margin="248,25.803,246.962,0.157" Foreground="White"/>
@@ -86,7 +86,7 @@
     						<GradientStop Color="#7F3B3B3B" Offset="1"/>
     					</LinearGradientBrush>
     				</Grid.Background>
-                    <Label x:Name="GeelTitle" Content="Speler 4" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+                    <Label x:Name="GeelTitle" Content="Geel" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
                     <Label x:Name="GeelNameLabel" Content="Naam:" HorizontalAlignment="Left" Margin="0,25.96,0,0" Width="46.793" Foreground="White"/>
                     <TextBox x:Name="GeelNamefield" HorizontalAlignment="Left" Margin="50.793,29.96,0,14.08" TextWrapping="Wrap" Text="Speler 4" Width="193.207"/>
                     <Label x:Name="GeelTypeLabel" Content="Type:" Margin="248,25.96,246.962,0" Foreground="White"/>

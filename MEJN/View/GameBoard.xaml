@@ -37,5 +37,6 @@
 			</Grid>
 		</Grid>
 		<Image x:Name="diceImage" Height="236" Margin="8,0,6.388,8" VerticalAlignment="Bottom"/>
-	</Grid>
+        <Image Grid.Column="1" Height="56" HorizontalAlignment="Left" Margin="430,78,0,0" Name="vak1" Stretch="Fill" VerticalAlignment="Top" Width="56" />
+    </Grid>
 </Window>
