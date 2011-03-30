@@ -9491,6 +9491,25 @@
         uCrgqoCrAq4KuCrgqsD/D3QJGr6lcEdqAAAAAElFTkSuQmCC
 </value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dobbeldrie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dobbeldrie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dobbeleen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dobbeleen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dobbeltwee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dobbeltwee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dobbelvier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dobbelvier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dobbelvijf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dobbelvijf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dobbelzes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dobbelzes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="menslogo" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAesAAAJACAYAAACtwE4RAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -16615,7 +16634,6 @@
         ggYF0iFBMj1DNkGDAumQIJmeIZugQYF0SJBMz5BN0KBAOqwXfADm5Z1dthDcqQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pionblauw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pionblauw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

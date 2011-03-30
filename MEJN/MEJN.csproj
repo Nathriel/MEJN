@@ -207,6 +207,24 @@
   <ItemGroup>
     <Resource Include="menslogo.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dobbeldrie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dobbeleen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dobbeltwee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dobbelvier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dobbelvijf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dobbelzes.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

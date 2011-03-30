@@ -67,6 +67,48 @@ namespace MEJN.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap dobbeldrie {
+            get {
+                object obj = ResourceManager.GetObject("dobbeldrie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap dobbeleen {
+            get {
+                object obj = ResourceManager.GetObject("dobbeleen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap dobbeltwee {
+            get {
+                object obj = ResourceManager.GetObject("dobbeltwee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap dobbelvier {
+            get {
+                object obj = ResourceManager.GetObject("dobbelvier", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap dobbelvijf {
+            get {
+                object obj = ResourceManager.GetObject("dobbelvijf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap dobbelzes {
+            get {
+                object obj = ResourceManager.GetObject("dobbelzes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap menslogo {
             get {
                 object obj = ResourceManager.GetObject("menslogo", resourceCulture);

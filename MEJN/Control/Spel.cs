@@ -48,7 +48,7 @@ namespace MEJN.Control
 
 		internal void spelOpenen(string p)
 		{
-
+			//Doe eens laden hier
 		}
 	}
 }
