@@ -74,6 +74,13 @@ namespace MEJN.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap noimage {
+            get {
+                object obj = ResourceManager.GetObject("noimage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap turnindicator {
             get {
                 object obj = ResourceManager.GetObject("turnindicator", resourceCulture);

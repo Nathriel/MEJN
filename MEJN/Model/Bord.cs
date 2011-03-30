@@ -8,48 +8,55 @@ namespace MEJN.Model
 	class Bord
 	{
 		private LinkedList vakjesLijst;
-		private List<LinkedList> finishList;
-		private List<LinkedList> thuisbasisList;
+		private List<LinkedList> finishLijst;
+		private List<LinkedList> thuisbasisLijst;
 
 		internal LinkedList VakjesLijst
 		{
 			get { return vakjesLijst; }
 			set { vakjesLijst = value; }
 		}
-		public List<LinkedList> FinishList
+		public List<LinkedList> FinishLijst
 		{
-			get { return finishList; }
-			set { finishList = value; }
+			get { return finishLijst; }
+			set { finishLijst = value; }
 		}
-		internal List<LinkedList> ThuisbasisList
+		internal List<LinkedList> ThuisbasisLijst
 		{
-			get { return thuisbasisList; }
-			set { thuisbasisList = value; }
+			get { return thuisbasisLijst; }
+			set { thuisbasisLijst = value; }
 		}
 
 		public Bord()
 		{
 			vakjesLijst = new LinkedList();
-			finishList = new List<LinkedList>();
-			thuisbasisList = new List<LinkedList>();
+			finishLijst = new List<LinkedList>();
+			thuisbasisLijst = new List<LinkedList>();
+
+			vulLijsten();
+			displayLijsten();
+		}
+
+		private void vulLijsten()
+		{
 			LinkedList groenFinishvakjes = new LinkedList();
 			LinkedList roodFinishvakjes = new LinkedList();
 			LinkedList blauwFinishvakjes = new LinkedList();
 			LinkedList geelFinishvakjes = new LinkedList();
 
-			finishList.Add(groenFinishvakjes);
-			finishList.Add(roodFinishvakjes);
-			finishList.Add(blauwFinishvakjes);
-			finishList.Add(geelFinishvakjes);
+			finishLijst.Add(groenFinishvakjes);
+			finishLijst.Add(roodFinishvakjes);
+			finishLijst.Add(blauwFinishvakjes);
+			finishLijst.Add(geelFinishvakjes);
 
 			Finishvakje tempFinishVakje = new Finishvakje("f");
 
-			for (int i = 0; i < finishList.Count(); i++)
+			for (int i = 0; i < finishLijst.Count(); i++)
 			{
-				finishList[i].insertFirst(tempFinishVakje);
-				finishList[i].insertFirst(tempFinishVakje);
-				finishList[i].insertFirst(tempFinishVakje);
-				finishList[i].insertFirst(tempFinishVakje);
+				finishLijst[i].insertFirst(tempFinishVakje);
+				finishLijst[i].insertFirst(tempFinishVakje);
+				finishLijst[i].insertFirst(tempFinishVakje);
+				finishLijst[i].insertFirst(tempFinishVakje);
 			}
 
 			LinkedList groenThuisbasis = new LinkedList();
@@ -57,19 +64,19 @@ namespace MEJN.Model
 			LinkedList blauwThuisbasis = new LinkedList();
 			LinkedList geelThuisbasis = new LinkedList();
 
-			thuisbasisList.Add(groenThuisbasis);
-			thuisbasisList.Add(roodThuisbasis);
-			thuisbasisList.Add(blauwThuisbasis);
-			thuisbasisList.Add(geelThuisbasis);
+			thuisbasisLijst.Add(groenThuisbasis);
+			thuisbasisLijst.Add(roodThuisbasis);
+			thuisbasisLijst.Add(blauwThuisbasis);
+			thuisbasisLijst.Add(geelThuisbasis);
 
 			Normaalvakje tempNormVakje = new Normaalvakje("n");
 
-			for (int i = 0; i < thuisbasisList.Count(); i++)
+			for (int i = 0; i < thuisbasisLijst.Count(); i++)
 			{
-				thuisbasisList[i].insertFirst(tempNormVakje);
-				thuisbasisList[i].insertFirst(tempNormVakje);
-				thuisbasisList[i].insertFirst(tempNormVakje);
-				thuisbasisList[i].insertFirst(tempNormVakje);
+				thuisbasisLijst[i].insertFirst(tempNormVakje);
+				thuisbasisLijst[i].insertFirst(tempNormVakje);
+				thuisbasisLijst[i].insertFirst(tempNormVakje);
+				thuisbasisLijst[i].insertFirst(tempNormVakje);
 			}
 
 			for (int i = 0; i < 4; i++)
@@ -103,25 +110,28 @@ namespace MEJN.Model
 					vakjesLijst.insertFirst(tempNormVakje);
 					if (j == 8)
 					{
-						vakjesLijst.First.Finish = finishList[i].First;
+						vakjesLijst.First.Finish = finishLijst[i].First;
 					}
 				}
 			}
 			VakjesLijst.Last.Next = VakjesLijst.First;
+		}
+
+		public void displayLijsten()
+		{
 			Console.Write("Bord ");
 			vakjesLijst.display();
 
-
-			for (int i = 0; i < finishList.Count(); i++)
+			for (int i = 0; i < finishLijst.Count(); i++)
 			{
 				Console.Write("Finish " + i + " ");
-				finishList[i].display();
+				finishLijst[i].display();
 			}
 
-			for (int i = 0; i < thuisbasisList.Count(); i++)
+			for (int i = 0; i < thuisbasisLijst.Count(); i++)
 			{
 				Console.Write("Thuisbasis " + i + " ");
-				thuisbasisList[i].display();
+				thuisbasisLijst[i].display();
 			}
 		}
 	}
