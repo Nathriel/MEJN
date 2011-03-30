@@ -110,5 +110,36 @@ namespace MEJN
 		{
 			vakImageChange(sender as Image);
 		}
+
+		private void spelOpslaanClicked(object sender, RoutedEventArgs e)
+		{
+			Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+			dlg.FileName = "spel";
+			dlg.DefaultExt = ".mejns";
+			dlg.Filter = "Mens Erger Je Niet Spel Document (.mejns)|*.mejns";
+
+			Nullable<bool> result = dlg.ShowDialog();
+
+			if (result == true)
+			{
+				Viewcontrol.Spel.spelOpslaan(dlg.FileName);
+			}
+		}
+
+		private void spelLadenClicked(object sender, RoutedEventArgs e)
+		{
+			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+			dlg.FileName = "spel";
+			dlg.DefaultExt = ".mejns";
+			dlg.Filter = "Mens Erger Je Niet Spel Document (.mejns)|*.mejns";
+
+			Nullable<bool> result = dlg.ShowDialog();
+
+			if (result == true)
+			{
+				Viewcontrol.Spel.spelOpenen(dlg.FileName);
+			}
+
+		}
 	}
 }

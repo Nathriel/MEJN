@@ -77,7 +77,7 @@
         <Image Height="56" MouseUp="vak_MouseUp" HorizontalAlignment="Left" Margin="293,78,0,0" Name="vak38" Stretch="Fill" VerticalAlignment="Top" Width="56" Grid.Column="1" Source="/MEJN;component/View/Images/noimage.png"  />
         <Image Height="56" MouseUp="vak_MouseUp" HorizontalAlignment="Left" Margin="293,12,0,0" Name="vak39" Stretch="Fill" VerticalAlignment="Top" Width="56" Grid.Column="1" Source="/MEJN;component/View/Images/noimage.png"  />
         <Image Height="56" MouseUp="vak_MouseUp" HorizontalAlignment="Left" Margin="361,12,0,0" Name="vak40" Stretch="Fill" VerticalAlignment="Top" Width="56" Grid.Column="1" Source="/MEJN;component/View/Images/noimage.png"  />
-        <Button x:Name="button" Content="Spel Opslaan" Margin="8,212,0,0" VerticalAlignment="Top" Height="34.96" FontWeight="Bold" FontSize="14.667">
+        <Button x:Name="button" Content="Spel Opslaan" Margin="8,212,0,0" VerticalAlignment="Top" Height="34.96" FontWeight="Bold" FontSize="14.667" Click="spelOpslaanClicked">
         	<Button.Background>
         		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
         			<GradientStop Color="#FFFFB2B2" Offset="0"/>
@@ -87,7 +87,7 @@
         		</LinearGradientBrush>
         	</Button.Background>
         </Button>
-        <Button Content="Spel Laden" Margin="8,250.96,0,0" VerticalAlignment="Top" Height="34.96" FontWeight="Bold" FontSize="14.667">
+        <Button Content="Spel Laden" Margin="8,250.96,0,0" VerticalAlignment="Top" Height="34.96" FontWeight="Bold" FontSize="14.667" Click="spelLadenClicked">
         	<Button.Background>
         		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
         			<GradientStop Color="#FFFFB2B2" Offset="0"/>

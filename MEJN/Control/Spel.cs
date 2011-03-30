@@ -40,5 +40,15 @@ namespace MEJN.Control
 			dobbelsteen = new Dobbelsteen();
 			spelers = new List<Speler>();
 		}
+
+		internal void spelOpslaan(string fileName)
+		{
+			//Doe eens opslaan hier
+		}
+
+		internal void spelOpenen(string p)
+		{
+
+		}
 	}
 }

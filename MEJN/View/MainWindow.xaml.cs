@@ -34,7 +34,17 @@ namespace MEJN
 
 		private void loadGame(object sender, RoutedEventArgs e)
 		{
+			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+			dlg.FileName = "spel";
+			dlg.DefaultExt = ".mejns";
+			dlg.Filter = "Mens Erger Je Niet Spel Document (.mejns)|*.mejns";
 
+			Nullable<bool> result = dlg.ShowDialog();
+
+			if (result == true)
+			{
+				viewControl.Spel.spelOpenen(dlg.FileName);
+			}
 		}
 
 		private void startNewGame(object sender, RoutedEventArgs e)
