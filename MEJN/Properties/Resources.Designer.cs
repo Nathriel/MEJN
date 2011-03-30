@@ -81,6 +81,34 @@ namespace MEJN.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap pionblauw {
+            get {
+                object obj = ResourceManager.GetObject("pionblauw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap piongeel {
+            get {
+                object obj = ResourceManager.GetObject("piongeel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap piongroen {
+            get {
+                object obj = ResourceManager.GetObject("piongroen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pionrood {
+            get {
+                object obj = ResourceManager.GetObject("pionrood", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap turnindicator {
             get {
                 object obj = ResourceManager.GetObject("turnindicator", resourceCulture);
