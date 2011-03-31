@@ -41,7 +41,6 @@
                     <ComboBox x:Name="GroenTypeBox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height">
                         <ComboBoxItem Content="Mens" IsSelected="True"/>
                         <ComboBoxItem Content="Computer"/>
-                        <ComboBoxItem Content="Doet niet mee"/>
                     </ComboBox>
     			</Grid>
                 <Grid x:Name="RoodGrid" Margin="0,0,0,147.848" VerticalAlignment="Bottom">
@@ -58,7 +57,6 @@
                     <ComboBox x:Name="RoodTypeBox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height">
     					<ComboBoxItem Content="Mens" IsSelected="True"/>
                         <ComboBoxItem Content="Computer"/>
-                        <ComboBoxItem Content="Doet niet mee"/>
                     </ComboBox>
     			</Grid>
                 <Grid x:Name="BlauwGrid" Height="66" Margin="0,0,0,75.848" VerticalAlignment="Bottom">
@@ -75,7 +73,6 @@
                     <ComboBox x:Name="BlauwTypeBox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height">
     					<ComboBoxItem Content="Mens" IsSelected="True"/>
                         <ComboBoxItem Content="Computer"/>
-                        <ComboBoxItem Content="Doet niet mee"/>
                     </ComboBox>
                     
     			</Grid>
@@ -93,7 +90,6 @@
                     <ComboBox x:Name="GeelTypeBox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height">
     					<ComboBoxItem Content="Mens" IsSelected="True"/>
                         <ComboBoxItem Content="Computer"/>
-                        <ComboBoxItem Content="Doet niet mee"/>
                     </ComboBox>        
     			</Grid>
     		</Grid>
@@ -109,6 +105,6 @@
     		</Button>
     	</Grid>
     	<Button Content="Spel Laden" Margin="8,8,8,0" VerticalAlignment="Top" Height="25.96" Click="loadGame" />
-        <Image Margin="8,0,7.038,8" Source="/MEJN;component/View/Images/menslogo.png" VerticalAlignment="Bottom" Height="265"/>
+        <Image Margin="8,0,7.038,8" Source="/MEJN;component/Resources/menslogo.png" VerticalAlignment="Bottom" Height="265"/>
     </Grid>
 </Window>

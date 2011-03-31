@@ -94,15 +94,15 @@ namespace MEJN
 
 		private void vakImageChange(Image vakImage)
 		{
-			String tempSource = vakImage.Source.ToString().Substring(50);
+			String tempSource = vakImage.Source.ToString().Substring(48);
 
 			if (tempSource == "noimage.png")
 			{
-				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/View/Images/turnindicator.png", UriKind.Relative));
+				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/piongroen.png", UriKind.Relative));
 			}
-			else if(tempSource == "turnindicator.png")
+			else if (tempSource == "piongroen.png")
 			{
-				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/View/Images/noimage.png", UriKind.Relative));
+				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/noimage.png", UriKind.Relative));
 			}
 		}
 

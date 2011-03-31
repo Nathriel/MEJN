@@ -58,10 +58,6 @@ namespace MEJN
 			{
 				spelers.Add(new Bot(GroenNamefield.Text, Kleur.Groen));
 			}
-			else
-			{
-				spelers.Add(new Speler(GroenTypeBox.Text, Kleur.Groen));
-			}
 
 			if (RoodTypeBox.Text == "Mens")
 			{
@@ -70,10 +66,6 @@ namespace MEJN
 			else if (RoodTypeBox.Text == "Computer")
 			{
 				spelers.Add(new Bot(RoodNamefield.Text, Kleur.Rood));
-			}
-			else
-			{
-				spelers.Add(new Speler(RoodTypeBox.Text, Kleur.Rood));
 			}
 
 			if (BlauwTypeBox.Text == "Mens")
@@ -84,10 +76,6 @@ namespace MEJN
 			{
 				spelers.Add(new Bot(BlauwNamefield.Text, Kleur.Blauw));
 			}
-			else
-			{
-				spelers.Add(new Speler(BlauwTypeBox.Text, Kleur.Blauw));
-			}
 
 			if (GeelTypeBox.Text == "Mens")
 			{
@@ -96,10 +84,6 @@ namespace MEJN
 			else if (GeelTypeBox.Text == "Computer")
 			{
 				spelers.Add(new Bot(GeelNamefield.Text, Kleur.Geel));
-			}
-			else
-			{
-				spelers.Add(new Speler(GeelTypeBox.Text, Kleur.Geel));
 			}
 
 			GameBoard game = new GameBoard(viewControl);

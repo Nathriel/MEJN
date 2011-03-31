@@ -57,7 +57,7 @@
     </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>menslogo.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\menslogo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
@@ -86,9 +86,6 @@
     <Compile Include="View\GameBoard.xaml.cs">
       <DependentUpon>GameBoard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ViewController.cs" />
     <Page Include="View\GameBoard.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -112,10 +109,6 @@
     <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\UserControl1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -148,10 +141,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="View\Images\bord.png" />
-    <Resource Include="View\Images\menslogo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -184,46 +173,52 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\turnindicator.png" />
+    <Resource Include="Resources\pionblauw.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\turnindicatornotactive.png" />
+    <Resource Include="Resources\piongeel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\noimage.png" />
+    <Resource Include="Resources\piongroen.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pionblauw.png" />
+    <Resource Include="Resources\pionrood.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\piongeel.png" />
+    <Resource Include="Resources\menslogo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\piongroen.png" />
+    <Resource Include="Resources\dobbeldrie.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pionrood.png" />
+    <Resource Include="Resources\dobbeleen.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="menslogo.ico" />
+    <Resource Include="Resources\dobbeltwee.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dobbeldrie.png" />
+    <Resource Include="Resources\dobbelvier.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dobbeleen.png" />
+    <Resource Include="Resources\dobbelvijf.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dobbeltwee.png" />
+    <Resource Include="Resources\dobbelzes.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dobbelvier.png" />
+    <Resource Include="Resources\bord.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dobbelvijf.png" />
+    <Resource Include="Resources\menslogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dobbelzes.png" />
+    <Resource Include="Resources\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\turnindicator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\turnindicatornotactive.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

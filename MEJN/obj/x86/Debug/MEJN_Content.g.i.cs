@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("menslogo.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/turnindicatornotactive.png")]
 
 
