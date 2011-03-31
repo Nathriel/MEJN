@@ -109,6 +109,13 @@ namespace MEJN.Properties {
             }
         }
         
+        internal static System.Drawing.Icon logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap menslogo {
             get {
                 object obj = ResourceManager.GetObject("menslogo", resourceCulture);

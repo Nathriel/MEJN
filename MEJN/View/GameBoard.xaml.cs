@@ -18,10 +18,20 @@ namespace MEJN
 	{
 		private ViewController viewcontrol;
 		private LinkedList<Image> vakImageLijst;
+		private List<ImageSource> dobbelsteenImages;
+
+		private List<Image> groenFinishImages;
+		private List<Image> roodFinishImages;
+		private List<Image> blauwFinishImages;
+		private List<Image> geelFinishImages;
+
+		private List<Image> groenThuisImages;
+		private List<Image> roodThuisImages;
+		private List<Image> blauwThuisImages;
+		private List<Image> geelThuisImages;
 		
 		internal ViewController Viewcontrol
-		{
-			get { return viewcontrol; }
+		{	get { return viewcontrol; }
 			set { viewcontrol = value; }
 		}
 		public LinkedList<Image> VakImageLijst
@@ -35,6 +45,18 @@ namespace MEJN
 			this.InitializeComponent();
 			this.viewcontrol = viewcontrol;
 			vakImageLijst = new LinkedList<Image>();
+			dobbelsteenImages = new List<ImageSource>();
+
+			groenFinishImages = new List<Image>();
+			roodFinishImages = new List<Image>();
+			blauwFinishImages = new List<Image>();
+			geelFinishImages = new List<Image>();
+
+			groenThuisImages = new List<Image>();
+			roodThuisImages = new List<Image>();
+			blauwThuisImages = new List<Image>();
+			geelThuisImages = new List<Image>();
+
 			List<Speler> spelers = viewcontrol.Spel.Spelers;
 
 			GroenLabel.Content = spelers[0].Naam;
@@ -42,11 +64,62 @@ namespace MEJN
 			BlauwLabel.Content = spelers[2].Naam;
 			GeelLabel.Content = spelers[3].Naam;
 
-			vulVakImageLijst();
+			vulImageLijst();
 		}
 
-		private void vulVakImageLijst()
+		private void vulImageLijst()
 		{
+			// Dobbelsteen imagecollectie vullen
+			dobbelsteenImages.Add(new BitmapImage(new Uri("/MEJN;component/Resources/dobbeleen.png", UriKind.Relative)));
+			dobbelsteenImages.Add(new BitmapImage(new Uri("/MEJN;component/Resources/dobbeltwee.png", UriKind.Relative)));
+			dobbelsteenImages.Add(new BitmapImage(new Uri("/MEJN;component/Resources/dobbeldrie.png", UriKind.Relative)));
+			dobbelsteenImages.Add(new BitmapImage(new Uri("/MEJN;component/Resources/dobbelvier.png", UriKind.Relative)));
+			dobbelsteenImages.Add(new BitmapImage(new Uri("/MEJN;component/Resources/dobbelvijf.png", UriKind.Relative)));
+			dobbelsteenImages.Add(new BitmapImage(new Uri("/MEJN;component/Resources/dobbelzes.png", UriKind.Relative)));
+
+			// Finish imagecollectie vullen
+			groenFinishImages.Add(groenFinish1);
+			groenFinishImages.Add(groenFinish2);
+			groenFinishImages.Add(groenFinish3);
+			groenFinishImages.Add(groenFinish4);
+
+			roodFinishImages.Add(roodFinish1);
+			roodFinishImages.Add(roodFinish2);
+			roodFinishImages.Add(roodFinish3);
+			roodFinishImages.Add(roodFinish4);
+
+			blauwFinishImages.Add(blauwFinish1);
+			blauwFinishImages.Add(blauwFinish2);
+			blauwFinishImages.Add(blauwFinish3);
+			blauwFinishImages.Add(blauwFinish4);
+
+			geelFinishImages.Add(geelFinish1);
+			geelFinishImages.Add(geelFinish2);
+			geelFinishImages.Add(geelFinish3);
+			geelFinishImages.Add(geelFinish4);
+
+			// Thuisbasis imagecollectie vullen
+			groenThuisImages.Add(groenThuis1);
+			groenThuisImages.Add(groenThuis2);
+			groenThuisImages.Add(groenThuis3);
+			groenThuisImages.Add(groenThuis4);
+
+			roodThuisImages.Add(roodThuis1);
+			roodThuisImages.Add(roodThuis2);
+			roodThuisImages.Add(roodThuis3);
+			roodThuisImages.Add(roodThuis4);
+
+			blauwThuisImages.Add(blauwThuis1);
+			blauwThuisImages.Add(blauwThuis2);
+			blauwThuisImages.Add(blauwThuis3);
+			blauwThuisImages.Add(blauwThuis4);
+
+			geelThuisImages.Add(geelThuis1);
+			geelThuisImages.Add(geelThuis2);
+			geelThuisImages.Add(geelThuis3);
+			geelThuisImages.Add(geelThuis4);
+
+			// normale image lijst vullen
 			vakImageLijst.AddFirst(vak1);
 			vakImageLijst.AddFirst(vak2);
 			vakImageLijst.AddFirst(vak3);
@@ -106,7 +179,7 @@ namespace MEJN
 			}
 		}
 
-		void vak_MouseUp(object sender, MouseButtonEventArgs e)
+		private void vak_MouseUp(object sender, MouseButtonEventArgs e)
 		{
 			vakImageChange(sender as Image);
 		}
@@ -140,6 +213,24 @@ namespace MEJN
 				Viewcontrol.Spel.spelOpenen(dlg.FileName);
 			}
 
+		}
+
+		private void gooiDobbelsteen(object sender, MouseEventArgs e)
+		{
+			int worp = viewcontrol.Spel.Dobbelsteen.gooiDobbelsteen();
+			
+			dobbelsteenImage.Source = dobbelsteenImages[worp-1];
+		}
+
+
+		private void makeCursorHand(object sender, MouseEventArgs e)
+		{
+			Mouse.OverrideCursor = Cursors.Hand;
+		}
+
+		private void makeCursorArrow(object sender, MouseEventArgs e)
+		{
+			Mouse.OverrideCursor = Cursors.Arrow;
 		}
 	}
 }

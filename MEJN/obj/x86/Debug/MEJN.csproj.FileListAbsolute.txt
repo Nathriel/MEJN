@@ -27,8 +27,6 @@ C:\Users\Nathriel\Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\view\Ga
 C:\Users\Nathriel\Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\view\GameBoard.g.cs
 C:\Users\Nathriel\Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\view\MainWindow.g.cs
 C:\Users\Nathriel\Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\view\MainWindow.baml
-C:\Users\Nathriel\Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\View\UserControl1.baml
-C:\Users\Nathriel\Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\View\UserControl1.g.cs
 C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\View\GameBoard.baml
 C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\Simple Styles.baml
 C:\Users\Ganonmaster\Desktop\MEJN\MEJN\obj\x86\Debug\View\UserControl1.baml

@@ -36,7 +36,7 @@
                 <Image x:Name="Speler4Turnindicator" Margin="0,3,0,0" Source="/MEJN;component/Resources/turnindicatornotactive.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" VerticalAlignment="Center" Height="35"/>
 			</Grid>
 		</Grid>
-		<Image x:Name="diceImage" Height="236" Margin="8,0,6.388,8" VerticalAlignment="Bottom"/>
+		<Image Name="dobbelsteenImage" MouseEnter="makeCursorHand" MouseLeave="makeCursorArrow" MouseUp="gooiDobbelsteen" Height="236" Margin="8,0,6.388,8" VerticalAlignment="Bottom" Source="/MEJN;component/Resources/dobbelzes.png" />
         <Image Height="53" MouseUp="vak_MouseUp" HorizontalAlignment="Left" Margin="429,13,0,0" Name="vak1" Stretch="Fill" VerticalAlignment="Top" Width="53" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
         <Image Height="53" MouseUp="vak_MouseUp" HorizontalAlignment="Left" Margin="428,80,0,0" Name="vak2" Stretch="Fill" VerticalAlignment="Top" Width="53" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
         <Image Height="53" MouseUp="vak_MouseUp" HorizontalAlignment="Left" Margin="428,147,0,0" Name="vak3" Stretch="Fill" VerticalAlignment="Top" Width="53" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png"  />
@@ -114,21 +114,21 @@
         <Image Height="40" HorizontalAlignment="Left" Margin="233,361,0,0" Name="geelFinish3" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
         <Image Height="40" HorizontalAlignment="Left" Margin="299,360,0,0" Name="geelFinish4" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
         
-        <Image Height="39" HorizontalAlignment="Left" Margin="640,19,0,0" Name="groenThuis1" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="706,19,0,0" Name="groenThuis2" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="638,86,0,0" Name="groenThuis3" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="705,85,0,0" Name="groenThuis4" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="640,632,0,0" Name="roodThuis1" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="708,633,0,0" Name="roodThuis2" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="640,703,0,0" Name="roodThuis3" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="708,703,0,0" Name="roodThuis4" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="98,636,0,0" Name="blauwThuis1" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="29,636,0,0" Name="blauwThuis2" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="98,703,0,0" Name="blauwThuis3" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="29,704,0,0" Name="blauwThuis4" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="99,23,0,0" Name="geelThuis1" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="31,24,0,0" Name="geelThuis2" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="99,89,0,0" Name="geelThuis3" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
-        <Image Height="39" HorizontalAlignment="Left" Margin="32,90,0,0" Name="geelThuis4" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="640,19,0,0" Name="groenThuis1" Source="/MEJN;component/Resources/piongroen.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="706,19,0,0" Name="groenThuis2" Source="/MEJN;component/Resources/piongroen.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="638,86,0,0" Name="groenThuis3" Source="/MEJN;component/Resources/piongroen.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="705,85,0,0" Name="groenThuis4" Source="/MEJN;component/Resources/piongroen.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="640,632,0,0" Name="roodThuis1" Source="/MEJN;component/Resources/pionrood.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="708,633,0,0" Name="roodThuis2" Source="/MEJN;component/Resources/pionrood.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="640,703,0,0" Name="roodThuis3" Source="/MEJN;component/Resources/pionrood.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="708,703,0,0" Name="roodThuis4" Source="/MEJN;component/Resources/pionrood.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="98,636,0,0" Name="blauwThuis1" Source="/MEJN;component/Resources/pionblauw.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="29,636,0,0" Name="blauwThuis2" Source="/MEJN;component/Resources/pionblauw.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="98,703,0,0" Name="blauwThuis3" Source="/MEJN;component/Resources/pionblauw.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="29,704,0,0" Name="blauwThuis4" Source="/MEJN;component/Resources/pionblauw.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="99,23,0,0" Name="geelThuis1" Source="/MEJN;component/Resources/piongeel.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="31,24,0,0" Name="geelThuis2" Source="/MEJN;component/Resources/piongeel.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="99,89,0,0" Name="geelThuis3" Source="/MEJN;component/Resources/piongeel.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="32,90,0,0" Name="geelThuis4" Source="/MEJN;component/Resources/piongeel.png" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" />
     </Grid>
 </Window>

@@ -83,6 +83,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\LinkedList.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="View\GameBoard.xaml.cs">
       <DependentUpon>GameBoard.xaml</DependentUpon>
     </Compile>
@@ -119,7 +122,6 @@
     <Compile Include="Model\Vakje\Finishvakje.cs" />
     <Compile Include="Model\Kleur.cs" />
     <Compile Include="Model\Link.cs" />
-    <Compile Include="Model\LinkedList.cs" />
     <Compile Include="Model\Vakje\Normaalvakje.cs" />
     <Compile Include="Model\Pion.cs" />
     <Compile Include="Model\Speler.cs" />
