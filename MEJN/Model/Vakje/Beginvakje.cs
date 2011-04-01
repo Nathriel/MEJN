@@ -15,10 +15,10 @@ namespace MEJN.Model
 			set { kleur = value; }
 		}
 
-		public Beginvakje(String soort)
-			: base(soort)
+		public Beginvakje(Kleur kleur)
 		{
-
+			Kleur = kleur;
+			Pion = new Pion(Kleur);
 		}
 	}
 }

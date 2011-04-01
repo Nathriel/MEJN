@@ -7,17 +7,17 @@ namespace MEJN.Model
 {
 	class Vakje
 	{
-		protected String soort;
+		private Pion pion;
 
-		public String Soort
+		protected Pion Pion
 		{
-			get { return soort; }
-			set { soort = value; }
+			get { return pion; }
+			set { pion = value; }
 		}
 
-		public Vakje(String soort)
+		public Vakje()
 		{
-			this.soort = soort;
+			
 		}
 	}
 }

@@ -7,10 +7,9 @@ namespace MEJN.Model
 {
 	class Normaalvakje : Vakje
 	{
-		public Normaalvakje(String soort)
-			: base(soort)
+		public Normaalvakje()
 		{
-
+			
 		}
 	}
 }

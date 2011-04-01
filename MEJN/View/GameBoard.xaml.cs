@@ -65,7 +65,6 @@ namespace MEJN
 			GeelLabel.Content = spelers[3].Naam;
 
 			vulImageLijst();
-
 		}
 
 		private void vulImageLijst()

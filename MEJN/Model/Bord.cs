@@ -8,99 +8,65 @@ namespace MEJN.Model
 	class Bord
 	{
 		private LinkedList vakjesLijst;
-		private List<LinkedList> finishLijst;
-		private List<LinkedList> thuisbasisLijst;
+
+		private LinkedList groenFinishvakjes;
+		private LinkedList roodFinishvakjes;
+		private LinkedList blauwFinishvakjes;
+		private LinkedList geelFinishvakjes;
+
+		private LinkedList groenThuisbasis;
+		private LinkedList roodThuisbasis;
+		private LinkedList blauwThuisbasis;
+		private LinkedList geelThuisbasis;
 
 		internal LinkedList VakjesLijst
 		{
 			get { return vakjesLijst; }
 			set { vakjesLijst = value; }
 		}
-		public List<LinkedList> FinishLijst
-		{
-			get { return finishLijst; }
-			set { finishLijst = value; }
-		}
-		internal List<LinkedList> ThuisbasisLijst
-		{
-			get { return thuisbasisLijst; }
-			set { thuisbasisLijst = value; }
-		}
 
 		public Bord()
 		{
 			vakjesLijst = new LinkedList();
-			finishLijst = new List<LinkedList>();
-			thuisbasisLijst = new List<LinkedList>();
+
+			groenFinishvakjes = new LinkedList();
+			roodFinishvakjes = new LinkedList();
+			blauwFinishvakjes = new LinkedList();
+			geelFinishvakjes = new LinkedList();
+
+			groenThuisbasis = new LinkedList();
+			roodThuisbasis = new LinkedList();
+			blauwThuisbasis = new LinkedList();
+			geelThuisbasis = new LinkedList();
 
 			vulLijsten();
 		}
 
 		private void vulLijsten()
 		{
-			LinkedList groenFinishvakjes = new LinkedList();
-			LinkedList roodFinishvakjes = new LinkedList();
-			LinkedList blauwFinishvakjes = new LinkedList();
-			LinkedList geelFinishvakjes = new LinkedList();
 
-			finishLijst.Add(groenFinishvakjes);
-			finishLijst.Add(roodFinishvakjes);
-			finishLijst.Add(blauwFinishvakjes);
-			finishLijst.Add(geelFinishvakjes);
 
-			Finishvakje tempFinishVakje = new Finishvakje("f");
-
-			for (int i = 0; i < finishLijst.Count(); i++)
-			{
-				finishLijst[i].insertFirst(tempFinishVakje);
-				finishLijst[i].insertFirst(tempFinishVakje);
-				finishLijst[i].insertFirst(tempFinishVakje);
-				finishLijst[i].insertFirst(tempFinishVakje);
-			}
-
-			LinkedList groenThuisbasis = new LinkedList();
-			LinkedList roodThuisbasis = new LinkedList();
-			LinkedList blauwThuisbasis = new LinkedList();
-			LinkedList geelThuisbasis = new LinkedList();
-
-			thuisbasisLijst.Add(groenThuisbasis);
-			thuisbasisLijst.Add(roodThuisbasis);
-			thuisbasisLijst.Add(blauwThuisbasis);
-			thuisbasisLijst.Add(geelThuisbasis);
-
-			Normaalvakje tempNormVakje = new Normaalvakje("n");
-
-			for (int i = 0; i < thuisbasisLijst.Count(); i++)
-			{
-				thuisbasisLijst[i].insertFirst(tempNormVakje);
-				thuisbasisLijst[i].insertFirst(tempNormVakje);
-				thuisbasisLijst[i].insertFirst(tempNormVakje);
-				thuisbasisLijst[i].insertFirst(tempNormVakje);
-			}
+			Normaalvakje tempNormVakje = new Normaalvakje();
 
 			for (int i = 0; i < 4; i++)
 			{
-				Beginvakje tempBeginVakje = new Beginvakje("b");
+				Beginvakje tempBeginVakje = new Beginvakje(Kleur.Groen);
 
 				if (i == 0)
 				{
-					tempBeginVakje = new Beginvakje("gb");
-					tempBeginVakje.Kleur = Kleur.Groen;
+					tempBeginVakje = new Beginvakje(Kleur.Groen);
 				}
 				else if (i == 1)
 				{
-					tempBeginVakje = new Beginvakje("rb");
-					tempBeginVakje.Kleur = Kleur.Rood;
+					tempBeginVakje = new Beginvakje(Kleur.Rood);
 				}
 				else if (i == 2)
 				{
-					tempBeginVakje = new Beginvakje("bb");
-					tempBeginVakje.Kleur = Kleur.Blauw;
+					tempBeginVakje = new Beginvakje(Kleur.Blauw);
 				}
 				else if (i == 3)
 				{
-					tempBeginVakje = new Beginvakje("eb");
-					tempBeginVakje.Kleur = Kleur.Geel;
+					tempBeginVakje = new Beginvakje(Kleur.Geel);
 				}
 				vakjesLijst.insertFirst(tempBeginVakje);
 
@@ -109,29 +75,26 @@ namespace MEJN.Model
 					vakjesLijst.insertFirst(tempNormVakje);
 					if (j == 8)
 					{
-						vakjesLijst.First.Finish = finishLijst[i].First;
+						if (i == 0)
+						{
+							vakjesLijst.First.Finish = groenFinishvakjes.First;
+						}
+						else if (i == 1)
+						{
+							vakjesLijst.First.Finish = roodFinishvakjes.First;
+						}
+						else if (i == 2)
+						{
+							vakjesLijst.First.Finish = blauwFinishvakjes.First;
+						}
+						else if (i == 3)
+						{
+							vakjesLijst.First.Finish = geelFinishvakjes.First;
+						}
 					}
 				}
 			}
 			VakjesLijst.Last.Next = VakjesLijst.First;
-		}
-
-		public void displayLijsten()
-		{
-			Console.Write("Bord ");
-			vakjesLijst.display();
-
-			for (int i = 0; i < finishLijst.Count(); i++)
-			{
-				Console.Write("Finish " + i + " ");
-				finishLijst[i].display();
-			}
-
-			for (int i = 0; i < thuisbasisLijst.Count(); i++)
-			{
-				Console.Write("Thuisbasis " + i + " ");
-				thuisbasisLijst[i].display();
-			}
 		}
 	}
 }

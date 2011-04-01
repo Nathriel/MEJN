@@ -15,10 +15,9 @@ namespace MEJN.Model
 			set { kleur = value; }
 		}
 
-		public Finishvakje(String soort)
-			: base(soort)
+		public Finishvakje(Kleur kleur)
 		{
-
+			Kleur = kleur;
 		}
 	}
 }

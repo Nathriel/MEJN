@@ -40,7 +40,7 @@ namespace MEJN.Model
 
 		public void displayLink()
 		{
-			Console.Write("{" + iData.Soort);
+			Console.Write("{" + iData);
 		}
 	}
 }
