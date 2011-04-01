@@ -130,9 +130,23 @@ namespace MEJN.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap noimageborder {
+            get {
+                object obj = ResourceManager.GetObject("noimageborder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap pionblauw {
             get {
                 object obj = ResourceManager.GetObject("pionblauw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pionblauwborder {
+            get {
+                object obj = ResourceManager.GetObject("pionblauwborder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -144,6 +158,13 @@ namespace MEJN.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap piongeelborder {
+            get {
+                object obj = ResourceManager.GetObject("piongeelborder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap piongroen {
             get {
                 object obj = ResourceManager.GetObject("piongroen", resourceCulture);
@@ -151,9 +172,23 @@ namespace MEJN.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap piongroenborder {
+            get {
+                object obj = ResourceManager.GetObject("piongroenborder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap pionrood {
             get {
                 object obj = ResourceManager.GetObject("pionrood", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pionroodborder {
+            get {
+                object obj = ResourceManager.GetObject("pionroodborder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

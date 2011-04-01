@@ -22713,6 +22713,10 @@
         ggYF0iFBMj1DNkGDAumQIJmeIZugQYF0SJBMz5BN0KBAOqwXfADm5Z1dthDcqQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="noimageborder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noimageborder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pionblauw" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADgAAAA3CAYAAABZ0InLAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -22791,6 +22795,9 @@
         IE97HSS0xSEF7Kf3cfiIPnOfaaYoRz3Ux3uRp/8Ao5xqHOFmq1sAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="pionblauwborder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pionblauwborder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="piongeel" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADgAAAA3CAYAAABZ0InLAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -22867,6 +22874,9 @@
         A+CD1r805O8cXxsy7rALrjBgahpwmPzZB1bSc8bZ5gMTTVH7BmJ8wj0407boZ8y2KY9c5Gfu2wP1LNyc
         owl3/B+XAAsUcpBn/RyksMYFBdym+nP5yJo555mmPKcd7elXevkPPpD3KR8I4QMAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="piongeelborder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\piongeelborder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="piongroen" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -22946,6 +22956,9 @@
         6NSfAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="piongroenborder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\piongroenborder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pionrood" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADgAAAA3CAYAAABZ0InLAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -23023,6 +23036,9 @@
         J7Sz7uJsTTjjX0wBFijkIM96HaRui+sUsEfqc/hIn7nqaaa8pxzlqZd6+heuV97vHzNc1AAAAABJRU5E
         rkJggg==
 </value>
+  </data>
+  <data name="pionroodborder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pionroodborder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="turnindicator" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

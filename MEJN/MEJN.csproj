@@ -222,6 +222,21 @@
   <ItemGroup>
     <Resource Include="Resources\turnindicatornotactive.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noimageborder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pionblauwborder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piongeelborder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piongroenborder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pionroodborder.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
