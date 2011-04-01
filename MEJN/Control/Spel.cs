@@ -38,6 +38,7 @@ namespace MEJN.Control
 		{
 			bord = new Bord();
 			dobbelsteen = new Dobbelsteen();
+			wieIsErAanDeBeurt = 1;
 			spelers = new List<Speler>();
 		}
 

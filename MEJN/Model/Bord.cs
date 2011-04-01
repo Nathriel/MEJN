@@ -34,7 +34,6 @@ namespace MEJN.Model
 			thuisbasisLijst = new List<LinkedList>();
 
 			vulLijsten();
-			displayLijsten();
 		}
 
 		private void vulLijsten()

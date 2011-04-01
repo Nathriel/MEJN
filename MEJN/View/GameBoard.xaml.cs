@@ -65,6 +65,7 @@ namespace MEJN
 			GeelLabel.Content = spelers[3].Naam;
 
 			vulImageLijst();
+
 		}
 
 		private void vulImageLijst()
@@ -168,22 +169,44 @@ namespace MEJN
 		private void vakImageChange(Image vakImage)
 		{
 			String tempSource = vakImage.Source.ToString().Substring(48);
+			int beurt = viewcontrol.Spel.WieIsErAanDeBeurt;
 
 			if (tempSource == "noimage.png")
 			{
-				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/piongroen.png", UriKind.Relative));
+				if (beurt == 1)
+				{
+					vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/piongroen.png", UriKind.Relative));
+				}
+				else if (beurt == 2)
+				{
+					vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/pionrood.png", UriKind.Relative));
+				}
+				else if (beurt == 3)
+				{
+					vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/pionblauw.png", UriKind.Relative));
+				}
+				else if (beurt == 4)
+				{
+					vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/piongeel.png", UriKind.Relative));
+				}
 			}
-			else if (tempSource == "piongroen.png")
+			else
 			{
 				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/noimage.png", UriKind.Relative));
 			}
 		}
 
-		private void vak_MouseUp(object sender, MouseButtonEventArgs e)
+		private void makeCursorHand()
 		{
-			vakImageChange(sender as Image);
+			Mouse.OverrideCursor = Cursors.Hand;
 		}
 
+		private void makeCursorArrow()
+		{
+			Mouse.OverrideCursor = Cursors.Arrow;
+		}
+
+		// eventhandlers
 		private void spelOpslaanClicked(object sender, RoutedEventArgs e)
 		{
 			Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
@@ -215,22 +238,47 @@ namespace MEJN
 
 		}
 
-		private void gooiDobbelsteen(object sender, MouseEventArgs e)
+		private void dobbelsteen_MouseUp(object sender, MouseEventArgs e)
 		{
-			int worp = viewcontrol.Spel.Dobbelsteen.gooiDobbelsteen();
-			
-			dobbelsteenImage.Source = dobbelsteenImages[worp-1];
+			if (viewcontrol.Spel.Dobbelsteen.Gegooid == false)
+			{
+				int worp = viewcontrol.Spel.Dobbelsteen.gooiDobbelsteen();
+
+				dobbelsteenImage.Source = dobbelsteenImages[worp - 1];
+
+				Viewcontrol.Spel.Dobbelsteen.switchGegooid();
+				Mouse.OverrideCursor = Cursors.Arrow;
+			}
 		}
 
-
-		private void makeCursorHand(object sender, MouseEventArgs e)
+		private void dobbelsteen_MouseEnter(object sender, MouseEventArgs e)
 		{
-			Mouse.OverrideCursor = Cursors.Hand;
+			if (viewcontrol.Spel.Dobbelsteen.Gegooid == false)
+			{
+				makeCursorHand();
+			}
 		}
 
-		private void makeCursorArrow(object sender, MouseEventArgs e)
+		private void dobbelsteen_MouseLeave(object sender, MouseEventArgs e)
 		{
-			Mouse.OverrideCursor = Cursors.Arrow;
+			makeCursorArrow();
+		}
+
+		private void vak_MouseUp(object sender, MouseEventArgs e)
+		{
+			Image clickedObject = sender as Image;
+
+
+		}
+
+		private void vak_MouseEnter(object sender, MouseEventArgs e)
+		{
+			makeCursorHand();
+		}
+
+		private void vak_MouseLeave(object sender, MouseEventArgs e)
+		{
+			makeCursorArrow();
 		}
 	}
 }
