@@ -247,6 +247,9 @@ namespace MEJN
 
 				Viewcontrol.Spel.Dobbelsteen.switchGegooid();
 				Mouse.OverrideCursor = Cursors.Arrow;
+
+				//Kijk welke pionen er beschikbaar zijn en update het bord
+				
 			}
 		}
 

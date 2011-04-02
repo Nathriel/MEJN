@@ -42,6 +42,16 @@ namespace MEJN.Control
 			spelers = new List<Speler>();
 		}
 
+		internal void doFirstMove()
+		{
+			if (spelers[0].GetType() == typeof(Bot))
+			{
+				//Eerste speler is bot, doe eerste zet
+			}
+
+			//Wacht op speler input
+		}
+
 		internal void spelOpslaan(string fileName)
 		{
 			//Doe eens opslaan hier

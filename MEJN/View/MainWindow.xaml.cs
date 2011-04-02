@@ -88,6 +88,7 @@ namespace MEJN
 
 			GameBoard game = new GameBoard(viewControl);
 			game.Visibility = System.Windows.Visibility.Visible;
+			viewControl.Spel.doFirstMove();
 			this.Close();
 		}
 	}

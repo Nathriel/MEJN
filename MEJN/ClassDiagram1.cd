@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MEJN.App" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.GameBoard" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QkAAAAAQAEQCAQDAAAEAAAgCBMAFAAAIAAAAAAAASEg=</HashCode>
+      <FileName>View\GameBoard.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.MainWindow" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>View\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Control.Spel" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAACAABQAkAEQAAAIAAAACAAgAAAAAAAA=</HashCode>
+      <FileName>Control\Spel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Control.SpelLaden" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Control\SpelLaden.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Control.SpelOpslaan" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Control\SpelOpslaan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Bord" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAAAAAAAAAAIAAAAABAAABAAQBAAAAAAAAAAQBCg=</HashCode>
+      <FileName>Model\Bord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Bot">
+    <Position X="2.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Bot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Dobbelsteen" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAQAAAIEEAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Model\Dobbelsteen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Link" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgGAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAACAIBAAg=</HashCode>
+      <FileName>Model\Link.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.LinkedList" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAwAAAEEAAAAAAAEAAAAAAAACAAAAQwA=</HashCode>
+      <FileName>Model\LinkedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Pion" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Pion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Speler">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAAAAAAAAAAAAhAAAAIQAAAAgAAAAIAAAAAA=</HashCode>
+      <FileName>Model\Speler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Beginvakje">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Vakje\Beginvakje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Finishvakje">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Vakje\Finishvakje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Normaalvakje">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Vakje\Normaalvakje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Model.Vakje">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Vakje\Vakje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Properties.Resources" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABQAMAAEiAAIAQAAhEAAAgQAAAAAAAQBAABAqAoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.Properties.Settings" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MEJN.View.ViewController" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>View\ViewController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MEJN.Model.Kleur" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAABAABAA=</HashCode>
+      <FileName>Model\Kleur.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
