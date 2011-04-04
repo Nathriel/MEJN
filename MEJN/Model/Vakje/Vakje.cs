@@ -22,7 +22,7 @@ namespace MEJN.Model
 
 		override public string ToString()
 		{
-			string result = "fv";
+			string result = "v";
 
 			if (Pion != null)
 			{

@@ -4,7 +4,7 @@
 	x:Class="MEJN.GameBoard"
 	x:Name="Window"
 	Title="GameBoard"
-	Width="1034" Height="796" ResizeMode="NoResize">
+	Width="1034" Height="796" ResizeMode="CanResize">
 	<Window.Background>
 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 			<GradientStop Color="#FF930000" Offset="0"/>
@@ -17,7 +17,7 @@
 			<ColumnDefinition Width="246.72"/>
 			<ColumnDefinition Width="781.28"/>
 		</Grid.ColumnDefinitions>
-		<Image Margin="13,8,18,8" Source="/MEJN;component/Resources/bord.png" Stretch="Fill" Grid.Column="1" Width="750" Height="750" />
+		<Image Margin="13,8,18,8" Source="/MEJN;component/Resources/bord.png" Stretch="Fill" Grid.Column="1" Width="750" Height="750" VerticalAlignment="Top" />
         <Grid x:Name="SpelerStatusGrid" Height="172" Margin="8,8,6.388,0" VerticalAlignment="Top">
             <Grid Height="38" VerticalAlignment="Top">
                 <Label Name="GroenLabel"  Content="Groen" Margin="35,0,0,0" Foreground="White" FontWeight="Bold" FontSize="18.667" Background="#FF267235" />

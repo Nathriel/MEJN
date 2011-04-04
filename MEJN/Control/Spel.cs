@@ -56,36 +56,44 @@ namespace MEJN.Control
 
 		internal void spelOpslaan(string fileName)
 		{
-			//Savefile start
-			string saveFile = "MEJN;";
+			StringBuilder saveStringBuilder = new StringBuilder("MEJN;");
 
 			//Add players
-			saveFile += Spelers[0].Naam;
-			saveFile += ",";
-			saveFile += Spelers[1].Naam;
-			saveFile += ",";
-			saveFile += Spelers[2].Naam;
-			saveFile += ",";
-			saveFile += Spelers[3].Naam;
-			saveFile += ";";
+			saveStringBuilder.Append(Spelers[0].Naam);
+			saveStringBuilder.Append(",");
+			saveStringBuilder.Append(Spelers[1].Naam);
+			saveStringBuilder.Append(",");
+			saveStringBuilder.Append(Spelers[2].Naam);
+			saveStringBuilder.Append(",");
+			saveStringBuilder.Append(Spelers[3].Naam);
+			saveStringBuilder.Append(";");
 
 			//Turn
-			saveFile += WieIsErAanDeBeurt;
-			saveFile += ";";
+			saveStringBuilder.Append(WieIsErAanDeBeurt);
+			saveStringBuilder.Append(";");
 
 			//Board
-			saveFile += Bord.VakjesLijst.formatForSave();
+			saveStringBuilder.Append(Bord.VakjesLijst.formatForSave());
 
+			//Groen begin
+			saveStringBuilder.Append(Bord.GroenThuisbasis.formatForSave());
+			//Rood begin
+			saveStringBuilder.Append(Bord.RoodThuisbasis.formatForSave());
+			//Blauw begin
+			saveStringBuilder.Append(Bord.GeelThuisbasis.formatForSave());
+			//Geel begin
+			saveStringBuilder.Append(Bord.GroenThuisbasis.formatForSave());
+			 
 			//Groen finish
-			saveFile += Bord.GroenFinishvakjes.formatForSave();
+			saveStringBuilder.Append(Bord.GroenFinishvakjes.formatForSave());
 			//Rood finish
-			saveFile += Bord.RoodFinishvakjes.formatForSave();
+			saveStringBuilder.Append(Bord.RoodFinishvakjes.formatForSave());
 			//Blauw finish
-			saveFile += Bord.BlauwFinishvakjes.formatForSave();
+			saveStringBuilder.Append(Bord.BlauwFinishvakjes.formatForSave());
 			//Geel finish
-			saveFile += Bord.GeelFinishvakjes.formatForSave();
+			saveStringBuilder.Append(Bord.GeelFinishvakjes.formatForSave());
 
-			Console.Write(saveFile);
+			Console.WriteLine(saveStringBuilder);
 		}
 
 		internal void spelOpenen(string p)

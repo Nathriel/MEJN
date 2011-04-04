@@ -18,7 +18,17 @@ namespace MEJN.Model
 		public Beginvakje(Kleur kleur)
 		{
 			Kleur = kleur;
-			Pion = new Pion(Kleur);
+		}
+
+		override public string ToString()
+		{
+			string result = "bv";
+
+			if (Pion != null)
+			{
+				result += ((Pion.ToString() != string.Empty) ? Pion.ToString() : "");
+			}
+			return result;
 		}
 	}
 }
