@@ -42,6 +42,16 @@ namespace MEJN.Control
 			spelers = new List<Speler>();
 		}
 
+		internal void doFirstMove()
+		{
+			if (spelers[WieIsErAanDeBeurt-1].GetType() == typeof(Bot))
+			{
+				//Eerste speler is bot, doe eerste zet
+			}
+
+			//Wacht op speler input
+		}
+
 		public void beurtDoorgeven()
 		{
 			if (WieIsErAanDeBeurt == 4)
