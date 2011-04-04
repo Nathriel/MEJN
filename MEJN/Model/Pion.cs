@@ -19,5 +19,30 @@ namespace MEJN.Model
 		{
 			this.kleur = kleur;
 		}
+
+		override public string ToString()
+		{
+			if(kleur.Equals(Kleur.Groen))
+			{
+				return "gr";
+			}
+
+			if (kleur.Equals(Kleur.Rood))
+			{
+				return "ro";
+			}
+
+			if (kleur.Equals(Kleur.Blauw))
+			{
+				return "bl";
+			}
+
+			if (kleur.Equals(Kleur.Geel))
+			{
+				return "ge";
+			}
+
+			return "";
+		}
 	}
 }

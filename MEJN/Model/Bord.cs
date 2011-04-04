@@ -25,6 +25,28 @@ namespace MEJN.Model
 			set { vakjesLijst = value; }
 		}
 
+		internal LinkedList GroenFinishvakjes
+		{
+			get { return groenFinishvakjes; }
+			set { groenFinishvakjes = value; }
+		}
+
+		internal LinkedList RoodFinishvakjes
+		{
+			get { return roodFinishvakjes; }
+			set { roodFinishvakjes = value; }
+		}
+		internal LinkedList BlauwFinishvakjes
+		{
+			get { return blauwFinishvakjes; }
+			set { blauwFinishvakjes = value; }
+		}
+		internal LinkedList GeelFinishvakjes
+		{
+			get { return geelFinishvakjes; }
+			set { geelFinishvakjes = value; }
+		}
+
 		public Bord()
 		{
 			vakjesLijst = new LinkedList();
