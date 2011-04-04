@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MEJN.Model;
+using System.IO;
 
 namespace MEJN.Control
 {
@@ -66,6 +67,7 @@ namespace MEJN.Control
 
 		internal void spelOpslaan(string fileName)
 		{
+			//Start putting the save file together
 			StringBuilder saveStringBuilder = new StringBuilder("MEJN;");
 
 			//Add players
@@ -104,6 +106,11 @@ namespace MEJN.Control
 			saveStringBuilder.Append(Bord.GeelFinishvakjes.formatForSave());
 
 			Console.WriteLine(saveStringBuilder);
+
+			//Save the file
+			TextWriter tw = new StreamWriter(fileName);
+			tw.WriteLine(saveStringBuilder);
+			tw.Close();
 		}
 
 		internal void spelOpenen(string p)
