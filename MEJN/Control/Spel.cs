@@ -42,14 +42,18 @@ namespace MEJN.Control
 			spelers = new List<Speler>();
 		}
 
-		internal void doFirstMove()
+		internal void pionVerzetten(int vakGetal)
 		{
-			if (spelers[WieIsErAanDeBeurt-1].GetType() == typeof(Bot))
+			if (spelers[WieIsErAanDeBeurt - 1].GetType() == typeof(Bot))
 			{
-				//Eerste speler is bot, doe eerste zet
+				//Bot is aan zet
 			}
+			else
+			{
+				//Speler is aan zet
 
-			//Wacht op speler input
+				Bord.pionVerzetten(Dobbelsteen.Worp, vakGetal);
+			}
 		}
 
 		public void beurtDoorgeven()
@@ -62,6 +66,7 @@ namespace MEJN.Control
 			{
 				WieIsErAanDeBeurt++;
 			}
+			Dobbelsteen.switchGegooid();
 		}
 
 		internal void spelOpslaan(string fileName)

@@ -113,5 +113,24 @@ namespace MEJN.Model
 			}
 			return leng;
 		}
+
+		public Vakje zoekOpVakGetal(int vakGetal)
+		{
+			Link current = first;
+			int count = 0;
+			Vakje ret = new Vakje();
+			while (current != null)
+			{
+				if (count == vakGetal)
+				{
+					ret = current.IData;
+					Console.WriteLine("Found it!" + current.IData);
+					break;
+				}
+				count++;
+				current = current.Next;
+			}
+			return ret;
+		}
 	}
 }

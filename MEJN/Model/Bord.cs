@@ -84,6 +84,11 @@ namespace MEJN.Model
 			vulLijsten();
 		}
 
+		public void pionVerzetten(int worp, int vakGetal)
+		{
+
+		}
+
 		private void vulLijsten()
 		{
 			///Thuisbasis

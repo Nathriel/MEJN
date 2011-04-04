@@ -269,8 +269,10 @@ namespace MEJN
 		private void vak_MouseUp(object sender, MouseEventArgs e)
 		{
 			Image clickedObject = sender as Image;
+			int vakGetal = Int32.Parse(clickedObject.Name.Substring(3));
 
-			
+			viewcontrol.Spel.pionVerzetten(vakGetal);
+			BeurtDoorgeven();
 		}
 
 		private void vak_MouseEnter(object sender, MouseEventArgs e)
