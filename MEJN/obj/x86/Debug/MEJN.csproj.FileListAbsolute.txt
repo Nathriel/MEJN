@@ -68,3 +68,20 @@ C:\Users\Ganonmaster\Desktop\Meuk\School\MEJN\MEJN\obj\x86\Debug\MEJN.g.resource
 C:\Users\Ganonmaster\Desktop\Meuk\School\MEJN\MEJN\obj\x86\Debug\MEJN.Properties.Resources.resources
 C:\Users\Ganonmaster\Desktop\Meuk\School\MEJN\MEJN\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Ganonmaster\Desktop\Meuk\School\MEJN\MEJN\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN.exe
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN.pdb
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\View\GameBoard.baml
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\Simple Styles.baml
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\View\GameBoard.g.cs
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\View\MainWindow.g.cs
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\App.g.cs
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN_MarkupCompile.cache
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN_MarkupCompile.lref
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\bin\Debug\MEJN.exe
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\bin\Debug\MEJN.pdb
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\View\MainWindow.baml
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN.g.resources
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\MEJN.Properties.Resources.resources
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Nathriel\Documents\My Dropbox\Visual Studio projects\MEJN\MEJN\obj\x86\Debug\GenerateResource.write.1.tlog

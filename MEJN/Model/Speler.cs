@@ -46,10 +46,16 @@ namespace MEJN.Model
 			pionnen.Add(new Pion(kleur));
 			pionnen.Add(new Pion(kleur));
 
-			if (naam == "Doet niet mee")
+		}
+
+		internal void doFirstMove()
+		{
+			if (this.GetType() == typeof(Bot))
 			{
-				active = false;
+				//Eerste speler is bot, doe eerste zet
 			}
+
+			//Wacht op speler input
 		}
 	}
 }

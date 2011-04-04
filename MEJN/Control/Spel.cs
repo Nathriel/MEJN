@@ -42,14 +42,16 @@ namespace MEJN.Control
 			spelers = new List<Speler>();
 		}
 
-		internal void doFirstMove()
+		public void beurtDoorgeven()
 		{
-			if (spelers[0].GetType() == typeof(Bot))
+			if (WieIsErAanDeBeurt == 4)
 			{
-				//Eerste speler is bot, doe eerste zet
+				WieIsErAanDeBeurt = 1;
 			}
-
-			//Wacht op speler input
+			else
+			{
+				WieIsErAanDeBeurt++;
+			}
 		}
 
 		internal void spelOpslaan(string fileName)

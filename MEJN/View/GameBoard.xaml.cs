@@ -270,7 +270,7 @@ namespace MEJN
 		{
 			Image clickedObject = sender as Image;
 
-
+			BeurtDoorgeven();
 		}
 
 		private void vak_MouseEnter(object sender, MouseEventArgs e)
@@ -281,6 +281,48 @@ namespace MEJN
 		private void vak_MouseLeave(object sender, MouseEventArgs e)
 		{
 			makeCursorArrow();
+		}
+
+		private void turnindicatorSwitch(Image img)
+		{
+			String tempSource = img.Source.ToString().Substring(48);
+
+			if (tempSource == "turnindicator.png")
+			{
+				img.Source = new BitmapImage(new Uri("/MEJN;component/Resources/turnindicatornotactive.png", UriKind.Relative));
+			}
+			else
+			{
+				img.Source = new BitmapImage(new Uri("/MEJN;component/Resources/turnindicator.png", UriKind.Relative));
+			}
+		}
+
+		private void BeurtDoorgeven()
+		{
+			viewcontrol.Spel.beurtDoorgeven();
+
+			int WieIsErAanDeBeurt = viewcontrol.Spel.WieIsErAanDeBeurt;
+
+			if (WieIsErAanDeBeurt == 1)
+			{
+				turnindicatorSwitch(Speler1Turnindicator);
+				turnindicatorSwitch(Speler4Turnindicator);
+			}
+			else if (WieIsErAanDeBeurt == 2)
+			{
+				turnindicatorSwitch(Speler2Turnindicator);
+				turnindicatorSwitch(Speler1Turnindicator);
+			}
+			else if (WieIsErAanDeBeurt == 3)
+			{
+				turnindicatorSwitch(Speler3Turnindicator);
+				turnindicatorSwitch(Speler2Turnindicator);
+			}
+			else if (WieIsErAanDeBeurt == 4)
+			{
+				turnindicatorSwitch(Speler4Turnindicator);
+				turnindicatorSwitch(Speler3Turnindicator);
+			}
 		}
 	}
 }
