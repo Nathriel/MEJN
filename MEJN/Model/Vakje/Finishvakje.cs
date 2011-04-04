@@ -19,5 +19,6 @@ namespace MEJN.Model
 		{
 			Kleur = kleur;
 		}
+
 	}
 }

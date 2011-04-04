@@ -56,7 +56,36 @@ namespace MEJN.Control
 
 		internal void spelOpslaan(string fileName)
 		{
-			//Doe eens opslaan hier
+			//Savefile start
+			string saveFile = "MEJN;";
+
+			//Add players
+			saveFile += Spelers[0].Naam;
+			saveFile += ",";
+			saveFile += Spelers[1].Naam;
+			saveFile += ",";
+			saveFile += Spelers[2].Naam;
+			saveFile += ",";
+			saveFile += Spelers[3].Naam;
+			saveFile += ";";
+
+			//Turn
+			saveFile += WieIsErAanDeBeurt;
+			saveFile += ";";
+
+			//Board
+			saveFile += Bord.VakjesLijst.formatForSave();
+
+			//Groen finish
+			saveFile += Bord.GroenFinishvakjes.formatForSave();
+			//Rood finish
+			saveFile += Bord.RoodFinishvakjes.formatForSave();
+			//Blauw finish
+			saveFile += Bord.BlauwFinishvakjes.formatForSave();
+			//Geel finish
+			saveFile += Bord.GeelFinishvakjes.formatForSave();
+
+			Console.Write(saveFile);
 		}
 
 		internal void spelOpenen(string p)

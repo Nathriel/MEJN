@@ -51,6 +51,27 @@ namespace MEJN.Model
 			Console.WriteLine("");
 		}
 
+		public string formatForSave()
+		{
+			string saveString = "";
+			Link current = first;
+			int i = 1;
+			while (current != null)
+			{
+				saveString += current.IData.ToString();
+
+				current = current.Next;
+				i++;
+				if (current == last.Next)
+				{
+					saveString += ";";
+					break;
+				}
+				saveString += ",";
+			}
+			return saveString;
+		}
+
 		public void insertFirst(Vakje vakje)
 		{
 			Link newLink = new Link(vakje);
