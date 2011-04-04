@@ -270,7 +270,7 @@ namespace MEJN
 		{
 			Image clickedObject = sender as Image;
 
-			BeurtDoorgeven();
+			
 		}
 
 		private void vak_MouseEnter(object sender, MouseEventArgs e)
