@@ -38,6 +38,7 @@ namespace MEJN.Control
 		public Spel()
 		{
 			bord = new Bord();
+			bord.vulLijsten();
 			dobbelsteen = new Dobbelsteen();
 			wieIsErAanDeBeurt = 1;
 			spelers = new List<Speler>();
@@ -322,7 +323,97 @@ namespace MEJN.Control
 
 		internal void spelOpenen(string p)
 		{
-			//Doe eens laden hier
+			//Open file
+			TextReader tr = new StreamReader(p);
+			string savefile = tr.ReadToEnd();
+			tr.Close();
+
+			//Split the save file into chunks
+			string[] fileChunks = savefile.Split(';');
+			
+			//We need at least 12 parts
+			if (fileChunks.Length < 12)
+			{
+				Console.WriteLine(fileChunks.Length);
+				return;
+			}
+
+			int beurt = 0;
+			List<Speler> spelertemp = new List<Speler>();
+			Bord bordtemp = new Bord();
+
+			//Let's roll through the parts
+			for (int i=0; i < fileChunks.Length; i++)
+			{
+				//Check for MEJN prefix
+				if (i == 0)
+				{
+					if (!fileChunks[i].Equals("MEJN"))
+					{
+						return;
+					}
+				}
+
+				//Check for players
+				if (i == 1)
+				{
+					//Split the save file into chunks
+					string[] players = fileChunks[i].Split(',');
+					Console.WriteLine(players);
+					if (players.Length != 4)
+					{
+						return;
+					}
+					for (int j = 0; j < players.Length; j++ )
+					{
+						Kleur kleurtje = Kleur.Groen;
+						switch(j)
+						{
+							case 0:
+								kleurtje = Kleur.Groen;
+							break;
+							case 1:
+								kleurtje = Kleur.Rood;
+							break;
+							case 2:
+								kleurtje = Kleur.Geel;
+							break;
+							case 3:
+								kleurtje = Kleur.Blauw;
+							break;
+						}
+						Speler eenSpeler = new Speler(players[j], kleurtje);
+						spelertemp.Add(eenSpeler);
+					}
+				}
+				
+				//Check beurt
+				if (i == 2)
+				{
+					beurt = Convert.ToInt32(fileChunks[i]);
+					if (beurt < 1 || beurt > 4)
+					{
+						return;
+					}
+				}
+
+				//Check bord
+				if (i == 3)
+				{
+					beurt = Convert.ToInt32(fileChunks[i]);
+					if (beurt < 1 || beurt > 4)
+					{
+						return;
+					}
+				}
+
+				Console.WriteLine(i);
+				Console.WriteLine(fileChunks[i]);
+
+				Spelers.Clear();
+				Spelers = spelertemp;
+				wieIsErAanDeBeurt = beurt;
+			}
 		}
 	}
 }

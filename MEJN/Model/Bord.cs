@@ -80,11 +80,9 @@ namespace MEJN.Model
 			roodThuisbasis = new LinkedList();
 			blauwThuisbasis = new LinkedList();
 			geelThuisbasis = new LinkedList();
-
-			vulLijsten();
 		}
 
-		private void vulLijsten()
+		internal void vulLijsten()
 		{
 			///Thuisbasis
 			//GROEN
