@@ -86,7 +86,9 @@ namespace MEJN.Model
 
 		public void pionVerzetten(int worp, int vakGetal)
 		{
+			VakjesLijst.pionVerzetten(vakGetal, worp);
 
+			Console.WriteLine(VakjesLijst.formatForSave());
 		}
 
 		private void vulLijsten()
@@ -182,25 +184,6 @@ namespace MEJN.Model
 
 			for (int i = 0; i < 4; i++)
 			{
-				Beginvakje tempBeginVakje = new Beginvakje(Kleur.Groen);
-
-				if (i == 0)
-				{
-					tempBeginVakje = new Beginvakje(Kleur.Groen);
-				}
-				else if (i == 1)
-				{
-					tempBeginVakje = new Beginvakje(Kleur.Rood);
-				}
-				else if (i == 2)
-				{
-					tempBeginVakje = new Beginvakje(Kleur.Blauw);
-				}
-				else if (i == 3)
-				{
-					tempBeginVakje = new Beginvakje(Kleur.Geel);
-				}
-				vakjesLijst.insertFirst(tempBeginVakje);
 
 				for (int j = 0; j < 9; j++)
 				{
@@ -225,6 +208,26 @@ namespace MEJN.Model
 						}
 					}
 				}
+
+				Beginvakje tempBeginVakje = new Beginvakje(Kleur.Groen);
+
+				if (i == 0)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Groen);
+				}
+				else if (i == 1)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Rood);
+				}
+				else if (i == 2)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Blauw);
+				}
+				else if (i == 3)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Geel);
+				}
+				vakjesLijst.insertFirst(tempBeginVakje);
 			}
 			VakjesLijst.Last.Next = VakjesLijst.First;
 		}

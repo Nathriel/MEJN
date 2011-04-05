@@ -17,7 +17,7 @@ namespace MEJN
 	public partial class GameBoard : Window
 	{
 		private ViewController viewcontrol;
-		private LinkedList<Image> vakImageLijst;
+		private List<Image> vakImageLijst;
 		private List<ImageSource> dobbelsteenImages;
 
 		private List<Image> groenFinishImages;
@@ -34,7 +34,7 @@ namespace MEJN
 		{	get { return viewcontrol; }
 			set { viewcontrol = value; }
 		}
-		public LinkedList<Image> VakImageLijst
+		public List<Image> VakImageLijst
 		{
 			get { return vakImageLijst; }
 			set { vakImageLijst = value; }
@@ -44,7 +44,7 @@ namespace MEJN
 		{
 			this.InitializeComponent();
 			this.viewcontrol = viewcontrol;
-			vakImageLijst = new LinkedList<Image>();
+			vakImageLijst = new List<Image>();
 			dobbelsteenImages = new List<ImageSource>();
 
 			groenFinishImages = new List<Image>();
@@ -64,6 +64,8 @@ namespace MEJN
 			BlauwLabel.Content = spelers[2].Naam;
 			GeelLabel.Content = spelers[3].Naam;
 
+			Viewcontrol.Spel.startPositie();
+
 			vulImageLijst();
 		}
 
@@ -78,91 +80,91 @@ namespace MEJN
 			dobbelsteenImages.Add(new BitmapImage(new Uri("/MEJN;component/Resources/dobbelzes.png", UriKind.Relative)));
 
 			// Finish imagecollectie vullen
-			groenFinishImages.Add(groenFinish1);
-			groenFinishImages.Add(groenFinish2);
-			groenFinishImages.Add(groenFinish3);
-			groenFinishImages.Add(groenFinish4);
+			groenFinishImages.Add(grFin1);
+			groenFinishImages.Add(grFin2);
+			groenFinishImages.Add(grFin3);
+			groenFinishImages.Add(grFin4);
 
-			roodFinishImages.Add(roodFinish1);
-			roodFinishImages.Add(roodFinish2);
-			roodFinishImages.Add(roodFinish3);
-			roodFinishImages.Add(roodFinish4);
+			roodFinishImages.Add(roFin1);
+			roodFinishImages.Add(roFin2);
+			roodFinishImages.Add(roFin3);
+			roodFinishImages.Add(roFin4);
 
-			blauwFinishImages.Add(blauwFinish1);
-			blauwFinishImages.Add(blauwFinish2);
-			blauwFinishImages.Add(blauwFinish3);
-			blauwFinishImages.Add(blauwFinish4);
+			blauwFinishImages.Add(blFin1);
+			blauwFinishImages.Add(blFin2);
+			blauwFinishImages.Add(blFin3);
+			blauwFinishImages.Add(blFin4);
 
-			geelFinishImages.Add(geelFinish1);
-			geelFinishImages.Add(geelFinish2);
-			geelFinishImages.Add(geelFinish3);
-			geelFinishImages.Add(geelFinish4);
+			geelFinishImages.Add(geFin1);
+			geelFinishImages.Add(geFin2);
+			geelFinishImages.Add(geFin3);
+			geelFinishImages.Add(geFin4);
 
 			// Thuisbasis imagecollectie vullen
-			groenThuisImages.Add(groenThuis1);
-			groenThuisImages.Add(groenThuis2);
-			groenThuisImages.Add(groenThuis3);
-			groenThuisImages.Add(groenThuis4);
+			groenThuisImages.Add(grThu1);
+			groenThuisImages.Add(grThu2);
+			groenThuisImages.Add(grThu3);
+			groenThuisImages.Add(grThu4);
 
-			roodThuisImages.Add(roodThuis1);
-			roodThuisImages.Add(roodThuis2);
-			roodThuisImages.Add(roodThuis3);
-			roodThuisImages.Add(roodThuis4);
+			roodThuisImages.Add(roThu1);
+			roodThuisImages.Add(roThu2);
+			roodThuisImages.Add(roThu3);
+			roodThuisImages.Add(roThu4);
 
-			blauwThuisImages.Add(blauwThuis1);
-			blauwThuisImages.Add(blauwThuis2);
-			blauwThuisImages.Add(blauwThuis3);
-			blauwThuisImages.Add(blauwThuis4);
+			blauwThuisImages.Add(blThu1);
+			blauwThuisImages.Add(blThu2);
+			blauwThuisImages.Add(blThu3);
+			blauwThuisImages.Add(blThu4);
 
-			geelThuisImages.Add(geelThuis1);
-			geelThuisImages.Add(geelThuis2);
-			geelThuisImages.Add(geelThuis3);
-			geelThuisImages.Add(geelThuis4);
+			geelThuisImages.Add(geThu1);
+			geelThuisImages.Add(geThu2);
+			geelThuisImages.Add(geThu3);
+			geelThuisImages.Add(geThu4);
 
 			// normale image lijst vullen
-			vakImageLijst.AddFirst(vak1);
-			vakImageLijst.AddFirst(vak2);
-			vakImageLijst.AddFirst(vak3);
-			vakImageLijst.AddFirst(vak4);
-			vakImageLijst.AddFirst(vak5);
-			vakImageLijst.AddFirst(vak6);
-			vakImageLijst.AddFirst(vak7);
-			vakImageLijst.AddFirst(vak8);
-			vakImageLijst.AddFirst(vak9);
-			vakImageLijst.AddFirst(vak10);
+			vakImageLijst.Add(vakje1);
+			vakImageLijst.Add(vakje2);
+			vakImageLijst.Add(vakje3);
+			vakImageLijst.Add(vakje4);
+			vakImageLijst.Add(vakje5);
+			vakImageLijst.Add(vakje6);
+			vakImageLijst.Add(vakje7);
+			vakImageLijst.Add(vakje8);
+			vakImageLijst.Add(vakje9);
+			vakImageLijst.Add(vakje10);
 
-			vakImageLijst.AddFirst(vak11);
-			vakImageLijst.AddFirst(vak12);
-			vakImageLijst.AddFirst(vak13);
-			vakImageLijst.AddFirst(vak14);
-			vakImageLijst.AddFirst(vak15);
-			vakImageLijst.AddFirst(vak16);
-			vakImageLijst.AddFirst(vak17);
-			vakImageLijst.AddFirst(vak18);
-			vakImageLijst.AddFirst(vak19);
-			vakImageLijst.AddFirst(vak20);
+			vakImageLijst.Add(vakje11);
+			vakImageLijst.Add(vakje12);
+			vakImageLijst.Add(vakje13);
+			vakImageLijst.Add(vakje14);
+			vakImageLijst.Add(vakje15);
+			vakImageLijst.Add(vakje16);
+			vakImageLijst.Add(vakje17);
+			vakImageLijst.Add(vakje18);
+			vakImageLijst.Add(vakje19);
+			vakImageLijst.Add(vakje20);
 			
-			vakImageLijst.AddFirst(vak21);
-			vakImageLijst.AddFirst(vak22);
-			vakImageLijst.AddFirst(vak23);
-			vakImageLijst.AddFirst(vak24);
-			vakImageLijst.AddFirst(vak25);
-			vakImageLijst.AddFirst(vak26);
-			vakImageLijst.AddFirst(vak27);
-			vakImageLijst.AddFirst(vak28);
-			vakImageLijst.AddFirst(vak29);
-			vakImageLijst.AddFirst(vak30);
+			vakImageLijst.Add(vakje21);
+			vakImageLijst.Add(vakje22);
+			vakImageLijst.Add(vakje23);
+			vakImageLijst.Add(vakje24);
+			vakImageLijst.Add(vakje25);
+			vakImageLijst.Add(vakje26);
+			vakImageLijst.Add(vakje27);
+			vakImageLijst.Add(vakje28);
+			vakImageLijst.Add(vakje29);
+			vakImageLijst.Add(vakje30);
 			
-			vakImageLijst.AddFirst(vak31);
-			vakImageLijst.AddFirst(vak32);
-			vakImageLijst.AddFirst(vak33);
-			vakImageLijst.AddFirst(vak34);
-			vakImageLijst.AddFirst(vak35);
-			vakImageLijst.AddFirst(vak36);
-			vakImageLijst.AddFirst(vak37);
-			vakImageLijst.AddFirst(vak38);
-			vakImageLijst.AddFirst(vak39);
-			vakImageLijst.AddFirst(vak40);
+			vakImageLijst.Add(vakje31);
+			vakImageLijst.Add(vakje32);
+			vakImageLijst.Add(vakje33);
+			vakImageLijst.Add(vakje34);
+			vakImageLijst.Add(vakje35);
+			vakImageLijst.Add(vakje36);
+			vakImageLijst.Add(vakje37);
+			vakImageLijst.Add(vakje38);
+			vakImageLijst.Add(vakje39);
+			vakImageLijst.Add(vakje40);
 		}
 
 		private void vakImageChange(Image vakImage)
@@ -269,10 +271,14 @@ namespace MEJN
 		private void vak_MouseUp(object sender, MouseEventArgs e)
 		{
 			Image clickedObject = sender as Image;
-			int vakGetal = Int32.Parse(clickedObject.Name.Substring(3));
+			String soort = clickedObject.Name.Substring(0, 5);
+			int vakGetal = Int32.Parse(clickedObject.Name.Substring(5));
 
-			viewcontrol.Spel.pionVerzetten(vakGetal);
-			BeurtDoorgeven();
+			if (viewcontrol.Spel.pionVerzetten(vakGetal, soort))
+			{
+				BeurtDoorgeven();
+			}
+			
 		}
 
 		private void vak_MouseEnter(object sender, MouseEventArgs e)

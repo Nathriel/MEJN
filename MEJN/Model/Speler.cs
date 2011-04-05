@@ -34,7 +34,7 @@ namespace MEJN.Model
 			set { pionnen = value; }
 		}
 
-		public Speler(String naam ,Kleur kleur)
+		public Speler(String naam, Kleur kleur)
 		{
 			this.naam = naam;
 			this.kleur = kleur;
@@ -45,7 +45,6 @@ namespace MEJN.Model
 			pionnen.Add(new Pion(kleur));
 			pionnen.Add(new Pion(kleur));
 			pionnen.Add(new Pion(kleur));
-
 		}
 	}
 }

@@ -9,7 +9,7 @@ namespace MEJN.Model
 	{
 		private Pion pion;
 
-		protected Pion Pion
+		public Pion Pion
 		{
 			get { return pion; }
 			set { pion = value; }

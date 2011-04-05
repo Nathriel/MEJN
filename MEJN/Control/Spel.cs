@@ -43,18 +43,87 @@ namespace MEJN.Control
 			spelers = new List<Speler>();
 		}
 
-		internal void pionVerzetten(int vakGetal)
+		public void startPositie()
 		{
-			if (spelers[WieIsErAanDeBeurt - 1].GetType() == typeof(Bot))
-			{
-				//Bot is aan zet
-			}
-			else
-			{
-				//Speler is aan zet
+			Bord.VakjesLijst.zetPion(spelers[0].Pionnen[0], 1);
+			Bord.VakjesLijst.zetPion(spelers[1].Pionnen[0], 11);
+			Bord.VakjesLijst.zetPion(spelers[2].Pionnen[0], 21);
+			Bord.VakjesLijst.zetPion(spelers[3].Pionnen[0], 31);
 
-				Bord.pionVerzetten(Dobbelsteen.Worp, vakGetal);
+			Console.WriteLine(Bord.VakjesLijst.formatForSave());
+		}
+
+		internal Boolean pionVerzetten(int vakGetal, String soort)
+		{
+			Boolean ret = false;
+			Speler aanZet = spelers[WieIsErAanDeBeurt-1];
+			if (Dobbelsteen.Gegooid == true)
+			{
+				if (aanZet.GetType() == typeof(Bot))
+				{
+					//Bot is aan zet
+					ret = true;
+				}
+				else
+				{
+					//Speler is aan zet
+					if (soort == "vakje")
+					{
+						//vakjeslijst
+						Bord.pionVerzetten(Dobbelsteen.Worp, vakGetal);
+						ret = true;
+					}
+					else if (soort == "grThu")
+					{
+						//groen thuisbasis
+						if (aanZet.Kleur == Kleur.Groen && Dobbelsteen.Worp == 6)
+						{
+							ret = true;
+						}
+					}
+					else if (soort == "roThu")
+					{
+						//rood thuisbasis
+						if (aanZet.Kleur == Kleur.Rood && Dobbelsteen.Worp == 6)
+						{
+							ret = true;
+						}
+					}
+					else if (soort == "blThu")
+					{
+						//blauw thuisbasis
+						if (aanZet.Kleur == Kleur.Blauw && Dobbelsteen.Worp == 6)
+						{
+							ret = true;
+						}
+					}
+					else if (soort == "geThu")
+					{
+						//geel thuisbasis
+						if (aanZet.Kleur == Kleur.Geel && Dobbelsteen.Worp == 6)
+						{
+							ret = true;
+						}
+					}
+					else if (soort == "grFin")
+					{
+						//groen Finish
+					}
+					else if (soort == "roFin")
+					{
+						//rood Finish
+					}
+					else if (soort == "blFin")
+					{
+						//blauw Finish
+					}
+					else if (soort == "geFin")
+					{
+						//geel Finish
+					}
+				}
 			}
+			return ret;
 		}
 
 		public void beurtDoorgeven()
