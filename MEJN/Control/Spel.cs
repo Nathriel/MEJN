@@ -81,19 +81,19 @@ namespace MEJN.Control
 		private int zoekLeegThuisVak(LinkedList thuisbasis)
 		{
 			int ret = 0;
-			if (thuisbasis.zoekOpVakGetal(4).isBezet() == false)
+			if (thuisbasis.zoekOpVakGetal(4).IData.isBezet() == false)
 			{
 				ret = 4;
 			}
-			else if (thuisbasis.zoekOpVakGetal(3).isBezet() == false)
+			else if (thuisbasis.zoekOpVakGetal(3).IData.isBezet() == false)
 			{
 				ret = 3;
 			}
-			else if (thuisbasis.zoekOpVakGetal(2).isBezet() == false)
+			else if (thuisbasis.zoekOpVakGetal(2).IData.isBezet() == false)
 			{
 				ret = 2;
 			}
-			else if (thuisbasis.zoekOpVakGetal(1).isBezet() == false)
+			else if (thuisbasis.zoekOpVakGetal(1).IData.isBezet() == false)
 			{
 				ret = 1;
 			}
@@ -142,14 +142,35 @@ namespace MEJN.Control
 					if (soort == "vakje")
 					{
 						//vakjeslijst
-						Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal + worp);
+						Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal + worp).IData;
 						if (vakje.isBezet())
 						{
 							TerugNaarThuisbasis(vakje.Pion);
 						}
 
-						if (Bord.VakjesLijst.pionVerzetten(vakGetal, Dobbelsteen.Worp, aanZet.Kleur))
+						Link link = Bord.VakjesLijst.pionVerzetten(vakGetal, Dobbelsteen.Worp, aanZet.Kleur);
+						if (link.Previous != null)
 						{
+							Vakje tempVakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData;
+							int stepsLeft = Bord.VakjesLijst.StepsLeft;
+
+							if (link == Bord.GroenFinishvakjes.First)
+							{
+								Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+							}
+							else if (link == Bord.RoodFinishvakjes.First)
+							{
+								Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+							}
+							else if (link == Bord.BlauwFinishvakjes.First)
+							{
+								Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+							}
+							else if (link == Bord.GeelFinishvakjes.First)
+							{
+								Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+							}
+							tempVakje.Pion = null;
 							ret = worp;
 							consolePrint();
 						}
@@ -159,8 +180,8 @@ namespace MEJN.Control
 						//groen thuisbasis
 						if (aanZet.Kleur == Kleur.Groen && Dobbelsteen.Worp == 6)
 						{
-							Vakje thuisbasisVakje = Bord.GroenThuisbasis.zoekOpVakGetal(vakGetal);
-							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(1);
+							Vakje thuisbasisVakje = Bord.GroenThuisbasis.zoekOpVakGetal(vakGetal).IData;
+							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(1).IData;
 							if (thuisbasisVakje.isBezet())
 							{
 								Pion tempPion = thuisbasisVakje.Pion;
@@ -180,8 +201,8 @@ namespace MEJN.Control
 						//rood thuisbasis
 						if (aanZet.Kleur == Kleur.Rood && Dobbelsteen.Worp == 6)
 						{
-							Vakje thuisbasisVakje = Bord.RoodThuisbasis.zoekOpVakGetal(vakGetal);
-							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(11);
+							Vakje thuisbasisVakje = Bord.RoodThuisbasis.zoekOpVakGetal(vakGetal).IData;
+							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(11).IData;
 							if (thuisbasisVakje.isBezet())
 							{
 								Pion tempPion = thuisbasisVakje.Pion;
@@ -201,8 +222,8 @@ namespace MEJN.Control
 						//blauw thuisbasis
 						if (aanZet.Kleur == Kleur.Blauw && Dobbelsteen.Worp == 6)
 						{
-							Vakje thuisbasisVakje = Bord.BlauwThuisbasis.zoekOpVakGetal(vakGetal);
-							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(21);
+							Vakje thuisbasisVakje = Bord.BlauwThuisbasis.zoekOpVakGetal(vakGetal).IData;
+							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(21).IData;
 							if (thuisbasisVakje.isBezet())
 							{
 								Pion tempPion = thuisbasisVakje.Pion;
@@ -222,8 +243,8 @@ namespace MEJN.Control
 						//geel thuisbasis
 						if (aanZet.Kleur == Kleur.Geel && Dobbelsteen.Worp == 6)
 						{
-							Vakje thuisbasisVakje = Bord.GeelThuisbasis.zoekOpVakGetal(vakGetal);
-							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(31);
+							Vakje thuisbasisVakje = Bord.GeelThuisbasis.zoekOpVakGetal(vakGetal).IData;
+							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(31).IData;
 							if (thuisbasisVakje.isBezet())
 							{
 								Pion tempPion = thuisbasisVakje.Pion;
@@ -237,22 +258,6 @@ namespace MEJN.Control
 							}
 							ret = worp;
 						}
-					}
-					else if (soort == "grFin")
-					{
-						//groen Finish
-					}
-					else if (soort == "roFin")
-					{
-						//rood Finish
-					}
-					else if (soort == "blFin")
-					{
-						//blauw Finish
-					}
-					else if (soort == "geFin")
-					{
-						//geel Finish
 					}
 				}
 			}

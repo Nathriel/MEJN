@@ -220,6 +220,7 @@ namespace MEJN.Model
 				vakjesLijst.insertFirst(tempBeginVakje);
 			}
 			VakjesLijst.Last.Next = VakjesLijst.First;
+			VakjesLijst.First.Previous = VakjesLijst.Last;
 		}
 	}
 }

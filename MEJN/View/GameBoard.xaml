@@ -100,25 +100,25 @@
         		</LinearGradientBrush>
         	</Button.Background>
         </Button>
-        <Image Height="39" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="368,88,0,0" Name="grFin1" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="39" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="367,155,0,0" Name="grFin2" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="39" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="368,223,0,0" Name="grFin3" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="39" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="368,291,0,0" Name="grFin4" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="368,88,0,0" Name="grFin1" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="367,155,0,0" Name="grFin2" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="368,223,0,0" Name="grFin3" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="368,291,0,0" Name="grFin4" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
         
-        <Image Height="40" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="638,358,0,0" Name="roFin1" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="40" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="571,359,0,0" Name="roFin2" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="40" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="504,359,0,0" Name="roFin3" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="40" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="435,360,0,0" Name="roFin4" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="40" HorizontalAlignment="Left" Margin="638,358,0,0" Name="roFin1" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="40" HorizontalAlignment="Left" Margin="571,359,0,0" Name="roFin2" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="40" HorizontalAlignment="Left" Margin="504,359,0,0" Name="roFin3" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="40" HorizontalAlignment="Left" Margin="435,360,0,0" Name="roFin4" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
         
-        <Image Height="39" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="368,634,0,0" Name="blFin1" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="39" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="368,565,0,0" Name="blFin2" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="40" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="368,496,0,0" Name="blFin3" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="39" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="367,429,0,0" Name="blFin4" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="368,634,0,0" Name="blFin1" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="368,565,0,0" Name="blFin2" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="40" HorizontalAlignment="Left" Margin="368,496,0,0" Name="blFin3" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="39" HorizontalAlignment="Left" Margin="367,429,0,0" Name="blFin4" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
 
-        <Image Height="40" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="97,362,0,0" Name="geFin1" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="40" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="165,361,0,0" Name="geFin2" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="40" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="233,361,0,0" Name="geFin3" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
-        <Image Height="40" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="299,360,0,0" Name="geFin4" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="40" HorizontalAlignment="Left" Margin="97,362,0,0" Name="geFin1" Stretch="Fill" VerticalAlignment="Top" Width="40" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="40" HorizontalAlignment="Left" Margin="165,361,0,0" Name="geFin2" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="40" HorizontalAlignment="Left" Margin="233,361,0,0" Name="geFin3" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
+        <Image Height="40" HorizontalAlignment="Left" Margin="299,360,0,0" Name="geFin4" Stretch="Fill" VerticalAlignment="Top" Width="39" Grid.Column="1" Source="/MEJN;component/Resources/noimage.png" />
 
 
         <Image Height="45" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="637,17,0,0" Name="grThu1" Source="/MEJN;component/Resources/noimage.png" Stretch="Fill" VerticalAlignment="Top" Width="45" Grid.Column="1" />

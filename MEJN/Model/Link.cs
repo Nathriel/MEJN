@@ -42,5 +42,17 @@ namespace MEJN.Model
 		{
 			Console.Write("{" + iData);
 		}
+
+		public Boolean heeftFinishLink()
+		{
+			Boolean ret = false;
+
+			if(Finish != null)
+			{
+				ret = true;
+			}
+
+			return ret;
+		}
 	}
 }

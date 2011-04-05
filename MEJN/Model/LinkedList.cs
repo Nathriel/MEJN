@@ -9,6 +9,7 @@ namespace MEJN.Model
 	{
 		private Link first;
 		private Link last;
+		private int stepsLeft;
 
 		internal Link First
 		{
@@ -20,11 +21,17 @@ namespace MEJN.Model
 			get { return last; }
 			set { last = value; }
 		}
+		public int StepsLeft
+		{
+			get { return stepsLeft; }
+			set { stepsLeft = value; }
+		}
 
 		public LinkedList()
 		{
 			first = null;
 			last = null;
+			stepsLeft = 0;
 		}
 
 		public Boolean isEmpty()
@@ -114,38 +121,85 @@ namespace MEJN.Model
 			return leng;
 		}
 
-		public Vakje zoekOpVakGetal(int vakGetal)
+		public Link zoekOpVakGetal(int vakGetal)
 		{
 			Link current = first;
 			for(int i = 1; i < vakGetal; i++)
 			{
 				current = current.Next;
 			}
-			return current.IData;
+			return current;
+		}
+
+		private Link zoekOpVakGetalMetControle(int vakGetal, Kleur wieIsErAanDeBeurt)
+		{
+			Link current = first;
+			for (int i = 1; i < vakGetal; i++)
+			{
+				Vakje next = current.Next.IData;
+				if (next.GetType() == typeof(Beginvakje))
+				{
+					Beginvakje nextFinish = next as Beginvakje;
+					if (nextFinish.Kleur == wieIsErAanDeBeurt)
+					{
+						current = current.Finish;
+						StepsLeft = vakGetal - i;
+						break;
+					}
+				}
+				else
+				{
+					current = current.Next;
+				}
+			}
+			return current;
 		}
 
 		public void zetPion(Pion pion, int zoekNummer)
 		{
-			Vakje vakje = zoekOpVakGetal(zoekNummer);
-			vakje.Pion = pion;
+			Link vakje = zoekOpVakGetal(zoekNummer);
+			vakje.IData.Pion = pion;
 		}
 
-		public Boolean pionVerzetten(int vakGetal, int worp, Kleur wieIsErAanDeBeurt)
+		public Link pionVerzetten(int vakGetal, int worp, Kleur wieIsErAanDeBeurt)
 		{
-			Boolean ret = false;
-			Vakje start = zoekOpVakGetal(vakGetal);
-			Vakje end = zoekOpVakGetal(vakGetal + worp);
+			Link ret = null;
+			Link start = zoekOpVakGetal(vakGetal);
+			Link end = zoekOpVakGetalMetControle(vakGetal + worp, wieIsErAanDeBeurt);
 
-			if (start.Pion != null)
+			if (end.Previous != null)
 			{
-				if (start.Pion.Kleur == wieIsErAanDeBeurt)
+				if (start.IData.Pion != null)
 				{
-					end.Pion = start.Pion;
-					start.Pion = null;
-					ret = true;
+					if (start.IData.Pion.Kleur == wieIsErAanDeBeurt)
+					{
+						end.IData.Pion = start.IData.Pion;
+						start.IData.Pion = null;
+						ret = end;
+					}
 				}
 			}
+			else
+			{
+				ret = end;
+			}
 			return ret;
+		}
+
+		public void pionVerzettenFinish(Pion pion, int steps)
+		{
+			Link current = First;
+			for (int i = 1; i <= steps; i++)
+			{
+				if (current.Next != null)
+				{
+					current = current.Next;
+				}
+				else
+				{
+					current = First;
+				}
+			}
 		}
 	}
 }
