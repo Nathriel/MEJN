@@ -114,29 +114,38 @@ namespace MEJN.Model
 			return leng;
 		}
 
-		private Link zoekOpVakGetal(int vakGetal)
+		public Vakje zoekOpVakGetal(int vakGetal)
 		{
 			Link current = first;
 			for(int i = 1; i < vakGetal; i++)
 			{
 				current = current.Next;
 			}
-			return current;
+			return current.IData;
 		}
 
 		public void zetPion(Pion pion, int zoekNummer)
 		{
-			Link link = zoekOpVakGetal(zoekNummer);
-			link.IData.Pion = pion;
+			Vakje vakje = zoekOpVakGetal(zoekNummer);
+			vakje.Pion = pion;
 		}
 
-		public void pionVerzetten(int vakGetal, int worp)
+		public Boolean pionVerzetten(int vakGetal, int worp, Kleur wieIsErAanDeBeurt)
 		{
-			Link start = zoekOpVakGetal(vakGetal);
-			Link end = zoekOpVakGetal(vakGetal + worp);
+			Boolean ret = false;
+			Vakje start = zoekOpVakGetal(vakGetal);
+			Vakje end = zoekOpVakGetal(vakGetal + worp);
 
-			end.IData.Pion = start.IData.Pion;
-			start.IData.Pion = null;
+			if (start.Pion != null)
+			{
+				if (start.Pion.Kleur == wieIsErAanDeBeurt)
+				{
+					end.Pion = start.Pion;
+					start.Pion = null;
+					ret = true;
+				}
+			}
+			return ret;
 		}
 	}
 }

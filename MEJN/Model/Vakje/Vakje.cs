@@ -20,6 +20,16 @@ namespace MEJN.Model
 			
 		}
 
+		public Boolean isBezet()
+		{
+			Boolean ret = false;
+			if (Pion != null)
+			{
+				ret = true;
+			}
+			return ret;
+		}
+
 		override public string ToString()
 		{
 			string result = "v";

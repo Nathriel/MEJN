@@ -50,19 +50,91 @@ namespace MEJN.Control
 			Bord.VakjesLijst.zetPion(spelers[2].Pionnen[0], 21);
 			Bord.VakjesLijst.zetPion(spelers[3].Pionnen[0], 31);
 
-			Console.WriteLine(Bord.VakjesLijst.formatForSave());
+			Bord.GroenThuisbasis.zetPion(spelers[0].Pionnen[1], 2);
+			Bord.GroenThuisbasis.zetPion(spelers[0].Pionnen[2], 3);
+			Bord.GroenThuisbasis.zetPion(spelers[0].Pionnen[3], 4);
+
+			Bord.RoodThuisbasis.zetPion(spelers[1].Pionnen[1], 2);
+			Bord.RoodThuisbasis.zetPion(spelers[1].Pionnen[2], 3);
+			Bord.RoodThuisbasis.zetPion(spelers[1].Pionnen[3], 4);
+
+			Bord.BlauwThuisbasis.zetPion(spelers[2].Pionnen[1], 2);
+			Bord.BlauwThuisbasis.zetPion(spelers[2].Pionnen[2], 3);
+			Bord.BlauwThuisbasis.zetPion(spelers[2].Pionnen[3], 4);
+
+			Bord.GeelThuisbasis.zetPion(spelers[3].Pionnen[1], 2);
+			Bord.GeelThuisbasis.zetPion(spelers[3].Pionnen[2], 3);
+			Bord.GeelThuisbasis.zetPion(spelers[3].Pionnen[3], 4);
+
+			consolePrint();
 		}
 
-		internal Boolean pionVerzetten(int vakGetal, String soort)
+		public void consolePrint()
 		{
-			Boolean ret = false;
+			Console.WriteLine(Bord.VakjesLijst.formatForSave());
+			Console.WriteLine(Bord.GroenThuisbasis.formatForSave());
+			Console.WriteLine(Bord.RoodThuisbasis.formatForSave());
+			Console.WriteLine(Bord.BlauwThuisbasis.formatForSave());
+			Console.WriteLine(Bord.GeelThuisbasis.formatForSave());
+		}
+
+		private int zoekLeegThuisVak(LinkedList thuisbasis)
+		{
+			int ret = 0;
+			if (thuisbasis.zoekOpVakGetal(4).isBezet() == false)
+			{
+				ret = 4;
+			}
+			else if (thuisbasis.zoekOpVakGetal(3).isBezet() == false)
+			{
+				ret = 3;
+			}
+			else if (thuisbasis.zoekOpVakGetal(2).isBezet() == false)
+			{
+				ret = 2;
+			}
+			else if (thuisbasis.zoekOpVakGetal(1).isBezet() == false)
+			{
+				ret = 1;
+			}
+			return ret;
+		}
+
+		private void TerugNaarThuisbasis(Pion pion)
+		{
+			if (pion.Kleur == Kleur.Groen)
+			{
+				int leegThuisVak = zoekLeegThuisVak(Bord.GroenThuisbasis);
+				Bord.GroenThuisbasis.zetPion(pion, zoekLeegThuisVak(Bord.GroenThuisbasis));
+			}
+			else if (pion.Kleur == Kleur.Rood)
+			{
+				int leegThuisVak = zoekLeegThuisVak(Bord.RoodThuisbasis);
+				Bord.RoodThuisbasis.zetPion(pion, zoekLeegThuisVak(Bord.RoodThuisbasis));
+			}
+			else if (pion.Kleur == Kleur.Groen)
+			{
+				int leegThuisVak = zoekLeegThuisVak(Bord.BlauwThuisbasis);
+				Bord.BlauwThuisbasis.zetPion(pion, zoekLeegThuisVak(Bord.BlauwThuisbasis));
+			}
+			else if (pion.Kleur == Kleur.Geel)
+			{
+				int leegThuisVak = zoekLeegThuisVak(Bord.GeelThuisbasis);
+				Bord.GeelThuisbasis.zetPion(pion, zoekLeegThuisVak(Bord.GeelThuisbasis));
+			}
+		}
+
+		internal int pionVerzetten(int vakGetal, String soort)
+		{
+			int ret = 0;
+			int worp = Dobbelsteen.Worp;
 			Speler aanZet = spelers[WieIsErAanDeBeurt-1];
 			if (Dobbelsteen.Gegooid == true)
 			{
 				if (aanZet.GetType() == typeof(Bot))
 				{
 					//Bot is aan zet
-					ret = true;
+					ret = worp;
 				}
 				else
 				{
@@ -70,15 +142,37 @@ namespace MEJN.Control
 					if (soort == "vakje")
 					{
 						//vakjeslijst
-						Bord.pionVerzetten(Dobbelsteen.Worp, vakGetal);
-						ret = true;
+						Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal + worp);
+						if (vakje.isBezet())
+						{
+							TerugNaarThuisbasis(vakje.Pion);
+						}
+
+						if (Bord.VakjesLijst.pionVerzetten(vakGetal, Dobbelsteen.Worp, aanZet.Kleur))
+						{
+							ret = worp;
+							consolePrint();
+						}
 					}
 					else if (soort == "grThu")
 					{
 						//groen thuisbasis
 						if (aanZet.Kleur == Kleur.Groen && Dobbelsteen.Worp == 6)
 						{
-							ret = true;
+							Vakje thuisbasisVakje = Bord.GroenThuisbasis.zoekOpVakGetal(vakGetal);
+							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(1);
+							if (thuisbasisVakje.isBezet())
+							{
+								Pion tempPion = thuisbasisVakje.Pion;
+								Bord.GroenThuisbasis.zetPion(null, vakGetal);
+								if (vakje.isBezet())
+								{
+									TerugNaarThuisbasis(vakje.Pion);
+								}
+								Bord.VakjesLijst.zetPion(tempPion, 1);
+								consolePrint();
+							}
+							ret = worp;
 						}
 					}
 					else if (soort == "roThu")
@@ -86,7 +180,20 @@ namespace MEJN.Control
 						//rood thuisbasis
 						if (aanZet.Kleur == Kleur.Rood && Dobbelsteen.Worp == 6)
 						{
-							ret = true;
+							Vakje thuisbasisVakje = Bord.RoodThuisbasis.zoekOpVakGetal(vakGetal);
+							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(11);
+							if (thuisbasisVakje.isBezet())
+							{
+								Pion tempPion = thuisbasisVakje.Pion;
+								Bord.RoodThuisbasis.zetPion(null, vakGetal);
+								if (vakje.isBezet())
+								{
+									TerugNaarThuisbasis(vakje.Pion);
+								}
+								Bord.VakjesLijst.zetPion(tempPion, 11);
+								consolePrint();
+							}
+							ret = worp;
 						}
 					}
 					else if (soort == "blThu")
@@ -94,7 +201,20 @@ namespace MEJN.Control
 						//blauw thuisbasis
 						if (aanZet.Kleur == Kleur.Blauw && Dobbelsteen.Worp == 6)
 						{
-							ret = true;
+							Vakje thuisbasisVakje = Bord.BlauwThuisbasis.zoekOpVakGetal(vakGetal);
+							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(21);
+							if (thuisbasisVakje.isBezet())
+							{
+								Pion tempPion = thuisbasisVakje.Pion;
+								Bord.BlauwThuisbasis.zetPion(null, vakGetal);
+								if (vakje.isBezet())
+								{
+									TerugNaarThuisbasis(vakje.Pion);
+								}
+								Bord.VakjesLijst.zetPion(tempPion, 21);
+								consolePrint();
+							}
+							ret = worp;
 						}
 					}
 					else if (soort == "geThu")
@@ -102,7 +222,20 @@ namespace MEJN.Control
 						//geel thuisbasis
 						if (aanZet.Kleur == Kleur.Geel && Dobbelsteen.Worp == 6)
 						{
-							ret = true;
+							Vakje thuisbasisVakje = Bord.GeelThuisbasis.zoekOpVakGetal(vakGetal);
+							Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(31);
+							if (thuisbasisVakje.isBezet())
+							{
+								Pion tempPion = thuisbasisVakje.Pion;
+								Bord.GeelThuisbasis.zetPion(null, vakGetal);
+								if (vakje.isBezet())
+								{
+									TerugNaarThuisbasis(vakje.Pion);
+								}
+								Bord.VakjesLijst.zetPion(tempPion, 31);
+								consolePrint();
+							}
+							ret = worp;
 						}
 					}
 					else if (soort == "grFin")

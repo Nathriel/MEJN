@@ -29,15 +29,15 @@ namespace MEJN
 		private List<Image> roodThuisImages;
 		private List<Image> blauwThuisImages;
 		private List<Image> geelThuisImages;
-		
+
 		internal ViewController Viewcontrol
 		{	get { return viewcontrol; }
 			set { viewcontrol = value; }
 		}
 		public List<Image> VakImageLijst
 		{
-			get { return vakImageLijst; }
-			set { vakImageLijst = value; }
+		get { return vakImageLijst; }
+		set { vakImageLijst = value; }
 		}
 
 		internal GameBoard(ViewController viewcontrol)
@@ -143,7 +143,7 @@ namespace MEJN
 			vakImageLijst.Add(vakje18);
 			vakImageLijst.Add(vakje19);
 			vakImageLijst.Add(vakje20);
-			
+
 			vakImageLijst.Add(vakje21);
 			vakImageLijst.Add(vakje22);
 			vakImageLijst.Add(vakje23);
@@ -154,7 +154,7 @@ namespace MEJN
 			vakImageLijst.Add(vakje28);
 			vakImageLijst.Add(vakje29);
 			vakImageLijst.Add(vakje30);
-			
+
 			vakImageLijst.Add(vakje31);
 			vakImageLijst.Add(vakje32);
 			vakImageLijst.Add(vakje33);
@@ -274,8 +274,11 @@ namespace MEJN
 			String soort = clickedObject.Name.Substring(0, 5);
 			int vakGetal = Int32.Parse(clickedObject.Name.Substring(5));
 
-			if (viewcontrol.Spel.pionVerzetten(vakGetal, soort))
+			int worp = viewcontrol.Spel.pionVerzetten(vakGetal, soort);
+			if (worp != 0)
 			{
+				//vakImageChange(clickedObject);
+				//vakImageChange(VakImageLijst[vakGetal + worp - 1]);
 				BeurtDoorgeven();
 			}
 			

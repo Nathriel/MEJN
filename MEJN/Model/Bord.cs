@@ -84,13 +84,6 @@ namespace MEJN.Model
 			vulLijsten();
 		}
 
-		public void pionVerzetten(int worp, int vakGetal)
-		{
-			VakjesLijst.pionVerzetten(vakGetal, worp);
-
-			Console.WriteLine(VakjesLijst.formatForSave());
-		}
-
 		private void vulLijsten()
 		{
 			///Thuisbasis
@@ -114,7 +107,7 @@ namespace MEJN.Model
 			RoodThuisbasis.insertFirst(roodThuisBasis3);
 			RoodThuisbasis.insertFirst(roodThuisBasis4);
 
-			//Blauw
+			//BLAUW
 			Beginvakje blauwThuisBasis1 = new Beginvakje(Kleur.Blauw);
 			Beginvakje blauwThuisBasis2 = new Beginvakje(Kleur.Blauw);
 			Beginvakje blauwThuisBasis3 = new Beginvakje(Kleur.Blauw);
@@ -129,7 +122,7 @@ namespace MEJN.Model
 			LinkedList blauwThuisbasis = new LinkedList();
 			LinkedList geelThuisbasis = new LinkedList();
 
-			//Geel
+			//GEEl
 			Beginvakje geelThuisBasis1 = new Beginvakje(Kleur.Geel);
 			Beginvakje geelThuisBasis2 = new Beginvakje(Kleur.Geel);
 			Beginvakje geelThuisBasis3 = new Beginvakje(Kleur.Geel);
@@ -160,7 +153,7 @@ namespace MEJN.Model
 			roodFinishvakjes.insertFirst(roodFinishVakje3);
 			roodFinishvakjes.insertFirst(roodFinishVakje4);
 
-			//Blauw
+			//BLAUW
 			Finishvakje blauwFinishVakje1 = new Finishvakje(Kleur.Blauw);
 			Finishvakje blauwFinishVakje2 = new Finishvakje(Kleur.Blauw);
 			Finishvakje blauwFinishVakje3 = new Finishvakje(Kleur.Blauw);
@@ -170,7 +163,7 @@ namespace MEJN.Model
 			blauwFinishvakjes.insertFirst(blauwFinishVakje3);
 			blauwFinishvakjes.insertFirst(blauwFinishVakje4);
 
-			//Geel
+			//GEEL
 			Finishvakje geelFinishVakje1 = new Finishvakje(Kleur.Geel);
 			Finishvakje geelFinishVakje2 = new Finishvakje(Kleur.Geel);
 			Finishvakje geelFinishVakje3 = new Finishvakje(Kleur.Geel);
@@ -180,14 +173,11 @@ namespace MEJN.Model
 			geelFinishvakjes.insertFirst(geelFinishVakje3);
 			geelFinishvakjes.insertFirst(geelFinishVakje4);
 
-			Normaalvakje tempNormVakje = new Normaalvakje();
-
 			for (int i = 0; i < 4; i++)
 			{
-
 				for (int j = 0; j < 9; j++)
 				{
-					vakjesLijst.insertFirst(tempNormVakje);
+					vakjesLijst.insertFirst(new Normaalvakje());
 					if (j == 8)
 					{
 						if (i == 0)
