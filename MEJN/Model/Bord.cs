@@ -173,9 +173,30 @@ namespace MEJN.Model
 
 			for (int i = 0; i < 4; i++)
 			{
+
+				Beginvakje tempBeginVakje = new Beginvakje(Kleur.Groen);
+
+				if (i == 0)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Groen);
+				}
+				else if (i == 1)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Rood);
+				}
+				else if (i == 2)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Blauw);
+				}
+				else if (i == 3)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Geel);
+				}
+				vakjesLijst.insertLast(tempBeginVakje);
+
 				for (int j = 0; j < 9; j++)
 				{
-					vakjesLijst.insertFirst(new Normaalvakje());
+					vakjesLijst.insertLast(new Normaalvakje());
 					if (j == 8)
 					{
 						if (i == 0)
@@ -196,26 +217,6 @@ namespace MEJN.Model
 						}
 					}
 				}
-
-				Beginvakje tempBeginVakje = new Beginvakje(Kleur.Groen);
-
-				if (i == 0)
-				{
-					tempBeginVakje = new Beginvakje(Kleur.Groen);
-				}
-				else if (i == 1)
-				{
-					tempBeginVakje = new Beginvakje(Kleur.Rood);
-				}
-				else if (i == 2)
-				{
-					tempBeginVakje = new Beginvakje(Kleur.Blauw);
-				}
-				else if (i == 3)
-				{
-					tempBeginVakje = new Beginvakje(Kleur.Geel);
-				}
-				vakjesLijst.insertFirst(tempBeginVakje);
 			}
 			VakjesLijst.Last.Next = VakjesLijst.First;
 			VakjesLijst.First.Previous = VakjesLijst.Last;

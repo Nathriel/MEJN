@@ -318,6 +318,42 @@ namespace MEJN.Control
 			//Geel finish
 			saveStringBuilder.Append(Bord.GeelFinishvakjes.formatForSave());
 
+			if (Spelers[0].GetType() == typeof(Bot))
+			{
+				saveStringBuilder.Append("0,");
+			}
+			else
+			{
+				saveStringBuilder.Append("1,");
+			}
+			
+			if (Spelers[1].GetType() == typeof(Bot))
+			{
+				saveStringBuilder.Append("0,");
+			}
+			else
+			{
+				saveStringBuilder.Append("1,");
+			}
+			
+			if (Spelers[2].GetType() == typeof(Bot))
+			{
+				saveStringBuilder.Append("0,");
+			}
+			else
+			{
+				saveStringBuilder.Append("1,");
+			}
+
+			if (Spelers[3].GetType() == typeof(Bot))
+			{
+				saveStringBuilder.Append("0;");
+			}
+			else
+			{
+				saveStringBuilder.Append("1;");
+			}
+
 			Console.WriteLine(saveStringBuilder);
 
 			//Save the file
@@ -335,9 +371,9 @@ namespace MEJN.Control
 
 			//Split the save file into chunks
 			string[] fileChunks = savefile.Split(';');
-			
+
 			//We need at least 12 parts
-			if (fileChunks.Length < 12)
+			if (fileChunks.Length < 13)
 			{
 				Console.WriteLine(fileChunks.Length);
 				return;
@@ -348,14 +384,14 @@ namespace MEJN.Control
 			Bord bordtemp = new Bord();
 
 			//Let's roll through the parts
-			for (int i=0; i < fileChunks.Length; i++)
+			for (int i = 0; i < fileChunks.Length; i++)
 			{
 				//Check for MEJN prefix
 				if (i == 0)
 				{
 					if (!fileChunks[i].Equals("MEJN"))
 					{
-						return;
+						Console.WriteLine(i); return;
 					}
 				}
 
@@ -367,38 +403,38 @@ namespace MEJN.Control
 					Console.WriteLine(players);
 					if (players.Length != 4)
 					{
-						return;
+						Console.WriteLine(i); return;
 					}
-					for (int j = 0; j < players.Length; j++ )
+					for (int j = 0; j < players.Length; j++)
 					{
 						Kleur kleurtje = Kleur.Groen;
-						switch(j)
+						switch (j)
 						{
 							case 0:
 								kleurtje = Kleur.Groen;
-							break;
+								break;
 							case 1:
 								kleurtje = Kleur.Rood;
-							break;
+								break;
 							case 2:
 								kleurtje = Kleur.Geel;
-							break;
+								break;
 							case 3:
 								kleurtje = Kleur.Blauw;
-							break;
+								break;
 						}
-						Speler eenSpeler = new Speler(players[j], kleurtje);
-						spelertemp.Add(eenSpeler);
+						spelertemp.Add(new Speler(players[j], kleurtje));
 					}
+					Console.WriteLine(spelertemp);
 				}
-				
+
 				//Check beurt
 				if (i == 2)
 				{
 					beurt = Convert.ToInt32(fileChunks[i]);
 					if (beurt < 1 || beurt > 4)
 					{
-						return;
+						Console.WriteLine(i); return;
 					}
 				}
 
@@ -409,7 +445,113 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 40)
 					{
-						return;
+						Console.WriteLine("Vak count doesn't match"); return;
+					}
+					Console.WriteLine("Vak count DOES match");
+
+					for (int j = 0; j < bordchunks.Length; j++)
+					{
+						string[] vakchunks = bordchunks[j].Split('-');
+						int grpions = 0;
+						int ropions = 0;
+						int gepions = 0;
+						int blpions = 0;
+
+
+						if (vakchunks.Length > 2)
+						{
+							Console.WriteLine("Too many vakchuncks"); return;
+						}
+
+						//Do the actual tile first
+						string[] vakinfo = vakchunks[0].Split('+');
+						if (vakinfo.Length > 2)
+						{
+							Console.WriteLine("Vakinfo has more chunks"); return;
+						}
+
+						Vakje tempvakje;
+						Kleur vakkleurtje = Kleur.Neutral;
+
+						if (vakinfo.Length > 1)
+						{
+							switch (vakinfo[1])
+							{
+								case "gr":
+									vakkleurtje = Kleur.Groen;
+									break;
+								case "ro":
+									vakkleurtje = Kleur.Rood;
+									break;
+								case "ge":
+									vakkleurtje = Kleur.Geel;
+									break;
+								case "bl":
+									vakkleurtje = Kleur.Blauw;
+									break;
+							}
+						}
+						if (vakinfo[0] == "bv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+							tempvakje = new Beginvakje(vakkleurtje);
+						}
+						else if (vakinfo[0] == "fv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+
+							tempvakje = new Finishvakje(vakkleurtje);
+						}
+						else
+						{
+							tempvakje = new Normaalvakje();
+						}
+
+						bordtemp.VakjesLijst.insertLast(tempvakje);
+
+						//Now the Pion
+						if (vakchunks.Length > 1)
+						{
+							switch (vakchunks[1])
+							{
+								case "gr":
+									tempvakje.Pion = spelertemp[0].Pionnen[grpions];
+									grpions++;
+									break;
+								case "ro":
+									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
+									ropions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
+									gepions++;
+									break;
+								case "bl":
+									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									blpions++;
+									break;
+								default:
+									Console.WriteLine(i); return;
+							}
+
+						}
+					}
+				}
+
+				//Check groen thuisbasis
+				if (i == 4)
+				{
+					string[] bordchunks = fileChunks[i].Split(',');
+
+					if (bordchunks.Length != 4)
+					{
+						Console.WriteLine(i); return;
 					}
 
 
@@ -422,16 +564,124 @@ namespace MEJN.Control
 						int blpions = 0;
 
 
-						if(vakchunks.Length > 2)
+						if (vakchunks.Length > 2)
 						{
-							return;
+							Console.WriteLine(i); return;
 						}
 
 						//Do the actual tile first
-						string[] vakinfo = vakchunks[j].Split('+');
+						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							return;
+							Console.WriteLine(i); return;
+						}
+
+						Vakje tempvakje;
+						Kleur vakkleurtje = Kleur.Neutral;
+						if (vakinfo.Length > 1)
+						{
+							switch (vakinfo[1])
+							{
+								case "gr":
+									vakkleurtje = Kleur.Groen;
+									break;
+								case "ro":
+									vakkleurtje = Kleur.Rood;
+									break;
+								case "ge":
+									vakkleurtje = Kleur.Geel;
+									break;
+								case "bl":
+									vakkleurtje = Kleur.Blauw;
+									break;
+								default:
+									vakkleurtje = Kleur.Neutral;
+									break;
+							}
+						}
+
+						if (vakinfo[0] == "bv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+							tempvakje = new Beginvakje(vakkleurtje);
+						}
+						else if (vakinfo[0] == "fv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+
+							tempvakje = new Finishvakje(vakkleurtje);
+						}
+						else
+						{
+							tempvakje = new Normaalvakje();
+						}
+
+						bordtemp.GroenThuisbasis.insertLast(tempvakje);
+
+						//Now the Pion
+						if (vakchunks.Length > 1)
+						{
+							switch (vakchunks[1])
+							{
+								case "gr":
+									tempvakje.Pion = spelertemp[0].Pionnen[grpions];
+									grpions++;
+									break;
+								case "ro":
+									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
+									ropions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
+									gepions++;
+									break;
+								case "bl":
+									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									blpions++;
+									break;
+								default:
+									Console.WriteLine(i); return;
+							}
+
+						}
+					}
+				}
+				//Check rood thuisbasis
+				if (i == 5)
+				{
+					string[] bordchunks = fileChunks[i].Split(',');
+
+					if (bordchunks.Length != 4)
+					{
+						Console.WriteLine(i); return;
+					}
+
+
+					for (int j = 0; j < bordchunks.Length; j++)
+					{
+						string[] vakchunks = bordchunks[j].Split('-');
+						int grpions = 0;
+						int ropions = 0;
+						int gepions = 0;
+						int blpions = 0;
+
+
+						if (vakchunks.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						//Do the actual tile first
+						string[] vakinfo = vakchunks[0].Split('+');
+						if (vakinfo.Length > 2)
+						{
+							Console.WriteLine(i); return;
 						}
 
 						Vakje tempvakje;
@@ -460,15 +710,15 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								return;
+								Console.WriteLine(i); return;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
 						else if (vakinfo[0] == "fv")
 						{
-							if (vakkleurtje == null)
+							if (vakkleurtje == Kleur.Neutral)
 							{
-								return;
+								Console.WriteLine(i); return;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -478,10 +728,10 @@ namespace MEJN.Control
 							tempvakje = new Normaalvakje();
 						}
 
-						bordtemp.VakjesLijst.insertLast(tempvakje);
+						bordtemp.RoodThuisbasis.insertLast(tempvakje);
 
 						//Now the Pion
-						if (vakchunks[1] != null)
+						if (vakchunks.Length > 1)
 						{
 							switch (vakchunks[1])
 							{
@@ -502,26 +752,693 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									return;
+									Console.WriteLine(i); return;
 							}
 
 						}
+					}
+				}
+
+				//Check Blauw thuisbasis
+				if (i == 6)
+				{
+					string[] bordchunks = fileChunks[i].Split(',');
+
+					if (bordchunks.Length != 4)
+					{
+						Console.WriteLine(i); return;
+					}
+
+
+					for (int j = 0; j < bordchunks.Length; j++)
+					{
+						string[] vakchunks = bordchunks[j].Split('-');
+						int grpions = 0;
+						int ropions = 0;
+						int gepions = 0;
+						int blpions = 0;
+
+
+						if (vakchunks.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						//Do the actual tile first
+						string[] vakinfo = vakchunks[0].Split('+');
+						if (vakinfo.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						Vakje tempvakje;
+						Kleur vakkleurtje = Kleur.Neutral;
+
+						switch (vakinfo[1])
+						{
+							case "gr":
+								vakkleurtje = Kleur.Groen;
+								break;
+							case "ro":
+								vakkleurtje = Kleur.Rood;
+								break;
+							case "ge":
+								vakkleurtje = Kleur.Geel;
+								break;
+							case "bl":
+								vakkleurtje = Kleur.Blauw;
+								break;
+							default:
+								vakkleurtje = Kleur.Neutral;
+								break;
+						}
+
+						if (vakinfo[0] == "bv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+							tempvakje = new Beginvakje(vakkleurtje);
+						}
+						else if (vakinfo[0] == "fv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+
+							tempvakje = new Finishvakje(vakkleurtje);
+						}
 						else
 						{
-							return;
+							tempvakje = new Normaalvakje();
+						}
+
+						bordtemp.BlauwThuisbasis.insertLast(tempvakje);
+
+						//Now the Pion
+						if (vakchunks.Length > 1)
+						{
+							switch (vakchunks[1])
+							{
+								case "gr":
+									tempvakje.Pion = spelertemp[0].Pionnen[grpions];
+									grpions++;
+									break;
+								case "ro":
+									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
+									ropions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
+									gepions++;
+									break;
+								case "bl":
+									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									blpions++;
+									break;
+								default:
+									Console.WriteLine(i); return;
+							}
+
+						}
+					}
+				}
+
+				//Check Geel thuisbasis
+				if (i == 7)
+				{
+					string[] bordchunks = fileChunks[i].Split(',');
+
+					if (bordchunks.Length != 4)
+					{
+						Console.WriteLine(i); return;
+					}
+
+
+					for (int j = 0; j < bordchunks.Length; j++)
+					{
+						string[] vakchunks = bordchunks[j].Split('-');
+						int grpions = 0;
+						int ropions = 0;
+						int gepions = 0;
+						int blpions = 0;
+
+
+						if (vakchunks.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						//Do the actual tile first
+						string[] vakinfo = vakchunks[j].Split('+');
+						if (vakinfo.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						Vakje tempvakje;
+						Kleur vakkleurtje = Kleur.Neutral;
+
+						if (vakchunks.Length > 1)
+						{
+							switch (vakinfo[1])
+							{
+								case "gr":
+									vakkleurtje = Kleur.Groen;
+									break;
+								case "ro":
+									vakkleurtje = Kleur.Rood;
+									break;
+								case "ge":
+									vakkleurtje = Kleur.Geel;
+									break;
+								case "bl":
+									vakkleurtje = Kleur.Blauw;
+									break;
+								default:
+									vakkleurtje = Kleur.Neutral;
+									break;
+							}
+						}
+
+						if (vakinfo[0] == "bv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+							tempvakje = new Beginvakje(vakkleurtje);
+						}
+						else if (vakinfo[0] == "fv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+
+							tempvakje = new Finishvakje(vakkleurtje);
+						}
+						else
+						{
+							tempvakje = new Normaalvakje();
+						}
+
+						bordtemp.GeelThuisbasis.insertLast(tempvakje);
+
+						//Now the Pion
+						if (vakchunks.Length > 1)
+						{
+							switch (vakchunks[1])
+							{
+								case "gr":
+									tempvakje.Pion = spelertemp[0].Pionnen[grpions];
+									grpions++;
+									break;
+								case "ro":
+									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
+									ropions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
+									gepions++;
+									break;
+								case "bl":
+									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									blpions++;
+									break;
+								default:
+									Console.WriteLine(i); return;
+							}
+
+						}
+					}
+				}
+
+				//Check groen finishvakjes
+				if (i == 8)
+				{
+					string[] bordchunks = fileChunks[i].Split(',');
+
+					if (bordchunks.Length != 4)
+					{
+						Console.WriteLine(i); return;
+					}
+
+
+					for (int j = 0; j < bordchunks.Length; j++)
+					{
+						string[] vakchunks = bordchunks[j].Split('-');
+						int grpions = 0;
+						int ropions = 0;
+						int gepions = 0;
+						int blpions = 0;
+
+
+						if (vakchunks.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						//Do the actual tile first
+						string[] vakinfo = vakchunks[0].Split('+');
+						if (vakinfo.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						Vakje tempvakje;
+						Kleur vakkleurtje = Kleur.Neutral;
+
+						if (vakchunks.Length > 1)
+						{
+							switch (vakinfo[1])
+							{
+								case "gr":
+									vakkleurtje = Kleur.Groen;
+									break;
+								case "ro":
+									vakkleurtje = Kleur.Rood;
+									break;
+								case "ge":
+									vakkleurtje = Kleur.Geel;
+									break;
+								case "bl":
+									vakkleurtje = Kleur.Blauw;
+									break;
+								default:
+									vakkleurtje = Kleur.Neutral;
+									break;
+							}
+						}
+						if (vakinfo[0] == "bv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+							tempvakje = new Beginvakje(vakkleurtje);
+						}
+						else if (vakinfo[0] == "fv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+
+							tempvakje = new Finishvakje(vakkleurtje);
+						}
+						else
+						{
+							tempvakje = new Normaalvakje();
+						}
+
+						bordtemp.GroenFinishvakjes.insertLast(tempvakje);
+
+						//Now the Pion
+						if (vakchunks.Length > 1)
+						{
+							switch (vakchunks[1])
+							{
+								case "gr":
+									tempvakje.Pion = spelertemp[0].Pionnen[grpions];
+									grpions++;
+									break;
+								case "ro":
+									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
+									ropions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
+									gepions++;
+									break;
+								case "bl":
+									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									blpions++;
+									break;
+								default:
+									Console.WriteLine(i); return;
+							}
+
+						}
+					}
+				}
+				//Check rood finishvakjes
+				if (i == 9)
+				{
+					string[] bordchunks = fileChunks[i].Split(',');
+
+					if (bordchunks.Length != 4)
+					{
+						Console.WriteLine(i); return;
+					}
+
+
+					for (int j = 0; j < bordchunks.Length; j++)
+					{
+						string[] vakchunks = bordchunks[j].Split('-');
+						int grpions = 0;
+						int ropions = 0;
+						int gepions = 0;
+						int blpions = 0;
+
+
+						if (vakchunks.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						//Do the actual tile first
+						string[] vakinfo = vakchunks[0].Split('+');
+						if (vakinfo.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						Vakje tempvakje;
+						Kleur vakkleurtje = Kleur.Neutral;
+
+						if (vakchunks.Length > 1)
+						{
+							switch (vakinfo[1])
+							{
+								case "gr":
+									vakkleurtje = Kleur.Groen;
+									break;
+								case "ro":
+									vakkleurtje = Kleur.Rood;
+									break;
+								case "ge":
+									vakkleurtje = Kleur.Geel;
+									break;
+								case "bl":
+									vakkleurtje = Kleur.Blauw;
+									break;
+								default:
+									vakkleurtje = Kleur.Neutral;
+									break;
+							}
+						}
+
+						if (vakinfo[0] == "bv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+							tempvakje = new Beginvakje(vakkleurtje);
+						}
+						else if (vakinfo[0] == "fv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+
+							tempvakje = new Finishvakje(vakkleurtje);
+						}
+						else
+						{
+							tempvakje = new Normaalvakje();
+						}
+
+						bordtemp.RoodFinishvakjes.insertLast(tempvakje);
+
+						//Now the Pion
+						if (vakchunks.Length > 1)
+						{
+							switch (vakchunks[1])
+							{
+								case "gr":
+									tempvakje.Pion = spelertemp[0].Pionnen[grpions];
+									grpions++;
+									break;
+								case "ro":
+									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
+									ropions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
+									gepions++;
+									break;
+								case "bl":
+									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									blpions++;
+									break;
+								default:
+									Console.WriteLine(i); return;
+							}
+
+						}
+					}
+				}
+
+				//Check Blauw finishvakjes
+				if (i == 10)
+				{
+					string[] bordchunks = fileChunks[i].Split(',');
+
+					if (bordchunks.Length != 4)
+					{
+						Console.WriteLine(i); return;
+					}
+
+
+					for (int j = 0; j < bordchunks.Length; j++)
+					{
+						string[] vakchunks = bordchunks[j].Split('-');
+						int grpions = 0;
+						int ropions = 0;
+						int gepions = 0;
+						int blpions = 0;
+
+
+						if (vakchunks.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						//Do the actual tile first
+						string[] vakinfo = vakchunks[0].Split('+');
+						if (vakinfo.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						Vakje tempvakje;
+						Kleur vakkleurtje = Kleur.Neutral;
+
+						if (vakchunks.Length > 1)
+						{
+							switch (vakinfo[1])
+							{
+								case "gr":
+									vakkleurtje = Kleur.Groen;
+									break;
+								case "ro":
+									vakkleurtje = Kleur.Rood;
+									break;
+								case "ge":
+									vakkleurtje = Kleur.Geel;
+									break;
+								case "bl":
+									vakkleurtje = Kleur.Blauw;
+									break;
+								default:
+									vakkleurtje = Kleur.Neutral;
+									break;
+							}
+						}
+						if (vakinfo[0] == "bv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+							tempvakje = new Beginvakje(vakkleurtje);
+						}
+						else if (vakinfo[0] == "fv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+
+							tempvakje = new Finishvakje(vakkleurtje);
+						}
+						else
+						{
+							tempvakje = new Normaalvakje();
+						}
+
+						bordtemp.BlauwFinishvakjes.insertLast(tempvakje);
+
+						//Now the Pion
+						if (vakchunks.Length > 1)
+						{
+							switch (vakchunks[1])
+							{
+								case "gr":
+									tempvakje.Pion = spelertemp[0].Pionnen[grpions];
+									grpions++;
+									break;
+								case "ro":
+									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
+									ropions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
+									gepions++;
+									break;
+								case "bl":
+									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									blpions++;
+									break;
+								default:
+									Console.WriteLine(i); return;
+							}
+
+						}
+					}
+				}
+
+				//Check Geel finishvakjes
+				if (i == 11)
+				{
+					string[] bordchunks = fileChunks[i].Split(',');
+
+					if (bordchunks.Length != 4)
+					{
+						Console.WriteLine(i); return;
+					}
+
+
+					for (int j = 0; j < bordchunks.Length; j++)
+					{
+						string[] vakchunks = bordchunks[j].Split('-');
+						int grpions = 0;
+						int ropions = 0;
+						int gepions = 0;
+						int blpions = 0;
+
+
+						if (vakchunks.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						//Do the actual tile first
+						string[] vakinfo = vakchunks[j].Split('+');
+						if (vakinfo.Length > 2)
+						{
+							Console.WriteLine(i); return;
+						}
+
+						Vakje tempvakje;
+						Kleur vakkleurtje = Kleur.Neutral;
+
+						if (vakchunks.Length > 1)
+						{
+							switch (vakinfo[1])
+							{
+								case "gr":
+									vakkleurtje = Kleur.Groen;
+									break;
+								case "ro":
+									vakkleurtje = Kleur.Rood;
+									break;
+								case "ge":
+									vakkleurtje = Kleur.Geel;
+									break;
+								case "bl":
+									vakkleurtje = Kleur.Blauw;
+									break;
+								default:
+									vakkleurtje = Kleur.Neutral;
+									break;
+							}
+						}
+						if (vakinfo[0] == "bv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+							tempvakje = new Beginvakje(vakkleurtje);
+						}
+						else if (vakinfo[0] == "fv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								Console.WriteLine(i); return;
+							}
+
+							tempvakje = new Finishvakje(vakkleurtje);
+						}
+						else
+						{
+							tempvakje = new Normaalvakje();
+						}
+
+						bordtemp.GeelFinishvakjes.insertLast(tempvakje);
+
+						//Now the Pion
+						if (vakchunks.Length > 1)
+						{
+							switch (vakchunks[1])
+							{
+								case "gr":
+									tempvakje.Pion = spelertemp[0].Pionnen[grpions];
+									grpions++;
+									break;
+								case "ro":
+									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
+									ropions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
+									gepions++;
+									break;
+								case "bl":
+									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									blpions++;
+									break;
+								default:
+									Console.WriteLine(i); return;
+							}
+
+						}
+					}
+				}
+				//Check for players
+				if (i == 12)
+				{
+					//Split the save file into chunks
+					string[] playersbot = fileChunks[i].Split(',');
+					Console.WriteLine(playersbot);
+					if (playersbot.Length != 4)
+					{
+						Console.WriteLine(i); return;
+					}
+					for (int j = 0; j < playersbot.Length; j++)
+					{
+						if (System.Convert.ToInt32(playersbot[j]) == 0)
+						{
+							spelertemp[j] = new Bot(spelertemp[j].Naam, spelertemp[j].Kleur);
 						}
 					}
 				}
 
 				Console.WriteLine(i);
 				Console.WriteLine(fileChunks[i]);
-
-				//Set our save data to 
-				Spelers.Clear();
-				Spelers = spelertemp;
-				wieIsErAanDeBeurt = beurt;
-				bord = bordtemp;
 			}
+
+			//Set our save data to 
+			Spelers.Clear();
+			Spelers = spelertemp;
+			wieIsErAanDeBeurt = beurt;
+			bord = bordtemp;
 		}
 	}
 }

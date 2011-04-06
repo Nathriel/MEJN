@@ -52,38 +52,38 @@ namespace MEJN
 			List<Speler> spelers = viewControl.Spel.Spelers;
 			if (GroenTypeBox.Text == "Mens")
 			{
-				spelers.Add(new Speler(GroenNamefield.Text, Kleur.Groen));
+				spelers.Add(new Speler(GroenNamefield.Text.Replace(';', ' ').Replace(',', ' ').Replace('-', ' ').Replace('+', ' '), Kleur.Groen));
 			}
 			else if (GroenTypeBox.Text == "Computer")
 			{
-				spelers.Add(new Bot(GroenNamefield.Text, Kleur.Groen));
+				spelers.Add(new Bot(GroenNamefield.Text.Replace(';', ' ').Replace(',', ' ').Replace('-', ' ').Replace('+', ' '), Kleur.Groen));
 			}
 
 			if (RoodTypeBox.Text == "Mens")
 			{
-				spelers.Add(new Speler(RoodNamefield.Text, Kleur.Rood));
+				spelers.Add(new Speler(RoodNamefield.Text.Replace(';', ' ').Replace(',', ' ').Replace('-', ' ').Replace('+', ' '), Kleur.Rood));
 			}
 			else if (RoodTypeBox.Text == "Computer")
 			{
-				spelers.Add(new Bot(RoodNamefield.Text, Kleur.Rood));
+				spelers.Add(new Bot(RoodNamefield.Text.Replace(';', ' ').Replace(',', ' ').Replace('-', ' ').Replace('+', ' '), Kleur.Rood));
 			}
 
 			if (BlauwTypeBox.Text == "Mens")
 			{
-				spelers.Add(new Speler(BlauwNamefield.Text, Kleur.Blauw));
+				spelers.Add(new Speler(BlauwNamefield.Text.Replace(';', ' ').Replace(',', ' ').Replace('-', ' ').Replace('+', ' '), Kleur.Blauw));
 			}
 			else if (BlauwTypeBox.Text == "Computer")
 			{
-				spelers.Add(new Bot(BlauwNamefield.Text, Kleur.Blauw));
+				spelers.Add(new Bot(BlauwNamefield.Text.Replace(';', ' ').Replace(',', ' ').Replace('-', ' ').Replace('+', ' '), Kleur.Blauw));
 			}
 
 			if (GeelTypeBox.Text == "Mens")
 			{
-				spelers.Add(new Speler(GeelNamefield.Text, Kleur.Geel));
+				spelers.Add(new Speler(GeelNamefield.Text.Replace(';', ' ').Replace(',', ' ').Replace('-', ' ').Replace('+', ' '), Kleur.Geel));
 			}
 			else if (GeelTypeBox.Text == "Computer")
 			{
-				spelers.Add(new Bot(GeelNamefield.Text, Kleur.Geel));
+				spelers.Add(new Bot(GeelNamefield.Text.Replace(';', ' ').Replace(',', ' ').Replace('-', ' ').Replace('+', ' '), Kleur.Geel));
 			}
 
 			GameBoard game = new GameBoard(viewControl);

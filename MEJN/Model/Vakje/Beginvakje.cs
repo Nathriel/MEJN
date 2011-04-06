@@ -25,7 +25,7 @@ namespace MEJN.Model
 			string result = "bv";
 
 			result += "+";
-			result += kleur.ToString();
+			result += KleurMethods.returnString(kleur);
 
 			if (Pion != null)
 			{
