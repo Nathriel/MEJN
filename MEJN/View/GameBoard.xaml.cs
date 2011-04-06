@@ -167,7 +167,7 @@ namespace MEJN
 			vakImageLijst.Add(vakje40);
 		}
 
-		private void updateGameBoard()
+		internal void updateGameBoard()
 		{
 			LinkedList vakjesLijst = viewcontrol.Spel.Bord.VakjesLijst;
 
@@ -181,9 +181,6 @@ namespace MEJN
 			LinkedList blauwThuisbasis = viewcontrol.Spel.Bord.BlauwThuisbasis;
 			LinkedList geelThuisbasis = viewcontrol.Spel.Bord.GeelThuisbasis;
 
-			Console.WriteLine(vakjesLijst.length());
-			Console.WriteLine(groenFinishvakjes.length());
-			/*
 			doorloopLijst(vakjesLijst, VakImageLijst);
 
 			doorloopLijst(groenFinishvakjes, groenFinishImages);
@@ -195,7 +192,6 @@ namespace MEJN
 			doorloopLijst(roodThuisbasis, roodFinishImages);
 			doorloopLijst(blauwThuisbasis, blauwFinishImages);
 			doorloopLijst(geelThuisbasis, geelFinishImages);
-			 */
 		}
 
 		private void doorloopLijst(LinkedList lijst, List<Image> imageLijst)
@@ -216,8 +212,6 @@ namespace MEJN
 
 		private void vakImageChange(Image vakImage, Kleur kleur)
 		{
-			//String tempSource = vakImage.Source.ToString().Substring(48);
-
 			if (kleur == Kleur.Groen)
 			{
 				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/piongroen.png", UriKind.Relative));

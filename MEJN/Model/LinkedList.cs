@@ -113,7 +113,7 @@ namespace MEJN.Model
 		{
 			int leng = 0;
 			Link current = first;
-			while (current != null)
+			while (current != null && current.Next != First)
 			{
 				leng++;
 				current = current.Next;
