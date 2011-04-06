@@ -167,29 +167,72 @@ namespace MEJN
 			vakImageLijst.Add(vakje40);
 		}
 
-		private void vakImageChange(Image vakImage)
+		private void updateGameBoard()
 		{
-			String tempSource = vakImage.Source.ToString().Substring(48);
-			int beurt = viewcontrol.Spel.WieIsErAanDeBeurt;
+			LinkedList vakjesLijst = viewcontrol.Spel.Bord.VakjesLijst;
 
-			if (tempSource == "noimage.png")
+			LinkedList groenFinishvakjes = viewcontrol.Spel.Bord.GroenFinishvakjes;
+			LinkedList roodFinishvakjes = viewcontrol.Spel.Bord.RoodFinishvakjes;
+			LinkedList blauwFinishvakjes = viewcontrol.Spel.Bord.BlauwFinishvakjes;
+			LinkedList geelFinishvakjes = viewcontrol.Spel.Bord.GeelFinishvakjes;
+
+			LinkedList groenThuisbasis = viewcontrol.Spel.Bord.GroenThuisbasis;
+			LinkedList roodThuisbasis = viewcontrol.Spel.Bord.RoodThuisbasis;
+			LinkedList blauwThuisbasis = viewcontrol.Spel.Bord.BlauwThuisbasis;
+			LinkedList geelThuisbasis = viewcontrol.Spel.Bord.GeelThuisbasis;
+
+			Console.WriteLine(vakjesLijst.length());
+			Console.WriteLine(groenFinishvakjes.length());
+			/*
+			doorloopLijst(vakjesLijst, VakImageLijst);
+
+			doorloopLijst(groenFinishvakjes, groenFinishImages);
+			doorloopLijst(roodFinishvakjes, roodFinishImages);
+			doorloopLijst(blauwFinishvakjes, blauwFinishImages);
+			doorloopLijst(geelFinishvakjes, geelFinishImages);
+
+			doorloopLijst(groenThuisbasis, groenFinishImages);
+			doorloopLijst(roodThuisbasis, roodFinishImages);
+			doorloopLijst(blauwThuisbasis, blauwFinishImages);
+			doorloopLijst(geelThuisbasis, geelFinishImages);
+			 */
+		}
+
+		private void doorloopLijst(LinkedList lijst, List<Image> imageLijst)
+		{
+			for (int i = 0; i < imageLijst.Count; i++)
 			{
-				if (beurt == 1)
+				Vakje vakje = lijst.zoekOpVakGetal(i).IData;
+				if (vakje.Pion != null)
 				{
-					vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/piongroen.png", UriKind.Relative));
+					vakImageChange(imageLijst[i], vakje.Pion.Kleur);
 				}
-				else if (beurt == 2)
+				else
 				{
-					vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/pionrood.png", UriKind.Relative));
+					vakImageChange(imageLijst[i], Kleur.Neutral);
 				}
-				else if (beurt == 3)
-				{
-					vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/pionblauw.png", UriKind.Relative));
-				}
-				else if (beurt == 4)
-				{
-					vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/piongeel.png", UriKind.Relative));
-				}
+			}
+		}
+
+		private void vakImageChange(Image vakImage, Kleur kleur)
+		{
+			//String tempSource = vakImage.Source.ToString().Substring(48);
+
+			if (kleur == Kleur.Groen)
+			{
+				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/piongroen.png", UriKind.Relative));
+			}
+			else if (kleur == Kleur.Rood)
+			{
+				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/pionrood.png", UriKind.Relative));
+			}
+			else if (kleur == Kleur.Blauw)
+			{
+				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/pionblauw.png", UriKind.Relative));
+			}
+			else if (kleur == Kleur.Geel)
+			{
+				vakImage.Source = new BitmapImage(new Uri("/MEJN;component/Resources/piongeel.png", UriKind.Relative));
 			}
 			else
 			{
@@ -249,9 +292,6 @@ namespace MEJN
 
 				Viewcontrol.Spel.Dobbelsteen.switchGegooid();
 				Mouse.OverrideCursor = Cursors.Arrow;
-
-				//Kijk welke pionen er beschikbaar zijn en update het bord
-				
 			}
 		}
 
@@ -277,11 +317,9 @@ namespace MEJN
 			int worp = viewcontrol.Spel.pionVerzetten(vakGetal, soort);
 			if (worp != 0)
 			{
-				//vakImageChange(clickedObject);
-				//vakImageChange(VakImageLijst[vakGetal + worp - 1]);
+				updateGameBoard();
 				BeurtDoorgeven();
 			}
-			
 		}
 
 		private void vak_MouseEnter(object sender, MouseEventArgs e)

@@ -77,6 +77,10 @@ namespace MEJN.Control
 			Console.WriteLine(Bord.RoodThuisbasis.formatForSave());
 			Console.WriteLine(Bord.BlauwThuisbasis.formatForSave());
 			Console.WriteLine(Bord.GeelThuisbasis.formatForSave());
+			Console.WriteLine(Bord.GroenFinishvakjes.formatForSave());
+			Console.WriteLine(Bord.RoodFinishvakjes.formatForSave());
+			Console.WriteLine(Bord.BlauwFinishvakjes.formatForSave());
+			Console.WriteLine(Bord.GeelFinishvakjes.formatForSave());
 		}
 
 		private int zoekLeegThuisVak(LinkedList thuisbasis)

@@ -191,14 +191,27 @@ namespace MEJN.Model
 			Link current = First;
 			for (int i = 1; i <= steps; i++)
 			{
-				if (current.Next != null)
-				{
-					current = current.Next;
-				}
-				else
-				{
-					current = First;
-				}
+				
+
+				controlleerVolgendVakje(current);
+			}
+			current.IData.Pion = pion;
+		}
+
+		private void controlleerVolgendVakje(Link current)
+		{
+			if (current.Next != null)
+			{
+				current = current.Next;
+			}
+			else
+			{
+				current = First;
+			}
+
+			if (current.IData.isBezet())
+			{
+				current = current.Next;
 			}
 		}
 	}
