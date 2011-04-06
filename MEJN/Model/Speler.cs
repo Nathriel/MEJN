@@ -46,5 +46,10 @@ namespace MEJN.Model
 			pionnen.Add(new Pion(kleur));
 			pionnen.Add(new Pion(kleur));
 		}
+
+		internal void doTurn(MEJN.Control.Spel sender)
+		{
+			return;
+		}
 	}
 }

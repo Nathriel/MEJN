@@ -70,6 +70,13 @@ namespace MEJN.Control
 			consolePrint();
 		}
 
+		public int rollBotDice()
+		{
+			int worp = Dobbelsteen.gooiDobbelsteen();
+			
+			return worp;
+		}
+
 		public void consolePrint()
 		{
 			Console.WriteLine(Bord.VakjesLijst.formatForSave());
@@ -1432,6 +1439,16 @@ namespace MEJN.Control
 			bord = bordtemp;
 			Console.WriteLine("Game loaded");
 			return true;
+		}
+
+		internal void checkBotTurn()
+		{
+			if (Spelers[WieIsErAanDeBeurt].GetType() == typeof(Bot))
+			{
+				Spelers[WieIsErAanDeBeurt].doTurn(this);
+			}
+
+			//Wacht op speler input
 		}
 	}
 }
