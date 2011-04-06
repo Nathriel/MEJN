@@ -188,17 +188,17 @@ namespace MEJN
 			doorloopLijst(blauwFinishvakjes, blauwFinishImages);
 			doorloopLijst(geelFinishvakjes, geelFinishImages);
 
-			doorloopLijst(groenThuisbasis, groenFinishImages);
-			doorloopLijst(roodThuisbasis, roodFinishImages);
-			doorloopLijst(blauwThuisbasis, blauwFinishImages);
-			doorloopLijst(geelThuisbasis, geelFinishImages);
+			doorloopLijst(groenThuisbasis, groenThuisImages);
+			doorloopLijst(roodThuisbasis, roodThuisImages);
+			doorloopLijst(blauwThuisbasis, blauwThuisImages);
+			doorloopLijst(geelThuisbasis, geelThuisImages);
 		}
 
 		private void doorloopLijst(LinkedList lijst, List<Image> imageLijst)
 		{
 			for (int i = 0; i < imageLijst.Count; i++)
 			{
-				Vakje vakje = lijst.zoekOpVakGetal(i).IData;
+				Vakje vakje = lijst.zoekOpVakGetal(i+1).IData;
 				if (vakje.Pion != null)
 				{
 					vakImageChange(imageLijst[i], vakje.Pion.Kleur);

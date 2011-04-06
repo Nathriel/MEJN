@@ -113,7 +113,7 @@ namespace MEJN.Model
 		{
 			int leng = 0;
 			Link current = first;
-			while (current != null && current.Next != First)
+			while (current != null)
 			{
 				leng++;
 				current = current.Next;
@@ -167,21 +167,24 @@ namespace MEJN.Model
 			Link start = zoekOpVakGetal(vakGetal);
 			Link end = zoekOpVakGetalMetControle(vakGetal + worp, wieIsErAanDeBeurt);
 
-			if (end.Previous != null)
+			if (end != null)
 			{
-				if (start.IData.Pion != null)
+				if (end.Previous != null)
 				{
-					if (start.IData.Pion.Kleur == wieIsErAanDeBeurt)
+					if (start.IData.Pion != null)
 					{
-						end.IData.Pion = start.IData.Pion;
-						start.IData.Pion = null;
-						ret = end;
+						if (start.IData.Pion.Kleur == wieIsErAanDeBeurt)
+						{
+							end.IData.Pion = start.IData.Pion;
+							start.IData.Pion = null;
+							ret = end;
+						}
 					}
 				}
-			}
-			else
-			{
-				ret = end;
+				else
+				{
+					ret = end;
+				}
 			}
 			return ret;
 		}
