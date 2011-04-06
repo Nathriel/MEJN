@@ -366,7 +366,7 @@ namespace MEJN.Control
 			tw.Close();
 		}
 
-		internal void spelOpenen(string p)
+		internal bool spelOpenen(string p)
 		{
 			//Open file
 			TextReader tr = new StreamReader(p);
@@ -380,7 +380,7 @@ namespace MEJN.Control
 			if (fileChunks.Length < 13)
 			{
 				Console.WriteLine(fileChunks.Length);
-				return;
+				return false;
 			}
 
 			int beurt = 0;
@@ -395,7 +395,7 @@ namespace MEJN.Control
 				{
 					if (!fileChunks[i].Equals("MEJN"))
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 				}
 
@@ -407,7 +407,7 @@ namespace MEJN.Control
 					Console.WriteLine(players);
 					if (players.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 					for (int j = 0; j < players.Length; j++)
 					{
@@ -438,7 +438,7 @@ namespace MEJN.Control
 					beurt = Convert.ToInt32(fileChunks[i]);
 					if (beurt < 1 || beurt > 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 				}
 
@@ -449,7 +449,7 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 40)
 					{
-						Console.WriteLine("Vak count doesn't match"); return;
+						Console.WriteLine("Vak count doesn't match"); return false;
 					}
 					Console.WriteLine("Vak count DOES match");
 
@@ -464,14 +464,14 @@ namespace MEJN.Control
 
 						if (vakchunks.Length > 2)
 						{
-							Console.WriteLine("Too many vakchuncks"); return;
+							Console.WriteLine("Too many vakchuncks"); return false;
 						}
 
 						//Do the actual tile first
 						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							Console.WriteLine("Vakinfo has more chunks"); return;
+							Console.WriteLine("Vakinfo has more chunks"); return false;
 						}
 
 						Vakje tempvakje;
@@ -499,7 +499,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -507,7 +507,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -541,7 +541,7 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									Console.WriteLine(i); return;
+									Console.WriteLine(i); return false;
 							}
 
 						}
@@ -555,7 +555,7 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 
 
@@ -570,14 +570,14 @@ namespace MEJN.Control
 
 						if (vakchunks.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						//Do the actual tile first
 						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						Vakje tempvakje;
@@ -608,7 +608,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -616,7 +616,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -650,7 +650,7 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									Console.WriteLine(i); return;
+									Console.WriteLine(i); return false;
 							}
 
 						}
@@ -663,7 +663,7 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 
 
@@ -678,14 +678,14 @@ namespace MEJN.Control
 
 						if (vakchunks.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						//Do the actual tile first
 						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						Vakje tempvakje;
@@ -714,7 +714,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -722,7 +722,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -756,7 +756,7 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									Console.WriteLine(i); return;
+									Console.WriteLine(i); return false;
 							}
 
 						}
@@ -770,7 +770,7 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 
 
@@ -785,14 +785,14 @@ namespace MEJN.Control
 
 						if (vakchunks.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						//Do the actual tile first
 						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						Vakje tempvakje;
@@ -821,7 +821,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -829,7 +829,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -863,7 +863,7 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									Console.WriteLine(i); return;
+									Console.WriteLine(i); return false;
 							}
 
 						}
@@ -877,7 +877,7 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 
 
@@ -892,43 +892,43 @@ namespace MEJN.Control
 
 						if (vakchunks.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						//Do the actual tile first
 						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						Vakje tempvakje;
 						Kleur vakkleurtje = Kleur.Neutral;
 
 						switch (vakinfo[1])
-							{
-								case "gr":
-									vakkleurtje = Kleur.Groen;
-									break;
-								case "ro":
-									vakkleurtje = Kleur.Rood;
-									break;
-								case "ge":
-									vakkleurtje = Kleur.Geel;
-									break;
-								case "bl":
-									vakkleurtje = Kleur.Blauw;
-									break;
-								default:
-									vakkleurtje = Kleur.Neutral;
-									break;
+						{
+							case "gr":
+								vakkleurtje = Kleur.Groen;
+								break;
+							case "ro":
+								vakkleurtje = Kleur.Rood;
+								break;
+							case "ge":
+								vakkleurtje = Kleur.Geel;
+								break;
+							case "bl":
+								vakkleurtje = Kleur.Blauw;
+								break;
+							default:
+								vakkleurtje = Kleur.Neutral;
+								break;
 						}
 
 						if (vakinfo[0] == "bv")
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine("WHAT"); return;
+								Console.WriteLine("WHAT"); return false;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -936,7 +936,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -970,7 +970,7 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									Console.WriteLine(i); return;
+									Console.WriteLine(i); return false;
 							}
 
 						}
@@ -984,7 +984,7 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 
 
@@ -999,43 +999,43 @@ namespace MEJN.Control
 
 						if (vakchunks.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						//Do the actual tile first
 						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						Vakje tempvakje;
 						Kleur vakkleurtje = Kleur.Neutral;
 
 						switch (vakinfo[1])
-							{
-								case "gr":
-									vakkleurtje = Kleur.Groen;
-									break;
-								case "ro":
-									vakkleurtje = Kleur.Rood;
-									break;
-								case "ge":
-									vakkleurtje = Kleur.Geel;
-									break;
-								case "bl":
-									vakkleurtje = Kleur.Blauw;
-									break;
-								default:
-									vakkleurtje = Kleur.Neutral;
-									break;
-							}
+						{
+							case "gr":
+								vakkleurtje = Kleur.Groen;
+								break;
+							case "ro":
+								vakkleurtje = Kleur.Rood;
+								break;
+							case "ge":
+								vakkleurtje = Kleur.Geel;
+								break;
+							case "bl":
+								vakkleurtje = Kleur.Blauw;
+								break;
+							default:
+								vakkleurtje = Kleur.Neutral;
+								break;
+						}
 
 						if (vakinfo[0] == "bv")
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -1043,7 +1043,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -1077,7 +1077,7 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									Console.WriteLine(i); return;
+									Console.WriteLine(i); return false;
 							}
 
 						}
@@ -1090,7 +1090,7 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 
 
@@ -1105,14 +1105,14 @@ namespace MEJN.Control
 
 						if (vakchunks.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						//Do the actual tile first
 						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						Vakje tempvakje;
@@ -1141,7 +1141,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -1149,7 +1149,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -1183,7 +1183,7 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									Console.WriteLine(i); return;
+									Console.WriteLine(i); return false;
 							}
 
 						}
@@ -1197,7 +1197,7 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 
 
@@ -1212,42 +1212,42 @@ namespace MEJN.Control
 
 						if (vakchunks.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						//Do the actual tile first
 						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						Vakje tempvakje;
 						Kleur vakkleurtje = Kleur.Neutral;
 
 						switch (vakinfo[1])
-							{
-								case "gr":
-									vakkleurtje = Kleur.Groen;
-									break;
-								case "ro":
-									vakkleurtje = Kleur.Rood;
-									break;
-								case "ge":
-									vakkleurtje = Kleur.Geel;
-									break;
-								case "bl":
-									vakkleurtje = Kleur.Blauw;
-									break;
-								default:
-									vakkleurtje = Kleur.Neutral;
-									break;
+						{
+							case "gr":
+								vakkleurtje = Kleur.Groen;
+								break;
+							case "ro":
+								vakkleurtje = Kleur.Rood;
+								break;
+							case "ge":
+								vakkleurtje = Kleur.Geel;
+								break;
+							case "bl":
+								vakkleurtje = Kleur.Blauw;
+								break;
+							default:
+								vakkleurtje = Kleur.Neutral;
+								break;
 						}
 						if (vakinfo[0] == "bv")
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -1255,7 +1255,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -1289,7 +1289,7 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									Console.WriteLine(i); return;
+									Console.WriteLine(i); return false;
 							}
 
 						}
@@ -1303,7 +1303,7 @@ namespace MEJN.Control
 
 					if (bordchunks.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 
 
@@ -1318,19 +1318,19 @@ namespace MEJN.Control
 
 						if (vakchunks.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						//Do the actual tile first
 						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
-							Console.WriteLine(i); return;
+							Console.WriteLine(i); return false;
 						}
 
 						Vakje tempvakje;
 						Kleur vakkleurtje = Kleur.Neutral;
-						
+
 						switch (vakinfo[1])
 						{
 							case "gr":
@@ -1349,12 +1349,12 @@ namespace MEJN.Control
 								vakkleurtje = Kleur.Neutral;
 								break;
 						}
-					
+
 						if (vakinfo[0] == "bv")
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -1362,7 +1362,7 @@ namespace MEJN.Control
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine(i); return false;
 							}
 
 							tempvakje = new Finishvakje(vakkleurtje);
@@ -1396,7 +1396,7 @@ namespace MEJN.Control
 									blpions++;
 									break;
 								default:
-									Console.WriteLine(i); return;
+									Console.WriteLine(i); return false;
 							}
 
 						}
@@ -1410,7 +1410,7 @@ namespace MEJN.Control
 					Console.WriteLine(playersbot);
 					if (playersbot.Length != 4)
 					{
-						Console.WriteLine(i); return;
+						Console.WriteLine(i); return false;
 					}
 					for (int j = 0; j < playersbot.Length; j++)
 					{
@@ -1431,6 +1431,7 @@ namespace MEJN.Control
 			wieIsErAanDeBeurt = beurt;
 			bord = bordtemp;
 			Console.WriteLine("Game loaded");
+			return true;
 		}
 	}
 }

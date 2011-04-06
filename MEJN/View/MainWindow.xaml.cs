@@ -43,7 +43,11 @@ namespace MEJN
 
 			if (result == true)
 			{
-				viewControl.Spel.spelOpenen(dlg.FileName);
+				if (viewControl.Spel.spelOpenen(dlg.FileName))
+				{
+					GameBoard game = new GameBoard(viewControl);
+					game.Visibility = System.Windows.Visibility.Visible;
+				}
 			}
 		}
 
