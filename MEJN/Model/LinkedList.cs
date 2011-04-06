@@ -134,8 +134,25 @@ namespace MEJN.Model
 		private Link zoekOpVakGetalMetControle(int vakGetal, Kleur wieIsErAanDeBeurt)
 		{
 			Link current = first;
-			for (int i = 1; i < vakGetal; i++)
+			if (wieIsErAanDeBeurt == Kleur.Rood)
 			{
+				current = zoekOpVakGetal(11);
+			}
+			if (wieIsErAanDeBeurt == Kleur.Blauw)
+			{
+				current = zoekOpVakGetal(21);
+			}
+			if (wieIsErAanDeBeurt == Kleur.Geel)
+			{
+				current = zoekOpVakGetal(31);
+			}
+
+			for (int i = 1; i < 40; i++)
+			{
+				if (i == vakGetal)
+				{
+					break;
+				}
 				Vakje next = current.Next.IData;
 				if (next.GetType() == typeof(Beginvakje))
 				{
@@ -165,7 +182,8 @@ namespace MEJN.Model
 		{
 			Link ret = null;
 			Link start = zoekOpVakGetal(vakGetal);
-			Link end = zoekOpVakGetalMetControle(vakGetal + worp, wieIsErAanDeBeurt);
+			//Link end = zoekOpVakGetalMetControle(vakGetal + worp, wieIsErAanDeBeurt);
+			Link end = zoekOpVakGetal(vakGetal + worp);
 
 			if (end != null)
 			{
