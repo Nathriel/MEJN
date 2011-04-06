@@ -305,9 +305,9 @@ namespace MEJN.Control
 			//Rood begin
 			saveStringBuilder.Append(Bord.RoodThuisbasis.formatForSave());
 			//Blauw begin
-			saveStringBuilder.Append(Bord.GeelThuisbasis.formatForSave());
+			saveStringBuilder.Append(Bord.BlauwThuisbasis.formatForSave());
 			//Geel begin
-			saveStringBuilder.Append(Bord.GroenThuisbasis.formatForSave());
+			saveStringBuilder.Append(Bord.GeelThuisbasis.formatForSave());
 			 
 			//Groen finish
 			saveStringBuilder.Append(Bord.GroenFinishvakjes.formatForSave());
@@ -405,20 +405,124 @@ namespace MEJN.Control
 				//Check bord
 				if (i == 3)
 				{
-					beurt = Convert.ToInt32(fileChunks[i]);
-					if (beurt < 1 || beurt > 4)
+					string[] bordchunks = fileChunks[i].Split(',');
+
+					if (bordchunks.Length != 40)
 					{
 						return;
+					}
+
+
+					for (int j = 0; j < bordchunks.Length; j++)
+					{
+						string[] vakchunks = bordchunks[j].Split('-');
+						int grpions = 0;
+						int ropions = 0;
+						int gepions = 0;
+						int blpions = 0;
+
+
+						if(vakchunks.Length > 2)
+						{
+							return;
+						}
+
+						//Do the actual tile first
+						string[] vakinfo = vakchunks[j].Split('+');
+						if (vakinfo.Length > 2)
+						{
+							return;
+						}
+
+						Vakje tempvakje;
+						Kleur vakkleurtje = Kleur.Neutral;
+
+						switch (vakinfo[1])
+						{
+							case "gr":
+								vakkleurtje = Kleur.Groen;
+								break;
+							case "ro":
+								vakkleurtje = Kleur.Rood;
+								break;
+							case "ge":
+								vakkleurtje = Kleur.Geel;
+								break;
+							case "bl":
+								vakkleurtje = Kleur.Blauw;
+								break;
+							default:
+								vakkleurtje = Kleur.Neutral;
+								break;
+						}
+
+						if (vakinfo[0] == "bv")
+						{
+							if (vakkleurtje == Kleur.Neutral)
+							{
+								return;
+							}
+							tempvakje = new Beginvakje(vakkleurtje);
+						}
+						else if (vakinfo[0] == "fv")
+						{
+							if (vakkleurtje == null)
+							{
+								return;
+							}
+
+							tempvakje = new Finishvakje(vakkleurtje);
+						}
+						else
+						{
+							tempvakje = new Normaalvakje();
+						}
+
+						bordtemp.VakjesLijst.insertLast(tempvakje);
+
+						//Now the Pion
+						if (vakchunks[1] != null)
+						{
+							switch (vakchunks[1])
+							{
+								case "gr":
+									tempvakje.Pion = spelertemp[0].Pionnen[grpions];
+									grpions++;
+									break;
+								case "ro":
+									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
+									ropions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
+									gepions++;
+									break;
+								case "bl":
+									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									blpions++;
+									break;
+								default:
+									return;
+							}
+
+						}
+						else
+						{
+							return;
+						}
 					}
 				}
 
 				Console.WriteLine(i);
 				Console.WriteLine(fileChunks[i]);
 
+				//Set our save data to 
 				Spelers.Clear();
 				Spelers = spelertemp;
 				wieIsErAanDeBeurt = beurt;
+				bord = bordtemp;
 			}
 		}
 	}
 }
+

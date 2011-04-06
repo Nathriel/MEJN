@@ -36,6 +36,7 @@ namespace MEJN.Model
 
 			if (Pion != null)
 			{
+				result += "-";
 				result += ((Pion.ToString() != string.Empty) ? Pion.ToString() : "");
 			}
 			return result;

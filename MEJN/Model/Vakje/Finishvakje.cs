@@ -24,8 +24,12 @@ namespace MEJN.Model
 		{
 			string result = "fv";
 
+			result += "+";
+			result += kleur.ToString();
+
 			if (Pion != null)
 			{
+				result += "-";
 				result += ((Pion.ToString() != string.Empty) ? Pion.ToString() : "");
 			}
 			return result;
