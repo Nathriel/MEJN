@@ -31,7 +31,6 @@ namespace MEJN
 			InitializeComponent();
 			viewControl = new ViewController();
 		}
-
 		private void loadGame(object sender, RoutedEventArgs e)
 		{
 			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -43,7 +42,13 @@ namespace MEJN
 
 			if (result == true)
 			{
-				viewControl.Spel.spelOpenen(dlg.FileName);
+				if (viewControl.Spel.spelOpenen(dlg.FileName))
+				{
+					GameBoard game = new GameBoard(viewControl);
+					game.updateGameBoard();
+					game.Visibility = System.Windows.Visibility.Visible;
+					this.Close();
+				}
 			}
 		}
 
