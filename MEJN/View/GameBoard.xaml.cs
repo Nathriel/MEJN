@@ -271,7 +271,10 @@ namespace MEJN
 
 			if (result == true)
 			{
-				Viewcontrol.Spel.spelOpenen(dlg.FileName);
+				if (Viewcontrol.Spel.spelOpenen(dlg.FileName))
+				{
+					this.updateGameBoard();
+				}
 			}
 
 		}
@@ -312,7 +315,14 @@ namespace MEJN
 			if (worp != 0)
 			{
 				updateGameBoard();
-				BeurtDoorgeven();
+				if (worp != 6)
+				{
+					BeurtDoorgeven();
+				}
+				else
+				{
+					viewcontrol.Spel.Dobbelsteen.switchGegooid();
+				}
 			}
 		}
 
@@ -366,6 +376,14 @@ namespace MEJN
 				turnindicatorSwitch(Speler4Turnindicator);
 				turnindicatorSwitch(Speler3Turnindicator);
 			}
+		}
+
+		private void spelVerlatenClicked(object sender, RoutedEventArgs e)
+		{
+			Viewcontrol = null;
+			MainWindow mainscreen = new MainWindow();
+			mainscreen.Visibility = System.Windows.Visibility.Visible;
+			this.Close();
 		}
 	}
 }

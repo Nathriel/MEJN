@@ -140,5 +140,15 @@
         <Image Height="45" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="28,22,0,0" Name="geThu2" Source="/MEJN;component/Resources/piongeel.png" Stretch="Fill" VerticalAlignment="Top" Width="45" Grid.Column="1" />
         <Image Height="45" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="96,87,0,0" Name="geThu3" Source="/MEJN;component/Resources/piongeel.png" Stretch="Fill" VerticalAlignment="Top" Width="45" Grid.Column="1" />
         <Image Height="45" MouseUp="vak_MouseUp" MouseEnter="vak_MouseEnter" MouseLeave="vak_MouseLeave" HorizontalAlignment="Left" Margin="29,88,0,0" Name="geThu4" Source="/MEJN;component/Resources/piongeel.png" Stretch="Fill" VerticalAlignment="Top" Width="45" Grid.Column="1" />
+        <Button Content="Spel Verlaten" Margin="8,290.96,0,0" VerticalAlignment="Top" Height="34.96" FontWeight="Bold" FontSize="14.667" Click="spelVerlatenClicked">
+        	<Button.Background>
+        		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        			<GradientStop Color="#FFFFB2B2" Offset="0"/>
+        			<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+        			<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+        			<GradientStop Color="#FFCDCDCD" Offset="1"/>
+        		</LinearGradientBrush>
+        	</Button.Background>
+        </Button>
     </Grid>
 </Window>

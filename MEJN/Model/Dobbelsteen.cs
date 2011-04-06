@@ -39,7 +39,6 @@ namespace MEJN.Model
 		public void switchGegooid()
 		{
 			gegooid = !gegooid;
-			worp = 6;
 		}
 	}
 }
