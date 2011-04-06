@@ -892,7 +892,7 @@ namespace MEJN.Control
 						}
 
 						//Do the actual tile first
-						string[] vakinfo = vakchunks[j].Split('+');
+						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
 							Console.WriteLine(i); return;
@@ -901,9 +901,7 @@ namespace MEJN.Control
 						Vakje tempvakje;
 						Kleur vakkleurtje = Kleur.Neutral;
 
-						if (vakchunks.Length > 1)
-						{
-							switch (vakinfo[1])
+						switch (vakinfo[1])
 							{
 								case "gr":
 									vakkleurtje = Kleur.Groen;
@@ -920,14 +918,13 @@ namespace MEJN.Control
 								default:
 									vakkleurtje = Kleur.Neutral;
 									break;
-							}
 						}
 
 						if (vakinfo[0] == "bv")
 						{
 							if (vakkleurtje == Kleur.Neutral)
 							{
-								Console.WriteLine(i); return;
+								Console.WriteLine("WHAT"); return;
 							}
 							tempvakje = new Beginvakje(vakkleurtje);
 						}
@@ -1011,9 +1008,7 @@ namespace MEJN.Control
 						Vakje tempvakje;
 						Kleur vakkleurtje = Kleur.Neutral;
 
-						if (vakchunks.Length > 1)
-						{
-							switch (vakinfo[1])
+						switch (vakinfo[1])
 							{
 								case "gr":
 									vakkleurtje = Kleur.Groen;
@@ -1031,7 +1026,7 @@ namespace MEJN.Control
 									vakkleurtje = Kleur.Neutral;
 									break;
 							}
-						}
+
 						if (vakinfo[0] == "bv")
 						{
 							if (vakkleurtje == Kleur.Neutral)
@@ -1119,26 +1114,23 @@ namespace MEJN.Control
 						Vakje tempvakje;
 						Kleur vakkleurtje = Kleur.Neutral;
 
-						if (vakchunks.Length > 1)
+						switch (vakinfo[1])
 						{
-							switch (vakinfo[1])
-							{
-								case "gr":
-									vakkleurtje = Kleur.Groen;
-									break;
-								case "ro":
-									vakkleurtje = Kleur.Rood;
-									break;
-								case "ge":
-									vakkleurtje = Kleur.Geel;
-									break;
-								case "bl":
-									vakkleurtje = Kleur.Blauw;
-									break;
-								default:
-									vakkleurtje = Kleur.Neutral;
-									break;
-							}
+							case "gr":
+								vakkleurtje = Kleur.Groen;
+								break;
+							case "ro":
+								vakkleurtje = Kleur.Rood;
+								break;
+							case "ge":
+								vakkleurtje = Kleur.Geel;
+								break;
+							case "bl":
+								vakkleurtje = Kleur.Blauw;
+								break;
+							default:
+								vakkleurtje = Kleur.Neutral;
+								break;
 						}
 
 						if (vakinfo[0] == "bv")
@@ -1229,9 +1221,7 @@ namespace MEJN.Control
 						Vakje tempvakje;
 						Kleur vakkleurtje = Kleur.Neutral;
 
-						if (vakchunks.Length > 1)
-						{
-							switch (vakinfo[1])
+						switch (vakinfo[1])
 							{
 								case "gr":
 									vakkleurtje = Kleur.Groen;
@@ -1248,7 +1238,6 @@ namespace MEJN.Control
 								default:
 									vakkleurtje = Kleur.Neutral;
 									break;
-							}
 						}
 						if (vakinfo[0] == "bv")
 						{
@@ -1329,7 +1318,7 @@ namespace MEJN.Control
 						}
 
 						//Do the actual tile first
-						string[] vakinfo = vakchunks[j].Split('+');
+						string[] vakinfo = vakchunks[0].Split('+');
 						if (vakinfo.Length > 2)
 						{
 							Console.WriteLine(i); return;
@@ -1337,28 +1326,26 @@ namespace MEJN.Control
 
 						Vakje tempvakje;
 						Kleur vakkleurtje = Kleur.Neutral;
-
-						if (vakchunks.Length > 1)
+						
+						switch (vakinfo[1])
 						{
-							switch (vakinfo[1])
-							{
-								case "gr":
-									vakkleurtje = Kleur.Groen;
-									break;
-								case "ro":
-									vakkleurtje = Kleur.Rood;
-									break;
-								case "ge":
-									vakkleurtje = Kleur.Geel;
-									break;
-								case "bl":
-									vakkleurtje = Kleur.Blauw;
-									break;
-								default:
-									vakkleurtje = Kleur.Neutral;
-									break;
-							}
+							case "gr":
+								vakkleurtje = Kleur.Groen;
+								break;
+							case "ro":
+								vakkleurtje = Kleur.Rood;
+								break;
+							case "ge":
+								vakkleurtje = Kleur.Geel;
+								break;
+							case "bl":
+								vakkleurtje = Kleur.Blauw;
+								break;
+							default:
+								vakkleurtje = Kleur.Neutral;
+								break;
 						}
+					
 						if (vakinfo[0] == "bv")
 						{
 							if (vakkleurtje == Kleur.Neutral)
@@ -1439,6 +1426,7 @@ namespace MEJN.Control
 			Spelers = spelertemp;
 			wieIsErAanDeBeurt = beurt;
 			bord = bordtemp;
+			Console.WriteLine("Game loaded");
 		}
 	}
 }
