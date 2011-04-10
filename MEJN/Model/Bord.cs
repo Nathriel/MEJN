@@ -194,26 +194,26 @@ namespace MEJN.Model
 				}
 				vakjesLijst.insertLast(tempBeginVakje);
 
-				for (int j = 0; j < 9; j++)
+				for (int j = 1; j <= 9; j++)
 				{
 					vakjesLijst.insertLast(new Normaalvakje());
-					if (j == 8)
+					if (j == 9)
 					{
 						if (i == 0)
 						{
-							vakjesLijst.First.Finish = groenFinishvakjes.First;
+							vakjesLijst.zoekOpVakGetal(10).Finish = groenFinishvakjes.First;
 						}
 						else if (i == 1)
 						{
-							vakjesLijst.First.Finish = roodFinishvakjes.First;
+							vakjesLijst.zoekOpVakGetal(20).Finish = roodFinishvakjes.First;
 						}
 						else if (i == 2)
 						{
-							vakjesLijst.First.Finish = blauwFinishvakjes.First;
+							vakjesLijst.zoekOpVakGetal(30).Finish = blauwFinishvakjes.First;
 						}
 						else if (i == 3)
 						{
-							vakjesLijst.First.Finish = geelFinishvakjes.First;
+							vakjesLijst.zoekOpVakGetal(40).Finish = geelFinishvakjes.First;
 						}
 					}
 				}

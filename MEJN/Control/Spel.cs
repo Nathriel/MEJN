@@ -161,10 +161,13 @@ namespace MEJN.Control
 					if (soort == "vakje")
 					{
 						//vakjeslijst
-						Vakje vakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal + worp).IData;
-						if (vakje.isBezet())
+						Link vakje = Bord.VakjesLijst.zoekOpVakGetalMetControle(vakGetal, worp, aanZet.Kleur);
+						if (vakje != null)
 						{
-							TerugNaarThuisbasis(vakje.Pion);
+							if (vakje.IData.isBezet())
+							{
+								TerugNaarThuisbasis(vakje.IData.Pion);
+							}
 						}
 
 						Link link = Bord.VakjesLijst.pionVerzetten(vakGetal, Dobbelsteen.Worp, aanZet.Kleur);
@@ -174,24 +177,28 @@ namespace MEJN.Control
 							{
 								Vakje tempVakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData;
 								int stepsLeft = Bord.VakjesLijst.StepsLeft;
+								Boolean gelukt = false;
 
 								if (link == Bord.GroenFinishvakjes.First)
 								{
-									Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+									gelukt = Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
 								}
 								else if (link == Bord.RoodFinishvakjes.First)
 								{
-									Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+									gelukt = Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
 								}
 								else if (link == Bord.BlauwFinishvakjes.First)
 								{
-									Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+									gelukt = Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
 								}
 								else if (link == Bord.GeelFinishvakjes.First)
 								{
-									Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+									gelukt = Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
 								}
-								tempVakje.Pion = null;
+								if (gelukt)
+								{
+									tempVakje.Pion = null;
+								}
 								ret = worp;
 								consolePrint();
 							}

@@ -122,8 +122,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Control\Spel.cs" />
-    <Compile Include="Control\SpelLaden.cs" />
-    <Compile Include="Control\SpelOpslaan.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
