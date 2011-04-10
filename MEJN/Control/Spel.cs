@@ -1446,6 +1446,7 @@ namespace MEJN.Control
 			this.Spelers.Clear();
 			this.Spelers = spelertemp;
 			this.wieIsErAanDeBeurt = beurt;
+			this.Dobbelsteen.Gegooid = false;
 			this.bord = bordtemp;
 			Console.WriteLine("Game loaded");
 			return true;
