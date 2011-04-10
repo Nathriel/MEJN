@@ -44,9 +44,20 @@ namespace MEJN
 			{
 				if (viewControl.Spel.spelOpenen(dlg.FileName))
 				{
+					foreach (string commandArg in App.args.Args)
+					{
+						System.Console.WriteLine(commandArg);
+						if (commandArg == "-cheats")
+						{
+							CheatWindow cheatwindow = new CheatWindow(viewControl);
+							cheatwindow.Visibility = System.Windows.Visibility.Visible;
+						}
+					}
+
 					GameBoard game = new GameBoard(viewControl);
 					game.updateGameBoard();
 					game.Visibility = System.Windows.Visibility.Visible;
+					viewControl.Spel.Bordgui = game;
 					this.Close();
 				}
 			}
@@ -91,8 +102,19 @@ namespace MEJN
 				spelers.Add(new Bot(GeelNamefield.Text.Replace(';', ' ').Replace(',', ' ').Replace('-', ' ').Replace('+', ' '), Kleur.Geel));
 			}
 
+			foreach (string commandArg in App.args.Args)
+			{
+				System.Console.WriteLine(commandArg);
+				if (commandArg == "-cheats")
+				{
+					CheatWindow cheatwindow = new CheatWindow(viewControl);
+					cheatwindow.Visibility = System.Windows.Visibility.Visible;
+				}
+			}
+
 			GameBoard game = new GameBoard(viewControl);
 			game.Visibility = System.Windows.Visibility.Visible;
+			viewControl.Spel.Bordgui = game;
 			this.Close();
 		}
 	}

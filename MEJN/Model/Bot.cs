@@ -14,7 +14,7 @@ namespace MEJN.Model
 
 		}
 
-		internal void doTurn(MEJN.Control.Spel sender)
+		internal override void doTurn(MEJN.Control.Spel sender)
 		{
 			sender.Dobbelsteen.gooiDobbelsteen();
 

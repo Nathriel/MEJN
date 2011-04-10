@@ -279,6 +279,11 @@ namespace MEJN
 
 		}
 
+		internal void dobbelsteen_changeimage(int worp)
+		{
+			dobbelsteenImage.Source = dobbelsteenImages[worp - 1];
+		}
+
 		private void dobbelsteen_MouseUp(object sender, MouseEventArgs e)
 		{
 			if (viewcontrol.Spel.Dobbelsteen.Gegooid == false)
