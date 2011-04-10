@@ -549,13 +549,13 @@ namespace MEJN.Control
 									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
 									ropions++;
 									break;
-								case "ge":
-									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
-									gepions++;
-									break;
 								case "bl":
-									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									tempvakje.Pion = spelertemp[2].Pionnen[blpions];
 									blpions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[3].Pionnen[gepions];
+									gepions++;
 									break;
 								default:
 									Console.WriteLine(i); return false;
@@ -658,13 +658,13 @@ namespace MEJN.Control
 									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
 									ropions++;
 									break;
-								case "ge":
-									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
-									gepions++;
-									break;
 								case "bl":
-									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									tempvakje.Pion = spelertemp[2].Pionnen[blpions];
 									blpions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[3].Pionnen[gepions];
+									gepions++;
 									break;
 								default:
 									Console.WriteLine(i); return false;
@@ -764,13 +764,13 @@ namespace MEJN.Control
 									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
 									ropions++;
 									break;
-								case "ge":
-									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
-									gepions++;
-									break;
 								case "bl":
-									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									tempvakje.Pion = spelertemp[2].Pionnen[blpions];
 									blpions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[3].Pionnen[gepions];
+									gepions++;
 									break;
 								default:
 									Console.WriteLine(i); return false;
@@ -871,13 +871,13 @@ namespace MEJN.Control
 									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
 									ropions++;
 									break;
-								case "ge":
-									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
-									gepions++;
-									break;
 								case "bl":
-									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									tempvakje.Pion = spelertemp[2].Pionnen[blpions];
 									blpions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[3].Pionnen[gepions];
+									gepions++;
 									break;
 								default:
 									Console.WriteLine(i); return false;
@@ -978,13 +978,13 @@ namespace MEJN.Control
 									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
 									ropions++;
 									break;
-								case "ge":
-									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
-									gepions++;
-									break;
 								case "bl":
-									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									tempvakje.Pion = spelertemp[2].Pionnen[blpions];
 									blpions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[3].Pionnen[gepions];
+									gepions++;
 									break;
 								default:
 									Console.WriteLine(i); return false;
@@ -1085,13 +1085,13 @@ namespace MEJN.Control
 									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
 									ropions++;
 									break;
-								case "ge":
-									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
-									gepions++;
-									break;
 								case "bl":
-									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									tempvakje.Pion = spelertemp[2].Pionnen[blpions];
 									blpions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[3].Pionnen[gepions];
+									gepions++;
 									break;
 								default:
 									Console.WriteLine(i); return false;
@@ -1191,13 +1191,13 @@ namespace MEJN.Control
 									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
 									ropions++;
 									break;
-								case "ge":
-									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
-									gepions++;
-									break;
 								case "bl":
-									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									tempvakje.Pion = spelertemp[2].Pionnen[blpions];
 									blpions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[3].Pionnen[gepions];
+									gepions++;
 									break;
 								default:
 									Console.WriteLine(i); return false;
@@ -1297,13 +1297,13 @@ namespace MEJN.Control
 									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
 									ropions++;
 									break;
-								case "ge":
-									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
-									gepions++;
-									break;
 								case "bl":
-									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									tempvakje.Pion = spelertemp[2].Pionnen[blpions];
 									blpions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[3].Pionnen[gepions];
+									gepions++;
 									break;
 								default:
 									Console.WriteLine(i); return false;
@@ -1404,13 +1404,13 @@ namespace MEJN.Control
 									tempvakje.Pion = spelertemp[1].Pionnen[ropions];
 									ropions++;
 									break;
-								case "ge":
-									tempvakje.Pion = spelertemp[2].Pionnen[gepions];
-									gepions++;
-									break;
 								case "bl":
-									tempvakje.Pion = spelertemp[3].Pionnen[blpions];
+									tempvakje.Pion = spelertemp[2].Pionnen[blpions];
 									blpions++;
+									break;
+								case "ge":
+									tempvakje.Pion = spelertemp[3].Pionnen[gepions];
+									gepions++;
 									break;
 								default:
 									Console.WriteLine(i); return false;
