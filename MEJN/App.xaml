@@ -3,4 +3,4 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
              x:Class="MEJN.App"
-             StartupUri="View/MainWindow.xaml"/>
+             StartupUri="View/MainWindow.xaml" Startup="AppStartup"/>

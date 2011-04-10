@@ -13,6 +13,13 @@ namespace MEJN.Control
 		private Dobbelsteen dobbelsteen;
 		private int wieIsErAanDeBeurt;
 		private List<Speler> spelers;
+		private GameBoard bordgui;
+
+		public GameBoard Bordgui
+		{
+			get { return bordgui; }
+			set { bordgui = value; }
+		}
 
 		internal Bord Bord
 		{
@@ -1443,10 +1450,11 @@ namespace MEJN.Control
 			}
 
 			//Set our save data to 
-			Spelers.Clear();
-			Spelers = spelertemp;
-			wieIsErAanDeBeurt = beurt;
-			bord = bordtemp;
+			this.Spelers.Clear();
+			this.Spelers = spelertemp;
+			this.wieIsErAanDeBeurt = beurt;
+			this.Dobbelsteen.Gegooid = false;
+			this.bord = bordtemp;
 			Console.WriteLine("Game loaded");
 			return true;
 		}

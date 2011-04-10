@@ -1,0 +1,17 @@
+﻿<Window x:Class="MEJN.View.CheatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HAXXXXX" Height="300" Width="300">
+    <Grid>
+        <Label Content="Zet Dobbelsteen:" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="118,12,0,0" Name="dicebox" VerticalAlignment="Top" Width="148" DataContext="{Binding}">
+            <ComboBoxItem Content="1" />
+            <ComboBoxItem Content="2" />
+            <ComboBoxItem Content="3" />
+            <ComboBoxItem Content="4" />
+            <ComboBoxItem Content="5" />
+            <ComboBoxItem Content="6" />
+        </ComboBox>
+        <Button Content="DO IT NOW" Height="23" HorizontalAlignment="Left" Margin="12,46,0,0" Name="button1" VerticalAlignment="Top" Width="254" Click="setThedice" />
+    </Grid>
+</Window>

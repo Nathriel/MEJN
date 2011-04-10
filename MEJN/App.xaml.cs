@@ -12,5 +12,12 @@ namespace MEJN
 	/// </summary>
 	public partial class App : Application
 	{
+		public static StartupEventArgs args;
+
+		private void AppStartup(object sender, StartupEventArgs e)
+		{
+			args = e;
+		}
+
 	}
 }
