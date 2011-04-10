@@ -24,7 +24,7 @@
     			</Grid.RowDefinitions>
         
     			<Label x:Name="pageTitle" Content="Nieuw Spel Starten" FontWeight="Bold" Foreground="#FF5BB254" VerticalAlignment="Top"/>
-    			<TextBlock x:Name="pageDescription" Margin="6,29.943,0,0" TextWrapping="Wrap" Text="One for all and all for one, Muskehounds are always ready. One for all and all for one, helping everybody. One for all and all for one, it's a pretty story. Sharing everything with fun, that's the way to be. One for all and all for one, Muskehounds are always ready. One for all and all for one, helping everybody. One for all and all for one, can sound pretty corny. If you've got a problem chum, think how it could be." FontSize="10.667" Foreground="#FF5BB254"/>
+    			<TextBlock x:Name="pageDescription" Margin="6,29.943,0,0" TextWrapping="Wrap" FontSize="10.667" Foreground="#FF5BB254"><Run Language="nl-nl" Text="Welkom bij Mens erger je niet, het gezelschaps spel voor de hele familie. NU OP DE COMPUTER. De oorsprong van het spel ligt in India. Een vereenvoudigde versie van het traditionele Indiase spel Pachisi werd in 1896 onder de naam Ludo in Groot-Brittannië uitgebracht. &quot;Mens erger je niet&quot; is de naam van dit spel in Nederland en Vlaanderen. De spelregels wijken iets af van Ludo."/></TextBlock>
     		</Grid>
     		<Grid x:Name="SpelerGrid" Margin="6,112.818,8,43.334" VerticalAlignment="Top">
     			<Grid x:Name="GroenGrid" Margin="0,0,0,217.848">

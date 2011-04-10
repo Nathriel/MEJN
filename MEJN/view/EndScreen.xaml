@@ -1,0 +1,32 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="MEJN.Window1"
+	x:Name="Window"
+	Title="Het spel is afgelopen"
+	Width="640" Height="309" ResizeMode="NoResize">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF930000" Offset="0"/>
+			<GradientStop Color="Red" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+
+	<Grid x:Name="LayoutRoot">
+		<Label Content="           Gefeliciteerd!" Margin="0,25,127,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="71.96" Width="404.931" FontFamily="Script MT Bold" FontSize="48" Background="Black" Foreground="White"/>
+		<Image Margin="8,8,0,0" Source="/MEJN;component/Resources/menslogo.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Height="255" Width="220.069" d:LayoutOverrides="HorizontalAlignment"/>
+		<Label x:Name="spelernaam" Content="Spelernaam" Margin="228.069,100.96,127,131.08" Background="#00000000" Foreground="White" FontSize="16" FontWeight="Bold"/>
+		<Label Content="Je hebt het spel gewonnen!" HorizontalAlignment="Left" Margin="232.069,0,0,105.12" VerticalAlignment="Bottom" Foreground="White" Width="264.931"/>
+		<Button Content="Opnieuw Spelen" Margin="232.069,0,127,42" VerticalAlignment="Bottom" Height="24.96">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#60F3F3F3" Offset="0"/>
+					<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+					<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+					<GradientStop Color="#FFCDCDCD" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+	</Grid>
+</Window>
