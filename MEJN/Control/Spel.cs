@@ -445,10 +445,10 @@ namespace MEJN.Control
 								kleurtje = Kleur.Rood;
 								break;
 							case 2:
-								kleurtje = Kleur.Geel;
+								kleurtje = Kleur.Blauw;
 								break;
 							case 3:
-								kleurtje = Kleur.Blauw;
+								kleurtje = Kleur.Geel;
 								break;
 						}
 						spelertemp.Add(new Speler(players[j], kleurtje));
