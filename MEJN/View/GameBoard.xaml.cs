@@ -192,6 +192,36 @@ namespace MEJN
 			doorloopLijst(roodThuisbasis, roodThuisImages);
 			doorloopLijst(blauwThuisbasis, blauwThuisImages);
 			doorloopLijst(geelThuisbasis, geelThuisImages);
+
+			List<Speler> spelers = viewcontrol.Spel.Spelers;
+
+			GroenLabel.Content = spelers[0].Naam;
+			RoodLabel.Content = spelers[1].Naam;
+			BlauwLabel.Content = spelers[2].Naam;
+			GeelLabel.Content = spelers[3].Naam;
+
+			int WieIsErAanDeBeurt = viewcontrol.Spel.WieIsErAanDeBeurt;
+
+			turnindicatorSwitch(Speler1Turnindicator, false);
+			turnindicatorSwitch(Speler2Turnindicator, false);
+			turnindicatorSwitch(Speler3Turnindicator, false);
+			turnindicatorSwitch(Speler4Turnindicator, false);
+			if (WieIsErAanDeBeurt == 1)
+			{
+				turnindicatorSwitch(Speler1Turnindicator, true);
+			}
+			else if (WieIsErAanDeBeurt == 2)
+			{
+				turnindicatorSwitch(Speler2Turnindicator, true);
+			}
+			else if (WieIsErAanDeBeurt == 3)
+			{
+				turnindicatorSwitch(Speler3Turnindicator, true);
+			}
+			else if (WieIsErAanDeBeurt == 4)
+			{
+				turnindicatorSwitch(Speler4Turnindicator, true);
+			}
 		}
 
 		private void doorloopLijst(LinkedList lijst, List<Image> imageLijst)
@@ -336,17 +366,16 @@ namespace MEJN
 			makeCursorArrow();
 		}
 
-		private void turnindicatorSwitch(Image img)
+		private void turnindicatorSwitch(Image img, Boolean turnOn)
 		{
-			String tempSource = img.Source.ToString().Substring(48);
 
-			if (tempSource == "turnindicator.png")
+			if (turnOn)
 			{
-				img.Source = new BitmapImage(new Uri("/MEJN;component/Resources/turnindicatornotactive.png", UriKind.Relative));
+				img.Source = new BitmapImage(new Uri("/MEJN;component/Resources/turnindicator.png", UriKind.Relative));
 			}
 			else
 			{
-				img.Source = new BitmapImage(new Uri("/MEJN;component/Resources/turnindicator.png", UriKind.Relative));
+				img.Source = new BitmapImage(new Uri("/MEJN;component/Resources/turnindicatornotactive.png", UriKind.Relative));
 			}
 		}
 
@@ -358,23 +387,23 @@ namespace MEJN
 
 			if (WieIsErAanDeBeurt == 1)
 			{
-				turnindicatorSwitch(Speler1Turnindicator);
-				turnindicatorSwitch(Speler4Turnindicator);
+				turnindicatorSwitch(Speler1Turnindicator, true);
+				turnindicatorSwitch(Speler4Turnindicator, false);
 			}
 			else if (WieIsErAanDeBeurt == 2)
 			{
-				turnindicatorSwitch(Speler2Turnindicator);
-				turnindicatorSwitch(Speler1Turnindicator);
+				turnindicatorSwitch(Speler2Turnindicator, true);
+				turnindicatorSwitch(Speler1Turnindicator, false);
 			}
 			else if (WieIsErAanDeBeurt == 3)
 			{
-				turnindicatorSwitch(Speler3Turnindicator);
-				turnindicatorSwitch(Speler2Turnindicator);
+				turnindicatorSwitch(Speler3Turnindicator, true);
+				turnindicatorSwitch(Speler2Turnindicator, false);
 			}
 			else if (WieIsErAanDeBeurt == 4)
 			{
-				turnindicatorSwitch(Speler4Turnindicator);
-				turnindicatorSwitch(Speler3Turnindicator);
+				turnindicatorSwitch(Speler4Turnindicator, true);
+				turnindicatorSwitch(Speler3Turnindicator, false);
 			}
 		}
 

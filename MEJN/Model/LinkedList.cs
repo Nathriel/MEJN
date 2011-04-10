@@ -10,6 +10,7 @@ namespace MEJN.Model
 		private Link first;
 		private Link last;
 		private int stepsLeft;
+		private Boolean forwards;
 
 		internal Link First
 		{
@@ -32,6 +33,7 @@ namespace MEJN.Model
 			first = null;
 			last = null;
 			stepsLeft = 0;
+			forwards = true;
 		}
 
 		public Boolean isEmpty()
@@ -131,41 +133,29 @@ namespace MEJN.Model
 			return current;
 		}
 
-		private Link zoekOpVakGetalMetControle(int vakGetal, Kleur wieIsErAanDeBeurt)
+		public Link zoekOpVakGetalMetControle(int vakGetal, int worp, Kleur wieIsErAanDeBeurt)
 		{
-			Link current = first;
-			if (wieIsErAanDeBeurt == Kleur.Rood)
-			{
-				current = zoekOpVakGetal(11);
-			}
-			if (wieIsErAanDeBeurt == Kleur.Blauw)
-			{
-				current = zoekOpVakGetal(21);
-			}
-			if (wieIsErAanDeBeurt == Kleur.Geel)
-			{
-				current = zoekOpVakGetal(31);
-			}
+			Link current = zoekOpVakGetal(vakGetal + 1);
 
-			for (int i = 1; i < 40; i++)
+			for (int i = 1; i < worp; i++)
 			{
-				if (i == vakGetal)
+				Console.WriteLine("blaat" + zoekOpVakGetal(10).Finish);
+				if (current != null)
 				{
-					break;
-				}
-				Vakje next = current.Next.IData;
-				if (next.GetType() == typeof(Beginvakje))
-				{
-					Beginvakje nextFinish = next as Beginvakje;
-					if (nextFinish.Kleur == wieIsErAanDeBeurt)
+					Link volgende = current.Next;
+					if (volgende != null)
 					{
-						current = current.Finish;
-						StepsLeft = vakGetal - i;
-						break;
+						if (volgende.IData.GetType() == typeof(Beginvakje))
+						{
+							Beginvakje beginvakje = volgende.IData as Beginvakje;
+							if (beginvakje.Kleur == wieIsErAanDeBeurt)
+							{
+								current = current.Finish;
+								StepsLeft = worp - i;
+								break;
+							}
+						}
 					}
-				}
-				else
-				{
 					current = current.Next;
 				}
 			}
@@ -182,8 +172,8 @@ namespace MEJN.Model
 		{
 			Link ret = null;
 			Link start = zoekOpVakGetal(vakGetal);
-			//Link end = zoekOpVakGetalMetControle(vakGetal + worp, wieIsErAanDeBeurt);
-			Link end = zoekOpVakGetal(vakGetal + worp);
+			Link end = zoekOpVakGetalMetControle(vakGetal, worp, wieIsErAanDeBeurt);
+			//Link end = zoekOpVakGetal(vakGetal + worp);
 
 			if (end != null)
 			{
@@ -207,32 +197,52 @@ namespace MEJN.Model
 			return ret;
 		}
 
-		public void pionVerzettenFinish(Pion pion, int steps)
+		public Boolean pionVerzettenFinish(Pion pion, int steps)
 		{
 			Link current = First;
+			forwards = true;
 			for (int i = 1; i <= steps; i++)
 			{
-				
-
-				controlleerVolgendVakje(current);
+				if (!controlleerVolgendVakje(current, forwards))
+				{
+					return false;
+				}
 			}
 			current.IData.Pion = pion;
+			return true;
 		}
 
-		private void controlleerVolgendVakje(Link current)
+		private Boolean controlleerVolgendVakje(Link current, Boolean forwards)
 		{
-			if (current.Next != null)
+			if (!current.IData.isBezet())
 			{
-				current = current.Next;
+				if (forwards)
+				{
+					if (current.Next != null)
+					{
+						current = current.Next;
+					}
+					else
+					{
+						forwards = !forwards;
+					}
+				}
+				else
+				{
+					if (current.Previous != null)
+					{
+						current = current.Previous;
+					}
+					else
+					{
+						forwards = !forwards;
+					}
+				}
+				return true;
 			}
 			else
 			{
-				current = First;
-			}
-
-			if (current.IData.isBezet())
-			{
-				current = current.Next;
+				return false;
 			}
 		}
 	}
