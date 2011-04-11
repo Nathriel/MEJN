@@ -322,7 +322,28 @@ namespace MEJN
 
 				dobbelsteenImage.Source = dobbelsteenImages[worp - 1];
 
-				Viewcontrol.Spel.Dobbelsteen.switchGegooid();
+				LinkedList thuisbasis = Viewcontrol.Spel.Bord.GroenThuisbasis;
+				if (viewcontrol.Spel.WieIsErAanDeBeurt == 2)
+				{
+					thuisbasis = Viewcontrol.Spel.Bord.RoodThuisbasis;
+				}
+				else if (viewcontrol.Spel.WieIsErAanDeBeurt == 3)
+				{
+					thuisbasis = Viewcontrol.Spel.Bord.BlauwThuisbasis;
+				}
+				else if (viewcontrol.Spel.WieIsErAanDeBeurt == 4)
+				{
+					thuisbasis = Viewcontrol.Spel.Bord.GeelThuisbasis;
+				}
+
+				if (thuisbasis.isAllesBezet() && worp != 6)
+				{
+					beurtDoorgeven();
+				}
+				else
+				{
+					Viewcontrol.Spel.Dobbelsteen.switchGegooid();
+				}
 				Mouse.OverrideCursor = Cursors.Arrow;
 			}
 		}
@@ -352,7 +373,7 @@ namespace MEJN
 				updateGameBoard();
 				if (worp != 6)
 				{
-					BeurtDoorgeven();
+					beurtDoorgeven();
 				}
 				else
 				{
@@ -384,7 +405,7 @@ namespace MEJN
 			}
 		}
 
-		private void BeurtDoorgeven()
+		private void beurtDoorgeven()
 		{
 			viewcontrol.Spel.beurtDoorgeven();
 

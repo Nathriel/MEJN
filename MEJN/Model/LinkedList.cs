@@ -11,6 +11,7 @@ namespace MEJN.Model
 		private Link last;
 		private int stepsLeft;
 		private Boolean forwards;
+		private int lengte;
 
 		internal Link First
 		{
@@ -34,6 +35,7 @@ namespace MEJN.Model
 			last = null;
 			stepsLeft = 0;
 			forwards = true;
+			lengte = 0;
 		}
 
 		public Boolean isEmpty()
@@ -94,6 +96,7 @@ namespace MEJN.Model
 			}
 			newLink.Next = first;
 			first = newLink;
+			lengte++;
 		}
 
 		public void insertLast(Vakje vakje)
@@ -109,18 +112,7 @@ namespace MEJN.Model
 				newLink.Previous = last;
 			}
 			last = newLink;
-		}
-
-		public int length()
-		{
-			int leng = 0;
-			Link current = first;
-			while (current != null)
-			{
-				leng++;
-				current = current.Next;
-			}
-			return leng;
+			lengte++;
 		}
 
 		public Link zoekOpVakGetal(int vakGetal)
@@ -139,7 +131,7 @@ namespace MEJN.Model
 
 			for (int i = 1; i < worp; i++)
 			{
-				Console.WriteLine("blaat" + zoekOpVakGetal(10).Finish);
+				Console.WriteLine("blaat " + zoekOpVakGetal(40).Next);
 				if (current != null)
 				{
 					Link volgende = current.Next;
@@ -150,6 +142,7 @@ namespace MEJN.Model
 							Beginvakje beginvakje = volgende.IData as Beginvakje;
 							if (beginvakje.Kleur == wieIsErAanDeBeurt)
 							{
+								Console.WriteLine("blaat - " + zoekOpVakGetal(10).Finish);
 								current = current.Finish;
 								StepsLeft = worp - i;
 								break;
@@ -195,6 +188,26 @@ namespace MEJN.Model
 				}
 			}
 			return ret;
+		}
+
+		public Boolean isAllesBezet()
+		{
+			Link current = first;
+			for (int i = 1; i <= lengte; i++)
+			{
+				if (current != null)
+				{
+					if (current.IData != null)
+					{
+						if (!current.IData.isBezet())
+						{
+							return false;
+						}
+					}
+				}
+				current = current.Next;
+			}
+			return true;
 		}
 
 		public Boolean pionVerzettenFinish(Pion pion, int steps)
