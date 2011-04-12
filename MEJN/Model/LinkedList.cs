@@ -9,8 +9,6 @@ namespace MEJN.Model
 	{
 		private Link first;
 		private Link last;
-		private int stepsLeft;
-		private Boolean forwards;
 		private int lengte;
 
 		internal Link First
@@ -23,18 +21,11 @@ namespace MEJN.Model
 			get { return last; }
 			set { last = value; }
 		}
-		public int StepsLeft
-		{
-			get { return stepsLeft; }
-			set { stepsLeft = value; }
-		}
 
 		public LinkedList()
 		{
 			first = null;
 			last = null;
-			stepsLeft = 0;
-			forwards = true;
 			lengte = 0;
 		}
 
@@ -142,7 +133,6 @@ namespace MEJN.Model
 							if (beginvakje.Kleur == wieIsErAanDeBeurt)
 							{
 								current = current.Finish;
-								StepsLeft = worp - i;
 								break;
 							}
 						}
@@ -164,7 +154,6 @@ namespace MEJN.Model
 			Link ret = null;
 			Link start = zoekOpVakGetal(vakGetal);
 			Link end = zoekOpVakGetalMetControle(vakGetal, worp, wieIsErAanDeBeurt);
-			//Link end = zoekOpVakGetal(vakGetal + worp);
 
 			if (end != null)
 			{
@@ -229,51 +218,22 @@ namespace MEJN.Model
 			return ret;
 		}
 
-		public Boolean pionVerzettenFinish(Pion pion, int steps)
+		public Boolean pionVerzettenFinish(Pion pion)
 		{
 			Link current = First;
-			forwards = true;
-			for (int i = 1; i <= steps; i++)
+			for (int i = 1; i <= 4; i++)
 			{
-				if (controlleerVolgendVakje(current, forwards) == null)
-				{
-					return false;
-				}
-			}
-
-			if (current.IData.isBezet())
-			{
-				return false;
-			}
-			current.IData.Pion = pion;
-			return true;
-		}
-
-		private Link controlleerVolgendVakje(Link current, Boolean forwards)
-		{
-			if (forwards)
-			{
-				if (current.Next != null)
+				if (current.IData.isBezet())
 				{
 					current = current.Next;
 				}
 				else
 				{
-					forwards = !forwards;
+					current.IData.Pion = pion;
+					return true;
 				}
 			}
-			else
-			{
-				if (current.Previous != null)
-				{
-					current = current.Previous;
-				}
-				else
-				{
-					forwards = !forwards;
-				}
-			}
-			return current;
+			return false;
 		}
 	}
 }

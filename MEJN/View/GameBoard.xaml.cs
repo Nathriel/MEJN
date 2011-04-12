@@ -347,10 +347,7 @@ namespace MEJN
 				{
 					beurtDoorgeven();
 				}
-				else
-				{
-					Viewcontrol.Spel.Dobbelsteen.switchGegooid();
-				}
+				Viewcontrol.Spel.Dobbelsteen.switchGegooid();
 				Mouse.OverrideCursor = Cursors.Arrow;
 			}
 		}

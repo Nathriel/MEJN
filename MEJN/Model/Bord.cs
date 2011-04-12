@@ -221,5 +221,29 @@ namespace MEJN.Model
 			VakjesLijst.Last.Next = VakjesLijst.First;
 			VakjesLijst.First.Previous = VakjesLijst.Last;
 		}
+
+		public Kleur isEenFinishLijstVol()
+		{
+			Kleur ret = Kleur.Neutral;
+
+			if(groenFinishvakjes.isAllesBezet())
+			{
+				ret = Kleur.Groen;
+			}
+			else if (roodFinishvakjes.isAllesBezet())
+			{
+				ret = Kleur.Rood;
+			}
+			else if (blauwFinishvakjes.isAllesBezet())
+			{
+				ret = Kleur.Blauw;
+			}
+			else if (geelFinishvakjes.isAllesBezet())
+			{
+				ret = Kleur.Geel;
+			}
+
+			return ret;
+		}
 	}
 }

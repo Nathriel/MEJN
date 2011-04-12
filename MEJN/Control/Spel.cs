@@ -174,28 +174,47 @@ namespace MEJN.Control
 						Link link = Bord.VakjesLijst.pionVerzetten(vakGetal, Dobbelsteen.Worp, aanZet.Kleur);
 						
 						Vakje tempVakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData;
-						int stepsLeft = Bord.VakjesLijst.StepsLeft;
 						Boolean gelukt = false;
 
 						if (link == Bord.GroenFinishvakjes.First)
 						{
-							gelukt = Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+							gelukt = Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
 						}
 						else if (link == Bord.RoodFinishvakjes.First)
 						{
-							gelukt = Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+							gelukt = Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
 						}
 						else if (link == Bord.BlauwFinishvakjes.First)
 						{
-							gelukt = Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+							gelukt = Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
 						}
 						else if (link == Bord.GeelFinishvakjes.First)
 						{
-							gelukt = Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+							gelukt = Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
 						}
 						if (gelukt)
 						{
 							tempVakje.Pion = null;
+							Kleur winnaarkleur = Bord.isEenFinishLijstVol();
+							if (winnaarkleur != Kleur.Neutral)
+							{
+								string spelernaam = "";
+								switch (winnaarkleur)
+								{
+									case Kleur.Groen:
+										spelernaam = Spelers[0].Naam;
+										break;
+									case Kleur.Rood:
+										spelernaam = Spelers[1].Naam;
+										break;
+									case Kleur.Blauw:
+										spelernaam = Spelers[2].Naam;
+										break;
+									case Kleur.Geel:
+										spelernaam = Spelers[3].Naam;
+										break;
+								}
+							}
 						}
 						ret = worp;
 						consolePrint();
