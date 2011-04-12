@@ -160,6 +160,19 @@ namespace MEJN.Control
 					//Speler is aan zet
 					if (soort == "vakje")
 					{
+						Pion icanhaspion = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData.Pion;
+						if (icanhaspion != null)
+						{
+							if (icanhaspion.Kleur != aanZet.Kleur)
+							{
+								return 0;
+							}
+						}
+						else
+						{
+							return 0;
+						}
+
 						//vakjeslijst
 						Link vakje = Bord.VakjesLijst.zoekOpVakGetalMetControle(vakGetal, worp, aanZet.Kleur);
 						if (vakje != null)
@@ -196,9 +209,9 @@ namespace MEJN.Control
 							{
 								tempVakje.Pion = null;
 								Kleur winnaarkleur = Bord.isEenFinishLijstVol();
+								string spelernaam = "";
 								if (winnaarkleur != Kleur.Neutral)
 								{
-									string spelernaam = "";
 									switch (winnaarkleur)
 									{
 										case Kleur.Groen:
@@ -214,11 +227,11 @@ namespace MEJN.Control
 											spelernaam = Spelers[3].Naam;
 											break;
 									}
-								}
 
-								EndScreen screen = new EndScreen(spelernaam);
-								screen.Visibility = System.Windows.Visibility.Visible;
-								Bordgui.Close();
+									EndScreen screen = new EndScreen(spelernaam);
+									screen.Visibility = System.Windows.Visibility.Visible;
+									Bordgui.Close();
+								}
 							}
 							ret = worp;
 							consolePrint();
