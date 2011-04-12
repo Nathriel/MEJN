@@ -299,7 +299,12 @@ namespace MEJN
 			{
 				if (Viewcontrol.Spel.spelOpenen(dlg.FileName))
 				{
-					this.updateGameBoard();
+					GameBoard game = new GameBoard(viewcontrol);
+					game.vulImageLijst();
+					game.updateGameBoard();
+					game.Visibility = System.Windows.Visibility.Visible;
+					viewcontrol.Spel.Bordgui = game;
+					this.Close();
 				}
 			}
 
