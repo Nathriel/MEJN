@@ -172,38 +172,33 @@ namespace MEJN.Control
 						}
 
 						Link link = Bord.VakjesLijst.pionVerzetten(vakGetal, Dobbelsteen.Worp, aanZet.Kleur);
-						if (link != null)
-						{
-							if (link.Previous != null)
-							{
-								Vakje tempVakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData;
-								int stepsLeft = Bord.VakjesLijst.StepsLeft;
-								Boolean gelukt = false;
+						
+						Vakje tempVakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData;
+						int stepsLeft = Bord.VakjesLijst.StepsLeft;
+						Boolean gelukt = false;
 
-								if (link == Bord.GroenFinishvakjes.First)
-								{
-									gelukt = Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
-								}
-								else if (link == Bord.RoodFinishvakjes.First)
-								{
-									gelukt = Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
-								}
-								else if (link == Bord.BlauwFinishvakjes.First)
-								{
-									gelukt = Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
-								}
-								else if (link == Bord.GeelFinishvakjes.First)
-								{
-									gelukt = Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
-								}
-								if (gelukt)
-								{
-									tempVakje.Pion = null;
-								}
-								ret = worp;
-								consolePrint();
-							}
+						if (link == Bord.GroenFinishvakjes.First)
+						{
+							gelukt = Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
 						}
+						else if (link == Bord.RoodFinishvakjes.First)
+						{
+							gelukt = Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+						}
+						else if (link == Bord.BlauwFinishvakjes.First)
+						{
+							gelukt = Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+						}
+						else if (link == Bord.GeelFinishvakjes.First)
+						{
+							gelukt = Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+						}
+						if (gelukt)
+						{
+							tempVakje.Pion = null;
+						}
+						ret = worp;
+						consolePrint();
 					}
 					else if (soort == "grThu")
 					{
@@ -1451,10 +1446,10 @@ namespace MEJN.Control
 				Console.WriteLine(fileChunks[i]);
 			}
 
-			bordtemp.VakjesLijst.zoekOpVakGetal(10).Finish = bordtemp.GroenFinishvakjes.First;
-			bordtemp.VakjesLijst.zoekOpVakGetal(20).Finish = bordtemp.RoodFinishvakjes.First;
-			bordtemp.VakjesLijst.zoekOpVakGetal(30).Finish = bordtemp.BlauwFinishvakjes.First;
-			bordtemp.VakjesLijst.zoekOpVakGetal(40).Finish = bordtemp.GeelFinishvakjes.First;
+			bordtemp.VakjesLijst.zoekOpVakGetal(10).Finish = bordtemp.RoodFinishvakjes.First;
+			bordtemp.VakjesLijst.zoekOpVakGetal(20).Finish = bordtemp.BlauwFinishvakjes.First;
+			bordtemp.VakjesLijst.zoekOpVakGetal(30).Finish = bordtemp.GeelFinishvakjes.First;
+			bordtemp.VakjesLijst.zoekOpVakGetal(40).Finish = bordtemp.GroenFinishvakjes.First;
 
 			//Make the gameboard go round
 			bordtemp.VakjesLijst.Last.Next = bordtemp.VakjesLijst.First;

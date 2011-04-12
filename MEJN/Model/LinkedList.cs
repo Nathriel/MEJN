@@ -127,9 +127,9 @@ namespace MEJN.Model
 
 		public Link zoekOpVakGetalMetControle(int vakGetal, int worp, Kleur wieIsErAanDeBeurt)
 		{
-			Link current = zoekOpVakGetal(vakGetal + 1);
+			Link current = zoekOpVakGetal(vakGetal);
 
-			for (int i = 1; i < worp; i++)
+			for (int i = 0; i < worp; i++)
 			{
 				if (current != null)
 				{
@@ -208,53 +208,72 @@ namespace MEJN.Model
 			return true;
 		}
 
+		public int hoeveelBezet()
+		{
+			int ret = 0;
+			Link current = first;
+			for (int i = 1; i <= lengte; i++)
+			{
+				if (current != null)
+				{
+					if (current.IData != null)
+					{
+						if (current.IData.isBezet())
+						{
+							ret++;
+						}
+					}
+				}
+				current = current.Next;
+			}
+			return ret;
+		}
+
 		public Boolean pionVerzettenFinish(Pion pion, int steps)
 		{
 			Link current = First;
 			forwards = true;
 			for (int i = 1; i <= steps; i++)
 			{
-				if (!controlleerVolgendVakje(current, forwards))
+				if (controlleerVolgendVakje(current, forwards) == null)
 				{
 					return false;
 				}
+			}
+
+			if (current.IData.isBezet())
+			{
+				return false;
 			}
 			current.IData.Pion = pion;
 			return true;
 		}
 
-		private Boolean controlleerVolgendVakje(Link current, Boolean forwards)
+		private Link controlleerVolgendVakje(Link current, Boolean forwards)
 		{
-			if (!current.IData.isBezet())
+			if (forwards)
 			{
-				if (forwards)
+				if (current.Next != null)
 				{
-					if (current.Next != null)
-					{
-						current = current.Next;
-					}
-					else
-					{
-						forwards = !forwards;
-					}
+					current = current.Next;
 				}
 				else
 				{
-					if (current.Previous != null)
-					{
-						current = current.Previous;
-					}
-					else
-					{
-						forwards = !forwards;
-					}
+					forwards = !forwards;
 				}
-				return true;
 			}
 			else
 			{
-				return false;
+				if (current.Previous != null)
+				{
+					current = current.Previous;
+				}
+				else
+				{
+					forwards = !forwards;
+				}
 			}
+			return current;
 		}
 	}
 }
