@@ -145,7 +145,6 @@ namespace MEJN.Control
 
 		internal int pionVerzetten(int vakGetal, String soort)
 		{
-			//Console.WriteLine("Finish - " + Bord.VakjesLijst.zoekOpVakGetal(10).Finish + " - first.Previous - " + Bord.VakjesLijst.First.Previous + " - Last.Next - " + Bord.VakjesLijst.Last.Next);
 			int ret = 0;
 			int worp = Dobbelsteen.Worp;
 			Speler aanZet = spelers[WieIsErAanDeBeurt-1];
@@ -165,7 +164,7 @@ namespace MEJN.Control
 						Link vakje = Bord.VakjesLijst.zoekOpVakGetalMetControle(vakGetal, worp, aanZet.Kleur);
 						if (vakje != null)
 						{
-							if (vakje.IData.isBezet())
+							if (vakje.IData.isBezet() && vakje.IData.GetType() != typeof(Finishvakje))
 							{
 								TerugNaarThuisbasis(vakje.IData.Pion);
 							}
