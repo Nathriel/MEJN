@@ -15,9 +15,9 @@ namespace MEJN
 	/// <summary>
 	/// Interaction logic for Window1.xaml
 	/// </summary>
-	public partial class Window1 : Window
+	public partial class EndScreen : Window
 	{
-		public Window1(string naam)
+		public EndScreen(string naam)
 		{
 			this.InitializeComponent();
 			spelernaam.Content = naam;

@@ -214,6 +214,10 @@ namespace MEJN.Control
 										spelernaam = Spelers[3].Naam;
 										break;
 								}
+
+								EndScreen screen = new EndScreen(spelernaam);
+								screen.Visibility = System.Windows.Visibility.Visible;
+								Bordgui.Close();
 							}
 						}
 						ret = worp;
