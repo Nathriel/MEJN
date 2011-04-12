@@ -63,13 +63,9 @@ namespace MEJN
 			RoodLabel.Content = spelers[1].Naam;
 			BlauwLabel.Content = spelers[2].Naam;
 			GeelLabel.Content = spelers[3].Naam;
-
-			Viewcontrol.Spel.startPositie();
-
-			vulImageLijst();
 		}
 
-		private void vulImageLijst()
+		internal void vulImageLijst()
 		{
 			// Dobbelsteen imagecollectie vullen
 			dobbelsteenImages.Add(new BitmapImage(new Uri("/MEJN;component/Resources/dobbeleen.png", UriKind.Relative)));

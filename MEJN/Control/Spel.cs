@@ -1443,11 +1443,65 @@ namespace MEJN.Control
 							spelertemp[j] = new Bot(spelertemp[j].Naam, spelertemp[j].Kleur);
 						}
 					}
+					Console.Write(";lp;weeagsbdnhm");
 				}
 
 				Console.WriteLine(i);
 				Console.WriteLine(fileChunks[i]);
 			}
+
+			//Make the gameboard go round
+			bordtemp.VakjesLijst.Last.Next = bordtemp.VakjesLijst.First;
+			bordtemp.VakjesLijst.First.Previous = bordtemp.VakjesLijst.Last;
+
+			for (int i = 0; i < 4; i++)
+			{
+
+				Beginvakje tempBeginVakje = new Beginvakje(Kleur.Groen);
+
+				if (i == 0)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Groen);
+				}
+				else if (i == 1)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Rood);
+				}
+				else if (i == 2)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Blauw);
+				}
+				else if (i == 3)
+				{
+					tempBeginVakje = new Beginvakje(Kleur.Geel);
+				}
+				bordtemp.VakjesLijst.insertLast(tempBeginVakje);
+
+				for (int j = 1; j <= 9; j++)
+				{
+					bordtemp.VakjesLijst.insertLast(new Normaalvakje());
+					if (j == 9)
+					{
+						if (i == 0)
+						{
+							bordtemp.VakjesLijst.zoekOpVakGetal(10).Finish = bordtemp.GroenFinishvakjes.First;
+						}
+						else if (i == 1)
+						{
+							bordtemp.VakjesLijst.zoekOpVakGetal(20).Finish = bordtemp.RoodFinishvakjes.First;
+						}
+						else if (i == 2)
+						{
+							bordtemp.VakjesLijst.zoekOpVakGetal(30).Finish = bordtemp.BlauwFinishvakjes.First;
+						}
+						else if (i == 3)
+						{
+							bordtemp.VakjesLijst.zoekOpVakGetal(40).Finish = bordtemp.GeelFinishvakjes.First;
+						}
+					}
+				}
+			}
+
 
 			//Set our save data to 
 			this.Spelers.Clear();

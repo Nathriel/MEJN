@@ -55,6 +55,7 @@ namespace MEJN
 					}
 
 					GameBoard game = new GameBoard(viewControl);
+					game.vulImageLijst();
 					game.updateGameBoard();
 					game.Visibility = System.Windows.Visibility.Visible;
 					viewControl.Spel.Bordgui = game;
@@ -113,6 +114,10 @@ namespace MEJN
 			}
 
 			GameBoard game = new GameBoard(viewControl);
+			ViewControl.Spel.startPositie();
+
+			game.vulImageLijst();
+			game.updateGameBoard();
 			game.Visibility = System.Windows.Visibility.Visible;
 			viewControl.Spel.Bordgui = game;
 			this.Close();
