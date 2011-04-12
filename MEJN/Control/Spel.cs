@@ -1451,10 +1451,6 @@ namespace MEJN.Control
 				Console.WriteLine(fileChunks[i]);
 			}
 
-			//Make the gameboard go round
-			bordtemp.VakjesLijst.Last.Next = bordtemp.VakjesLijst.First;
-			bordtemp.VakjesLijst.First.Previous = bordtemp.VakjesLijst.Last;
-
 			for (int i = 0; i < 4; i++)
 			{
 
@@ -1503,6 +1499,10 @@ namespace MEJN.Control
 				}
 			}
 
+			//Make the gameboard go round
+			bordtemp.VakjesLijst.Last.Next = bordtemp.VakjesLijst.First;
+			bordtemp.VakjesLijst.First.Previous = bordtemp.VakjesLijst.Last;
+
 
 			//Set our save data to 
 			this.Spelers.Clear();
@@ -1511,6 +1511,8 @@ namespace MEJN.Control
 			this.Dobbelsteen.Gegooid = false;
 			this.bord = bordtemp;
 			Console.WriteLine("Game loaded");
+			Console.WriteLine("Finish - " + Bord.VakjesLijst.zoekOpVakGetal(10).Finish + " - first.Previous - " + Bord.VakjesLijst.First.Previous + " - Last.Next - " + Bord.VakjesLijst.Last.Next);
+			
 			return true;
 		}
 

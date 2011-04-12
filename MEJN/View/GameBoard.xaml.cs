@@ -366,7 +366,6 @@ namespace MEJN
 			int worp = viewcontrol.Spel.pionVerzetten(vakGetal, soort);
 			if (worp != 0)
 			{
-				updateGameBoard();
 				if (worp != 6)
 				{
 					beurtDoorgeven();
@@ -376,6 +375,7 @@ namespace MEJN
 					viewcontrol.Spel.Dobbelsteen.switchGegooid();
 				}
 			}
+			updateGameBoard();
 		}
 
 		private void vak_MouseEnter(object sender, MouseEventArgs e)
