@@ -9,8 +9,6 @@ namespace MEJN.Model
 	{
 		private Link first;
 		private Link last;
-		private int stepsLeft;
-		private Boolean forwards;
 		private int lengte;
 
 		internal Link First
@@ -23,18 +21,11 @@ namespace MEJN.Model
 			get { return last; }
 			set { last = value; }
 		}
-		public int StepsLeft
-		{
-			get { return stepsLeft; }
-			set { stepsLeft = value; }
-		}
 
 		public LinkedList()
 		{
 			first = null;
 			last = null;
-			stepsLeft = 0;
-			forwards = true;
 			lengte = 0;
 		}
 
@@ -127,9 +118,9 @@ namespace MEJN.Model
 
 		public Link zoekOpVakGetalMetControle(int vakGetal, int worp, Kleur wieIsErAanDeBeurt)
 		{
-			Link current = zoekOpVakGetal(vakGetal + 1);
+			Link current = zoekOpVakGetal(vakGetal);
 
-			for (int i = 1; i < worp; i++)
+			for (int i = 0; i < worp; i++)
 			{
 				if (current != null)
 				{
@@ -142,7 +133,6 @@ namespace MEJN.Model
 							if (beginvakje.Kleur == wieIsErAanDeBeurt)
 							{
 								current = current.Finish;
-								StepsLeft = worp - i;
 								break;
 							}
 						}
@@ -164,7 +154,6 @@ namespace MEJN.Model
 			Link ret = null;
 			Link start = zoekOpVakGetal(vakGetal);
 			Link end = zoekOpVakGetalMetControle(vakGetal, worp, wieIsErAanDeBeurt);
-			//Link end = zoekOpVakGetal(vakGetal + worp);
 
 			if (end != null)
 			{
@@ -208,53 +197,43 @@ namespace MEJN.Model
 			return true;
 		}
 
-		public Boolean pionVerzettenFinish(Pion pion, int steps)
+		public int hoeveelBezet()
 		{
-			Link current = First;
-			forwards = true;
-			for (int i = 1; i <= steps; i++)
+			int ret = 0;
+			Link current = first;
+			for (int i = 1; i <= lengte; i++)
 			{
-				if (!controlleerVolgendVakje(current, forwards))
+				if (current != null)
 				{
-					return false;
+					if (current.IData != null)
+					{
+						if (current.IData.isBezet())
+						{
+							ret++;
+						}
+					}
 				}
+				current = current.Next;
 			}
-			current.IData.Pion = pion;
-			return true;
+			return ret;
 		}
 
-		private Boolean controlleerVolgendVakje(Link current, Boolean forwards)
+		public Boolean pionVerzettenFinish(Pion pion)
 		{
-			if (!current.IData.isBezet())
+			Link current = First;
+			for (int i = 1; i <= 4; i++)
 			{
-				if (forwards)
+				if (current.IData.isBezet())
 				{
-					if (current.Next != null)
-					{
-						current = current.Next;
-					}
-					else
-					{
-						forwards = !forwards;
-					}
+					current = current.Next;
 				}
 				else
 				{
-					if (current.Previous != null)
-					{
-						current = current.Previous;
-					}
-					else
-					{
-						forwards = !forwards;
-					}
+					current.IData.Pion = pion;
+					return true;
 				}
-				return true;
 			}
-			else
-			{
-				return false;
-			}
+			return false;
 		}
 	}
 }

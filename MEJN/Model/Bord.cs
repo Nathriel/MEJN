@@ -201,25 +201,49 @@ namespace MEJN.Model
 					{
 						if (i == 0)
 						{
-							vakjesLijst.zoekOpVakGetal(10).Finish = groenFinishvakjes.First;
+							vakjesLijst.zoekOpVakGetal(10).Finish = roodFinishvakjes.First;
 						}
 						else if (i == 1)
 						{
-							vakjesLijst.zoekOpVakGetal(20).Finish = roodFinishvakjes.First;
+							vakjesLijst.zoekOpVakGetal(20).Finish = blauwFinishvakjes.First;
 						}
 						else if (i == 2)
 						{
-							vakjesLijst.zoekOpVakGetal(30).Finish = blauwFinishvakjes.First;
+							vakjesLijst.zoekOpVakGetal(30).Finish = geelFinishvakjes.First;
 						}
 						else if (i == 3)
 						{
-							vakjesLijst.zoekOpVakGetal(40).Finish = geelFinishvakjes.First;
+							vakjesLijst.zoekOpVakGetal(40).Finish = groenFinishvakjes.First;
 						}
 					}
 				}
 			}
 			VakjesLijst.Last.Next = VakjesLijst.First;
 			VakjesLijst.First.Previous = VakjesLijst.Last;
+		}
+
+		public Kleur isEenFinishLijstVol()
+		{
+			Kleur ret = Kleur.Neutral;
+
+			if(groenFinishvakjes.isAllesBezet())
+			{
+				ret = Kleur.Groen;
+			}
+			else if (roodFinishvakjes.isAllesBezet())
+			{
+				ret = Kleur.Rood;
+			}
+			else if (blauwFinishvakjes.isAllesBezet())
+			{
+				ret = Kleur.Blauw;
+			}
+			else if (geelFinishvakjes.isAllesBezet())
+			{
+				ret = Kleur.Geel;
+			}
+
+			return ret;
 		}
 	}
 }

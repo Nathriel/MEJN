@@ -324,27 +324,30 @@ namespace MEJN
 				dobbelsteenImage.Source = dobbelsteenImages[worp - 1];
 
 				LinkedList thuisbasis = Viewcontrol.Spel.Bord.GroenThuisbasis;
+				LinkedList finish = Viewcontrol.Spel.Bord.GroenFinishvakjes;
 				if (viewcontrol.Spel.WieIsErAanDeBeurt == 2)
 				{
 					thuisbasis = Viewcontrol.Spel.Bord.RoodThuisbasis;
+					finish = Viewcontrol.Spel.Bord.RoodFinishvakjes;
 				}
 				else if (viewcontrol.Spel.WieIsErAanDeBeurt == 3)
 				{
 					thuisbasis = Viewcontrol.Spel.Bord.BlauwThuisbasis;
+					finish = Viewcontrol.Spel.Bord.BlauwFinishvakjes;
 				}
 				else if (viewcontrol.Spel.WieIsErAanDeBeurt == 4)
 				{
 					thuisbasis = Viewcontrol.Spel.Bord.GeelThuisbasis;
+					finish = Viewcontrol.Spel.Bord.GeelFinishvakjes;
 				}
 
-				if (thuisbasis.isAllesBezet() && worp != 6)
+				int totaalBezet = thuisbasis.hoeveelBezet() + finish.hoeveelBezet();
+
+				if (totaalBezet == 4 && worp != 6)
 				{
 					beurtDoorgeven();
 				}
-				else
-				{
-					Viewcontrol.Spel.Dobbelsteen.switchGegooid();
-				}
+				Viewcontrol.Spel.Dobbelsteen.switchGegooid();
 				Mouse.OverrideCursor = Cursors.Arrow;
 			}
 		}

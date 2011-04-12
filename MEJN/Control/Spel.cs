@@ -172,38 +172,52 @@ namespace MEJN.Control
 						}
 
 						Link link = Bord.VakjesLijst.pionVerzetten(vakGetal, Dobbelsteen.Worp, aanZet.Kleur);
-						if (link != null)
-						{
-							if (link.Previous != null)
-							{
-								Vakje tempVakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData;
-								int stepsLeft = Bord.VakjesLijst.StepsLeft;
-								Boolean gelukt = false;
+						
+						Vakje tempVakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData;
+						Boolean gelukt = false;
 
-								if (link == Bord.GroenFinishvakjes.First)
+						if (link == Bord.GroenFinishvakjes.First)
+						{
+							gelukt = Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
+						}
+						else if (link == Bord.RoodFinishvakjes.First)
+						{
+							gelukt = Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
+						}
+						else if (link == Bord.BlauwFinishvakjes.First)
+						{
+							gelukt = Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
+						}
+						else if (link == Bord.GeelFinishvakjes.First)
+						{
+							gelukt = Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
+						}
+						if (gelukt)
+						{
+							tempVakje.Pion = null;
+							Kleur winnaarkleur = Bord.isEenFinishLijstVol();
+							if (winnaarkleur != Kleur.Neutral)
+							{
+								string spelernaam = "";
+								switch (winnaarkleur)
 								{
-									gelukt = Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
+									case Kleur.Groen:
+										spelernaam = Spelers[0].Naam;
+										break;
+									case Kleur.Rood:
+										spelernaam = Spelers[1].Naam;
+										break;
+									case Kleur.Blauw:
+										spelernaam = Spelers[2].Naam;
+										break;
+									case Kleur.Geel:
+										spelernaam = Spelers[3].Naam;
+										break;
 								}
-								else if (link == Bord.RoodFinishvakjes.First)
-								{
-									gelukt = Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
-								}
-								else if (link == Bord.BlauwFinishvakjes.First)
-								{
-									gelukt = Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
-								}
-								else if (link == Bord.GeelFinishvakjes.First)
-								{
-									gelukt = Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion, stepsLeft);
-								}
-								if (gelukt)
-								{
-									tempVakje.Pion = null;
-								}
-								ret = worp;
-								consolePrint();
 							}
 						}
+						ret = worp;
+						consolePrint();
 					}
 					else if (soort == "grThu")
 					{
@@ -1451,10 +1465,10 @@ namespace MEJN.Control
 				Console.WriteLine(fileChunks[i]);
 			}
 
-			bordtemp.VakjesLijst.zoekOpVakGetal(10).Finish = bordtemp.GroenFinishvakjes.First;
-			bordtemp.VakjesLijst.zoekOpVakGetal(20).Finish = bordtemp.RoodFinishvakjes.First;
-			bordtemp.VakjesLijst.zoekOpVakGetal(30).Finish = bordtemp.BlauwFinishvakjes.First;
-			bordtemp.VakjesLijst.zoekOpVakGetal(40).Finish = bordtemp.GeelFinishvakjes.First;
+			bordtemp.VakjesLijst.zoekOpVakGetal(10).Finish = bordtemp.RoodFinishvakjes.First;
+			bordtemp.VakjesLijst.zoekOpVakGetal(20).Finish = bordtemp.BlauwFinishvakjes.First;
+			bordtemp.VakjesLijst.zoekOpVakGetal(30).Finish = bordtemp.GeelFinishvakjes.First;
+			bordtemp.VakjesLijst.zoekOpVakGetal(40).Finish = bordtemp.GroenFinishvakjes.First;
 
 			//Make the gameboard go round
 			bordtemp.VakjesLijst.Last.Next = bordtemp.VakjesLijst.First;
