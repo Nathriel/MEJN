@@ -17,11 +17,18 @@ namespace MEJN
 	/// </summary>
 	public partial class Window1 : Window
 	{
-		public Window1()
+		public Window1(string naam)
 		{
 			this.InitializeComponent();
-			
+			spelernaam.Content = naam;
 			// Insert code required on object creation below this point.
+		}
+
+		private void restartGame(object sender, RoutedEventArgs e)
+		{
+			MainWindow mainwindow = new MainWindow();
+			mainwindow.Visibility = System.Windows.Visibility.Visible;
+			this.Close();
 		}
 	}
 }

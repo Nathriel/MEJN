@@ -18,7 +18,7 @@
 		<Image Margin="8,8,0,0" Source="/MEJN;component/Resources/menslogo.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Height="255" Width="220.069" d:LayoutOverrides="HorizontalAlignment"/>
 		<Label x:Name="spelernaam" Content="Spelernaam" Margin="228.069,100.96,127,131.08" Background="#00000000" Foreground="White" FontSize="16" FontWeight="Bold"/>
 		<Label Content="Je hebt het spel gewonnen!" HorizontalAlignment="Left" Margin="232.069,0,0,105.12" VerticalAlignment="Bottom" Foreground="White" Width="264.931"/>
-		<Button Content="Opnieuw Spelen" Margin="232.069,0,127,42" VerticalAlignment="Bottom" Height="24.96">
+		<Button Content="Opnieuw Spelen" Margin="232.069,0,127,42" VerticalAlignment="Bottom" Height="24.96" Click="restartGame">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#60F3F3F3" Offset="0"/>
