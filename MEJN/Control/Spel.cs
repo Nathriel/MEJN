@@ -145,7 +145,6 @@ namespace MEJN.Control
 
 		internal int pionVerzetten(int vakGetal, String soort)
 		{
-			//Console.WriteLine("Finish - " + Bord.VakjesLijst.zoekOpVakGetal(10).Finish + " - first.Previous - " + Bord.VakjesLijst.First.Previous + " - Last.Next - " + Bord.VakjesLijst.Last.Next);
 			int ret = 0;
 			int worp = Dobbelsteen.Worp;
 			Speler aanZet = spelers[WieIsErAanDeBeurt-1];
@@ -165,63 +164,65 @@ namespace MEJN.Control
 						Link vakje = Bord.VakjesLijst.zoekOpVakGetalMetControle(vakGetal, worp, aanZet.Kleur);
 						if (vakje != null)
 						{
-							if (vakje.IData.isBezet())
+							if (vakje.IData.isBezet() && vakje.IData.GetType() != typeof(Finishvakje))
 							{
 								TerugNaarThuisbasis(vakje.IData.Pion);
 							}
 						}
 
 						Link link = Bord.VakjesLijst.pionVerzetten(vakGetal, Dobbelsteen.Worp, aanZet.Kleur);
-						
-						Vakje tempVakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData;
-						Boolean gelukt = false;
+						if (link != null)
+						{
+							Vakje tempVakje = Bord.VakjesLijst.zoekOpVakGetal(vakGetal).IData;
+							Boolean gelukt = false;
 
-						if (link == Bord.GroenFinishvakjes.First)
-						{
-							gelukt = Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
-						}
-						else if (link == Bord.RoodFinishvakjes.First)
-						{
-							gelukt = Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
-						}
-						else if (link == Bord.BlauwFinishvakjes.First)
-						{
-							gelukt = Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
-						}
-						else if (link == Bord.GeelFinishvakjes.First)
-						{
-							gelukt = Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
-						}
-						if (gelukt)
-						{
-							tempVakje.Pion = null;
-							Kleur winnaarkleur = Bord.isEenFinishLijstVol();
-							if (winnaarkleur != Kleur.Neutral)
+							if (link == Bord.GroenFinishvakjes.First)
 							{
-								string spelernaam = "";
-								switch (winnaarkleur)
+								gelukt = Bord.GroenFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
+							}
+							else if (link == Bord.RoodFinishvakjes.First)
+							{
+								gelukt = Bord.RoodFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
+							}
+							else if (link == Bord.BlauwFinishvakjes.First)
+							{
+								gelukt = Bord.BlauwFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
+							}
+							else if (link == Bord.GeelFinishvakjes.First)
+							{
+								gelukt = Bord.GeelFinishvakjes.pionVerzettenFinish(tempVakje.Pion);
+							}
+							if (gelukt)
+							{
+								tempVakje.Pion = null;
+								Kleur winnaarkleur = Bord.isEenFinishLijstVol();
+								if (winnaarkleur != Kleur.Neutral)
 								{
-									case Kleur.Groen:
-										spelernaam = Spelers[0].Naam;
-										break;
-									case Kleur.Rood:
-										spelernaam = Spelers[1].Naam;
-										break;
-									case Kleur.Blauw:
-										spelernaam = Spelers[2].Naam;
-										break;
-									case Kleur.Geel:
-										spelernaam = Spelers[3].Naam;
-										break;
+									string spelernaam = "";
+									switch (winnaarkleur)
+									{
+										case Kleur.Groen:
+											spelernaam = Spelers[0].Naam;
+											break;
+										case Kleur.Rood:
+											spelernaam = Spelers[1].Naam;
+											break;
+										case Kleur.Blauw:
+											spelernaam = Spelers[2].Naam;
+											break;
+										case Kleur.Geel:
+											spelernaam = Spelers[3].Naam;
+											break;
+									}
 								}
 
 								EndScreen screen = new EndScreen(spelernaam);
 								screen.Visibility = System.Windows.Visibility.Visible;
 								Bordgui.Close();
 							}
+							ret = worp;
+							consolePrint();
 						}
-						ret = worp;
-						consolePrint();
 					}
 					else if (soort == "grThu")
 					{
