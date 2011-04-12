@@ -131,7 +131,6 @@ namespace MEJN.Model
 
 			for (int i = 1; i < worp; i++)
 			{
-				Console.WriteLine("blaat " + zoekOpVakGetal(40).Next);
 				if (current != null)
 				{
 					Link volgende = current.Next;
@@ -142,7 +141,6 @@ namespace MEJN.Model
 							Beginvakje beginvakje = volgende.IData as Beginvakje;
 							if (beginvakje.Kleur == wieIsErAanDeBeurt)
 							{
-								Console.WriteLine("blaat - " + zoekOpVakGetal(10).Finish);
 								current = current.Finish;
 								StepsLeft = worp - i;
 								break;

@@ -145,6 +145,7 @@ namespace MEJN.Control
 
 		internal int pionVerzetten(int vakGetal, String soort)
 		{
+			//Console.WriteLine("Finish - " + Bord.VakjesLijst.zoekOpVakGetal(10).Finish + " - first.Previous - " + Bord.VakjesLijst.First.Previous + " - Last.Next - " + Bord.VakjesLijst.Last.Next);
 			int ret = 0;
 			int worp = Dobbelsteen.Worp;
 			Speler aanZet = spelers[WieIsErAanDeBeurt-1];
