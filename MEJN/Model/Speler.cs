@@ -47,9 +47,9 @@ namespace MEJN.Model
 			pionnen.Add(new Pion(kleur));
 		}
 
-		internal virtual void doTurn(MEJN.Control.Spel sender)
+		internal virtual void doTurn(Control.Spel spel)
 		{
-			return;
+
 		}
 	}
 }

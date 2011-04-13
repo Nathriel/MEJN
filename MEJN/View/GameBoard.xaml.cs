@@ -305,6 +305,7 @@ namespace MEJN
 					game.Visibility = System.Windows.Visibility.Visible;
 					viewcontrol.Spel.Bordgui = game;
 					this.Close();
+					viewcontrol.Spel.checkBotTurn();
 				}
 			}
 

@@ -119,7 +119,7 @@ namespace MEJN.Control
 			return ret;
 		}
 
-		private void TerugNaarThuisbasis(Pion pion)
+		internal void TerugNaarThuisbasis(Pion pion)
 		{
 			if (pion.Kleur == Kleur.Groen)
 			{
@@ -330,6 +330,7 @@ namespace MEJN.Control
 		{
 			if (WieIsErAanDeBeurt == 4)
 			{
+				Console.WriteLine("Speler 1 weer aan de beurt");
 				WieIsErAanDeBeurt = 1;
 			}
 			else
@@ -337,6 +338,7 @@ namespace MEJN.Control
 				WieIsErAanDeBeurt++;
 			}
 			Dobbelsteen.switchGegooid();
+			checkBotTurn();
 		}
 
 		internal void spelOpslaan(string fileName)
@@ -1507,11 +1509,15 @@ namespace MEJN.Control
 
 		internal void checkBotTurn()
 		{
-			if (Spelers[WieIsErAanDeBeurt].GetType() == typeof(Bot))
+			if (Spelers[WieIsErAanDeBeurt - 1].GetType() == typeof(Bot))
 			{
-				Spelers[WieIsErAanDeBeurt].doTurn(this);
+				Spelers[WieIsErAanDeBeurt - 1].doTurn(this);
 			}
-
+			else
+			{
+				Console.WriteLine("Speler weer aan de beurt");
+				//Dobbelsteen.switchGegooid();
+			}
 			//Wacht op speler input
 		}
 	}

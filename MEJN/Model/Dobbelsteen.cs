@@ -9,6 +9,7 @@ namespace MEJN.Model
 	{
 		private int worp;
 		private Boolean gegooid;
+		private Random generator;
 
 		public int Worp
 		{
@@ -25,12 +26,11 @@ namespace MEJN.Model
 		{
 			worp = 0;
 			gegooid = false;
+			generator = new Random();
 		}
 
 		public int gooiDobbelsteen()
 		{
-			Random generator; generator = new Random();
-
 			worp = generator.Next(1, 7);
 
 			return worp;

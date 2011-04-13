@@ -106,6 +106,27 @@ namespace MEJN.Model
 			lengte++;
 		}
 
+		public int zoekOpVakPion(Kleur kleur)
+		{
+			Link current = first;
+			int count = 1;
+			do
+			{
+				if (current.IData.Pion != null)
+				{
+					if (current.IData.Pion.Kleur == kleur)
+					{
+						return count;
+					}
+				}
+				count++;
+				current = current.Next;
+			}
+			while (current != Last);
+
+			return 0;
+		}
+
 		public Link zoekOpVakGetal(int vakGetal)
 		{
 			Link current = first;

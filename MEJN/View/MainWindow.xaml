@@ -38,7 +38,7 @@
                     <Label x:Name="GroenNameLabel" Content="Naam:" HorizontalAlignment="Left" Margin="0,25.96,0,0" Width="46.793" Foreground="White"/>
                     <TextBox x:Name="GroenNamefield" HorizontalAlignment="Left" Margin="50.793,29.96,0,14.08" TextWrapping="Wrap" Text="Speler 1" Width="193.207"/>
                     <Label x:Name="GroenTypeLabel" Content="Type:" Margin="248,25.291,246.962,0.669" Foreground="White"/>
-                    <ComboBox x:Name="GroenTypeBox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height">
+                    <ComboBox x:Name="GroenTypeBox" HorizontalAlignment="Right" Margin="0,29.96,8,14.08" Width="234.962" d:LayoutOverrides="Height" IsEnabled="False">
                         <ComboBoxItem Content="Mens" IsSelected="True"/>
                         <ComboBoxItem Content="Computer"/>
                     </ComboBox>

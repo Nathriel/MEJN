@@ -60,6 +60,7 @@ namespace MEJN
 					game.Visibility = System.Windows.Visibility.Visible;
 					viewControl.Spel.Bordgui = game;
 					this.Close();
+					viewControl.Spel.checkBotTurn();
 				}
 			}
 		}
@@ -121,6 +122,7 @@ namespace MEJN
 			game.Visibility = System.Windows.Visibility.Visible;
 			viewControl.Spel.Bordgui = game;
 			this.Close();
+			viewControl.Spel.checkBotTurn();
 		}
 	}
 }
